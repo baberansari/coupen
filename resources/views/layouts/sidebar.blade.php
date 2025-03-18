@@ -75,7 +75,7 @@
                     <span class="nav-text">Offers</span>
                 </a>
                 <ul aria-expanded="false" class="mm-collapse">
-                    <li><a href="https://retailescaper.com/admin/category">Category</a></li>
+                    <li><a href="{{ route('category.index') }}">Category</a></li>
                     <li><a href="https://retailescaper.com/admin/store">Store</a></li>
                     <li><a href="https://retailescaper.com/admin/coupon">Coupon</a></li>
                 </ul>

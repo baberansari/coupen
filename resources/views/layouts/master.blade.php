@@ -25,7 +25,7 @@
     <link href="{{ asset('panel/css/summernote.css') }}" rel="stylesheet">
     <link href="{{ asset('panel/css/toastr.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jodit/3.18.5/jodit.min.css">
-
+    <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
     <!-- Scripts -->
 
 </head>
