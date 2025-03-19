@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
-            $table->unsignBigInteger('store_id');
+            $table->unsignedBigInteger('store_id');
             $table->longText('question')->nullable();
             $table->longText('answer')->nullable();
             $table->timestamps();

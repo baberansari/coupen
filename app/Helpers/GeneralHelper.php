@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Category;
+use App\Models\Setting;
 use \Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -69,4 +71,23 @@ if (!function_exists('generateStars')) {
 
         return $starsHtml; // Return the generated HTML
     }
+}
+
+
+if (! function_exists('getCategory')) {
+    function getCategory()
+    {
+        $categories =  Category::take(7)->get();
+        return $categories;
+    }
+
+}
+
+if (! function_exists('settings')) {
+    function settings()
+    {
+        $sett =  Setting::first();
+        return $sett;
+    }
+
 }

@@ -6,19 +6,19 @@
                     <span class="nav-text">Dashboard</span>
                 </a>
             </li>
-            {{-- <li>
+           <li>
                 <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-381-controls-3"></i>
                     <span class="nav-text">Settings</span>
                 </a>
                 <ul aria-expanded="false" class="mm-collapse">
-                    <li><a href="https://retailescaper.com/admin/settings">General</a></li>
-                    <li><a href="https://retailescaper.com/admin/social">Social</a></li>
+                    <li><a href="{{ route('setting.create') }}">General</a></li>
+                    {{-- <li><a href="https://retailescaper.com/admin/social">Social</a></li>
 
-                    <li><a href="https://retailescaper.com/admin/master_admin">Users</a></li>
+                    <li><a href="https://retailescaper.com/admin/master_admin">Users</a></li> --}}
                 </ul>
             </li>
-            <li>
+           {{--   <li>
                 <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-381-layer-1"></i>
                     <span class="nav-text">SEO</span>
