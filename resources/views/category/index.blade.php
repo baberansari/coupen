@@ -35,25 +35,25 @@
                                 @foreach ($categories as $category)
                                 <tr role="row" class="odd">
                                     <td class="sorting_1">1</td>
-                                    <td>Women</td>
+                                    <td>{{$category->name}}</td>
 
-                                    <td>women</td>
+                                    <td>{{$category->slug}}</td>
 
                                     <td class="d-flex">
-                                        <a href="https://retailescaper.com/admin/category/form/edit/48"><i
+                                        <a href="{{route('category.edit',$category->id)}}"><i
                                                 class="lar la-edit"></i></a>
-                                        <a href="https://retailescaper.com/admin/category/view/48" class="ml-4"><i
+                                        <a href="{{route('category.edit',$category->id)}}" class="ml-4"><i
                                                 class="las la-eye"></i></a>
-                                        <a href="https://retailescaper.com/admin/category/form/duplicate/48"
-                                            class="ml-4"><i class="lar la-copy"></i></a>
-                                        <a href="https://retailescaper.com/admin/category/delete/48" class="ml-4"><i
+                                        {{-- <a href="https://retailescaper.com/admin/category/form/duplicate/48"
+                                            class="ml-4"><i class="lar la-copy"></i></a> --}}
+                                        <a href="{{route('category.destroy',$category->id)}}" class="ml-4"><i
                                                 class="las la-trash-alt"></i></a>
 
                                     </td>
                                 </tr>
                                 @endforeach
 
-                                <tr role="row" class="even">
+                                {{-- <tr role="row" class="even">
                                     <td class="sorting_1">2</td>
                                     <td>Web Hosting</td>
 
@@ -70,7 +70,7 @@
                                                 class="las la-trash-alt"></i></a>
 
                                     </td>
-                                </tr>
+                                </tr> --}}
 
 
                             </tbody>

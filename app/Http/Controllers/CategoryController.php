@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use DB;
 
 class CategoryController extends Controller
 {
@@ -20,6 +21,57 @@ class CategoryController extends Controller
     }
 
     public function store(Request $request)
+    {
+
+        DB::beginTransaction();
+        try {
+
+        $category =  new Category;
+        $category->name =   $request->category_name;
+        $category->description = $request->category_description;
+        $path =  uploadImage($request->category_icon, 'category');
+        $category->image =  $path;
+        $category->icon =  $path;
+        $category->save();
+        DB::commit();
+        return redirect()->route('category.index');
+        } catch (\Throwable $th) {
+           DB::rollback();
+           dd($th);
+        }
+
+    }
+    public function edit($id)
+    {
+        $categories =  Category::find($id);
+        return view('category.edit',compact('categories'));
+    }
+
+    public function update(Request $request,$id)
+    {
+        DB::beginTransaction();
+        try {
+
+        $category =   Category::find($id);
+        $category->name =   $request->category_name;
+        $category->description = $request->category_description;
+        if($request->hasFile('category_icon'))
+        {
+
+            $path =  uploadImage($request->category_icon, 'category');
+            $category->image =  $path;
+            $category->icon =  $path;
+        }
+        $category->save();
+        DB::commit();
+        return redirect()->route('category.index');
+        } catch (\Throwable $th) {
+           DB::rollback();
+           dd($th);
+        }
+    }
+
+    public function destroy($id)
     {
 
     }

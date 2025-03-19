@@ -1,12 +1,12 @@
 <div class="deznav">
     <div class="deznav-scroll ps ps--active-y">
         <ul class="metismenu" id="menu">
-            <li><a href="https://retailescaper.com/admin" class="ai-icon" aria-expanded="false">
+            <li><a href="{{route('home')}}" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-networking"></i>
                     <span class="nav-text">Dashboard</span>
                 </a>
             </li>
-            <li>
+            {{-- <li>
                 <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-381-controls-3"></i>
                     <span class="nav-text">Settings</span>
@@ -49,8 +49,8 @@
                     </li>
                     <!-- <li><a href="</?php echo base_url('admin/header_top_navbar');?>">Offers avail Reports</a></li> -->
                 </ul>
-            </li>
-            <li>
+            </li> --}}
+            {{-- <li>
                 <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-381-internet"></i>
                     <span class="nav-text">Content</span>
@@ -68,7 +68,7 @@
                     </li>
                     <li><a href="https://retailescaper.com/admin/slide">Slide</a></li>
                 </ul>
-            </li>
+            </li> --}}
             <li>
                 <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-381-heart"></i>
@@ -76,20 +76,20 @@
                 </a>
                 <ul aria-expanded="false" class="mm-collapse">
                     <li><a href="{{ route('category.index') }}">Category</a></li>
-                    <li><a href="https://retailescaper.com/admin/store">Store</a></li>
+                    <li><a href="{{route('stores.index')}}">Store</a></li>
                     <li><a href="https://retailescaper.com/admin/coupon">Coupon</a></li>
                 </ul>
             </li>
-            <li><a href="https://retailescaper.com/admin/url_redirect" class="ai-icon" aria-expanded="false">
+            {{-- <li><a href="https://retailescaper.com/admin/url_redirect" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-settings-2"></i>
                     <span class="nav-text">URL Redirect</span>
                 </a>
-            </li>
-            <li><a href="https://retailescaper.com/admin/newsletter" class="ai-icon" aria-expanded="false">
+            </li> --}}
+            {{-- <li><a href="https://retailescaper.com/admin/newsletter" class="ai-icon" aria-expanded="false">
                     <i class="flaticon-381-settings-2"></i>
                     <span class="nav-text">Newsletter</span>
                 </a>
-            </li>
+            </li> --}}
             <li><a href="https://retailescaper.com/admin/signup_inquiry" class="ai-icon"
                     aria-expanded="false">
                     <i class="flaticon-381-notepad"></i>
