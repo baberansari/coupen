@@ -216,7 +216,7 @@ header .navigations .menus li {
     padding-left: 20px;
 
     /*padding: 10px 30px;*/
-    
+
     position: relative;
     margin-right: 10px;
     border-radius: 30px;
@@ -319,9 +319,9 @@ header .sub-menu li:hover img {
     border: 2px solid #80d4ff;
 }
 
-header .sub-menu li img {
+/* header .sub-menu li img {
     max-width: 70%;
-}
+} */
 
 header .navigations .other-navigations .btn-primry {
     padding: 10px 25px;
@@ -1855,7 +1855,7 @@ footer .footer-links ul li a {
         padding-top: 0px;
     }
     .banner-sec {
-       padding-top: 1px; 
+       padding-top: 1px;
     }
     .desktop-coupon-tiles {
         display: none;
@@ -1871,7 +1871,7 @@ footer .footer-links ul li a {
 
 .all-cats-main .col-lg-2.col-md-4.col-sm-4.col-6 {
     margin: 10px 0;
-}   
+}
 
 @media (max-width:767px) {
     h3 {
@@ -1888,7 +1888,7 @@ footer .footer-links ul li a {
     .sec-title h3 {
         font-size: 17px;
     }
-    
+
     .category-tiles .mainbox .contentbox {
         display: block;
     }
@@ -1951,7 +1951,7 @@ footer .footer-links ul li a {
         justify-content: flex-start;
         align-items: flex-start;
     }
-    
+
     .coupons-tiles .discount-percentage h4 span,
     .coupons-tiles .discount-percentage h4 {
         font-size: 26px;

@@ -33,7 +33,7 @@ $setting = settings();
             @foreach ($categories as $category)
                 <li>
                     <a rel="index nofollow" href="{{ route('store-by-category',$category->slug) }}">
-                        <img style="width: 67px;" src="{{ asset($category->image) }}" alt="Sportswear" />
+                        <img  src="{{ asset($category->image) }}" alt="Sportswear" />
                         <span>{{ $category->name }}</span>
                     </a>
                 </li>
@@ -41,7 +41,7 @@ $setting = settings();
 
             <li>
                 <a href="{{ route('categories') }}">
-                    <img  style="width: 67px;" src="{{ asset('assetsite/new/images/category/More.png') }}" alt="Holiday" />
+                    <img   src="{{ asset('assetsite/new/images/category/More.png') }}" alt="Holiday" />
                     <span>More</span>
                 </a>
             </li>
