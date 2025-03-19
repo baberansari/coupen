@@ -48,3 +48,48 @@ $setting = settings();
         </ul>
     </div>
 </header>
+<div class="mobile-header">
+    <div class="container">
+        <div class="mainbox">
+            <div class="logo">
+                <a href="index.html">
+                    <img class="w-100" src="{{ asset($setting->settings_logo) }}" alt="Header Logo" />
+                </a>
+            </div>
+            <div class="searchbar searchbox" id="searchbox_nav">
+                <input type="search" placeholder="what are you looking for?" />
+                <i class="fa fa-search"></i>
+                <div>
+                    <ul style="border-top-left-radius: 25px;border-top-right-radius: 25px; top: 101%; display:none;"
+                        class="list-unstyled search-results results results_nav">
+
+                    </ul>
+
+                </div>
+            </div>
+            <div class="mobile-nav-btn">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mobile-nav-main">
+    <div class="mobile-nav">
+        <i class="fa fa-times close_btn"></i>
+        <a href="#" class="logo">
+            <img class="w-100" src="{{ asset($setting->settings_logo) }}" alt="Logo" />
+        </a>
+        <h6>Browse By Category</h6>
+        <ul class="list-unstyled">
+            @foreach ($categories as $category)
+            <li>
+                <a rel="index nofollow" href="{{ route('store-by-category',$category->slug) }}">
+                    <img  src="{{ asset($category->image) }}" alt="Sportswear" />
+                    <span>{{ $category->name }}</span>
+                </a>
+            </li>
+        @endforeach
+
+        </ul>
+    </div>
+</div>
