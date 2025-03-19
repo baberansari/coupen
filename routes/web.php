@@ -38,5 +38,6 @@ Route::middleware('auth')->group(function(){
     Route::resource('setting', SettingController::class);
     Route::get('/store-by-category/{slug}',[GeneralController::class,'index'])->name('store-by-category');
     Route::get('/categories',[GeneralController::class,'categories'])->name('categories');
+    Route::get('/{slug}',[GeneralController::class,'store'])->name('store');
 
 });
