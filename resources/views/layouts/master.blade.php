@@ -48,7 +48,7 @@
         @include('layouts.header')
         @include('layouts.sidebar')
 
-        <div class="content-body rightside-event" style="min-height: 788px;">
+        <div class="content-body " style="min-height: 788px;">
             @yield('content')
         </div>
 
