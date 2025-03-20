@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Store;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 class StoresController extends Controller
 {
@@ -58,28 +59,28 @@ class StoresController extends Controller
         // ]);
         $validator = Validator::make($request->all(), [
             'category_id' => 'required|integer|exists:categories,id',
-            'store_sort_number' => 'nullable|integer',
+            // 'store_sort_number' => 'nullable|integer',
             'store_logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'store_featured_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'store_logo_alt_attribute' => 'required|string|max:255',
             'store_name' => 'required|string|max:255',
-            'store_url' => 'required',
+            // 'store_url' => 'required',
             'store_slug' => 'required|string|unique:stores,store_slug|max:255',
-            'store_affiliate_url' => 'nullable',
-            'store_description' => 'required|string',
-            'store_rating' => 'nullable|numeric|min:0|max:5',
-            'store_how_to_use' => 'nullable|string',
-            'store_how_to_use_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'store_buyer_guide' => 'nullable|string',
-            'store_buyers_guide_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'store_heading' => 'nullable|string|max:255',
-            'store_sidebar_heading' => 'nullable|string|max:255',
-            'store_sidebar_content' => 'nullable|string',
-            'store_content' => 'nullable|string',
-            'store_video_embedded_tittle' => 'nullable|string|max:255',
-            'store_video_embedded_code' => 'nullable|string',
-            'store_instagram_url' => 'nullable',
-            'store_facebook_url' => 'nullable',
+            // 'store_affiliate_url' => 'nullable',
+            // 'store_description' => 'required|string',
+            // 'store_rating' => 'nullable|numeric|min:0|max:5',
+            // 'store_how_to_use' => 'nullable|string',
+            // 'store_how_to_use_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            // 'store_buyer_guide' => 'nullable|string',
+            // 'store_buyers_guide_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            // 'store_heading' => 'nullable|string|max:255',
+            // 'store_sidebar_heading' => 'nullable|string|max:255',
+            // 'store_sidebar_content' => 'nullable|string',
+            // 'store_content' => 'nullable|string',
+            // 'store_video_embedded_tittle' => 'nullable|string|max:255',
+            // 'store_video_embedded_code' => 'nullable|string',
+            // 'store_instagram_url' => 'nullable',
+            // 'store_facebook_url' => 'nullable',
         ]);
 
         if ($validator->fails()) {
