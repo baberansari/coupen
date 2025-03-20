@@ -41,7 +41,7 @@ $setting = settings();
 
             <li>
                 <a href="{{ route('categories') }}">
-                    <img   src="{{ asset('assetsite/new/images/category/More.png') }}" alt="Holiday" />
+                    <img   style="width: 67px;" src="{{ asset('assetsite/new/images/category/More.png') }}" alt="Holiday" />
                     <span>More</span>
                 </a>
             </li>
