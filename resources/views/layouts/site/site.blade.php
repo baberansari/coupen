@@ -31,7 +31,6 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"
         data-ad-client="ca-pub-1827856727469389"></script>
     <script src="{{ asset('assetsite/script/2bd197fe-0efa-41a1-b218-12c1c5ccd632/bundle.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
     <link rel="icon" type="image/x-icon" href="de/uploads/settings/RE-Fav(48%c3%9748px).png">
     <meta name="convertiser-verification" content="aae71ffeae28695b09dfec1e78845b4506fd77e9" />
     <meta name="agd-partner-manual-verification" />
@@ -100,7 +99,6 @@
     <link rel="stylesheet" href="{{ asset('assetsite/new/css/pirvacy-policy.css') }}">
     <link rel="stylesheet" href="{{ asset('assetsite/new/css/about-us.css') }}">
     <link rel="stylesheet" href="{{ asset('assetsite/new/css/all.css') }}"  />
-    <script src="{{ asset('assetsite/front/assets/js/jquery-1.11.1.min.html') }}"></script>
     <script src="{{ asset('assetsite/js/js.cookie.min.js') }}"></script>
 
 </head>
