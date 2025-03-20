@@ -66,13 +66,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Coupon Codes - Retailescaper</title>
-
-    <link rel="canonical" href="index.html" />
-
-
-    <script>
-        var base_url = "index.html";
-    </script>
     <meta name="convertiser-verification" content="aae71ffeae28695b09dfec1e78845b4506fd77e9" />
     <meta name="agd-partner-manual-verification" />
     <meta name="partnerboostverifycode" content="32dc01246faccb7f5b3cad5016dd5033" />
@@ -83,6 +76,7 @@
     <meta name="verify-admitad" content="5816e1841c" />
     <meta name="verify-admitad" content="23e944d1c4" />
     <meta name="lomadee-verification" content="23030148" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ asset('assetsite/script/2bd197fe-0efa-41a1-b218-12c1c5ccd632/bundle.js') }}"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-55971924-2"></script>
@@ -105,7 +99,7 @@
     <link rel="stylesheet" href="{{ asset('assetsite/new/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assetsite/new/css/pirvacy-policy.css') }}">
     <link rel="stylesheet" href="{{ asset('assetsite/new/css/about-us.css') }}">
-    <link rel="stylesheet" href="{{ asset('assetsite/new/css/all.css') }}" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{{ asset('assetsite/new/css/all.css') }}"  />
     <script src="{{ asset('assetsite/front/assets/js/jquery-1.11.1.min.html') }}"></script>
     <script src="{{ asset('assetsite/js/js.cookie.min.js') }}"></script>
 
@@ -119,7 +113,7 @@
 @include('layouts.site.footer')
 <!-- Footer End -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
     jQuery(document).ready(function() {
         // Open the modal when "Win $100 Cashback" is clicked
