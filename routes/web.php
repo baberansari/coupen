@@ -36,16 +36,6 @@ Route::middleware('auth')->group(function(){
     Route::resource('category', CategoryController::class);
     Route::resource('stores', StoresController::class);
     Route::resource('setting', SettingController::class);
-   
-    // This Route For  Store List By Categories  
-    Route::get('/store-by-category/{slug}',[GeneralController::class,'index'])->name('store-by-category');
-   
-    // T
-    Route::get('/categories',[GeneralController::class,'categories'])->name('categories');
-
-    //  This Route For Store Web Site Listing  
-    Route::get('/store/{slug}',[GeneralController::class,'store'])->name('store');
-
     // Offer
     Route::get('offer-index', [OfferController::class,'index'])->name('offer.index');
     Route::get('offer-create', [OfferController::class,'create'])->name('offer.create');
@@ -57,3 +47,11 @@ Route::middleware('auth')->group(function(){
     Route::post('faq-store',[FaqController::class,'store'])->name('faqs.store');
     Route::get('faq-destroy/{id}', [OfferController::class,'destroy'])->name('faqs.destroy');
 });
+  // This Route For  Store List By Categories  
+  Route::get('/store-by-category/{slug}',[GeneralController::class,'index'])->name('store-by-category');
+   
+  // This is Categories
+  Route::get('/categories',[GeneralController::class,'categories'])->name('categories');
+
+  //  This Route For Store Web Site Listing  
+  Route::get('/store/{slug}',[GeneralController::class,'store'])->name('store');
