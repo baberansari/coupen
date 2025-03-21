@@ -72,19 +72,22 @@
                                     <td>{{ $value->store_name }}</td>
                                     <td>{{ $value->store_slug }}</td>
                                     <td>Master Admin</td>
-                                    <td><a href="https://retailescaper.com/admin/faq/1" class="btn btn-sm btn-primary"><i
+                                    <td><a href="{{ route('faqs.index',['store_id'=>$value->id]) }}" class="btn btn-sm btn-primary"><i
                                                 class="fa fa-tags"></i> 0 FAQ's</a></td>
-                                    <td><a href="https://retailescaper.com/admin/offer/1"
-                                            class="btn btn-sm btn-primary"><i class="fa fa-tags"></i> 3 Deals, 8 Codes</a>
+                                    <td>
+                                        <a href="{{ route('offer.index', ['store_id' => $value->id]) }}" class="btn btn-sm btn-primary">
+                                        <i class="fa fa-tags"></i> 3 Deals, 8 Codes
+                                    </a>
+                                    
                                     </td>
                                     <td class="d-flex">
-                                        <a href="https://retailescaper.com/admin/store/form/edit/1"><i
+                                        <a href="#"><i
                                                 class="lar la-edit"></i></a>
-                                        <a href="https://retailescaper.com/admin/store/view/1" class="ml-4"><i
+                                        <a href="#" class="ml-4"><i
                                                 class="las la-eye"></i></a>
-                                        <a href="https://retailescaper.com/admin/store/form/duplicate/1" class="ml-4"><i
+                                        <a href="#" class="ml-4"><i
                                                 class="lar la-copy"></i></a>
-                                        <a href="https://retailescaper.com/admin/store/delete/1" class="ml-4"><i
+                                        <a href="#" class="ml-4"><i
                                                 class="las la-trash-alt"></i></a>
                                     </td>
                                 </tr>

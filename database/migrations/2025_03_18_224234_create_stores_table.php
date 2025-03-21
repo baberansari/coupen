@@ -51,6 +51,7 @@ return new class extends Migration
             $table->text('seo_head_script')->nullable();
             $table->text('seo_footer_script')->nullable();
             $table->text('store_schema_code')->nullable();
+            $table->string('created_by')->nullable();
             $table->timestamps();
         });
     }

@@ -1,9 +1,5 @@
 @extends('layouts.site.site')
 @section('content')
-
-
- 
-
     <!-- Header Section Start -->
     <section class="banner-sec">
         <div class="container">
@@ -32,16 +28,49 @@
                 </ul>
             </div>
             <div class="category-tiles cat-banner-tiles">
-                <div class="row">
+
+
+
+
+                <div id="bokeh-background"></div>
+                <div class="slider-container">
+                    <div class="slider-wrapper">
+                        <div class="slider">
+                            @foreach ($stores3->chunk(3) as $chunk)
+                                <div class="slide-group active">
+                                    @foreach ($chunk as $store_value)
+                                        <div class="card" data-tilt>
+                                            <img src="{{ asset($store_value->store_logo) }}"
+                                                alt="{{ $store_value->store_name }}">
+                                            <h3>{{ $store_value->store_name }}</h3>
+                                            <p>{{ $store_value->store_name }}</p>
+                                           <a  href="{{ route('store',$store_value->store_slug) }}"> <button class="card-button"><i class="fa fa-arrow-right"></i></button></a>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+
+                    <button class="nav-btn prev-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="nav-btn next-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+
+                    <div class="slider-dots"></div>
+                </div>
+                {{-- <div class="row">
                     @foreach ($stores3 as $store_value)
                     <div class="col-lg-4 col-md-4 col-9">
                         <a data-offer_id="5521" href="javascript:;" class="offer_anchor d-block mainbox">
                             <div class="imgbox">
-                                <img class="w-100" src="uploads/store/carphone_fi.png" alt="Category Image" />
+                                <img class="w-100" src="{{ asset($store_value->store_logo) }}" alt="Category Image" />
                             </div>
                             <div class="contentbox">
                                 <div class="brand-logo">
-                                    <img class="w-100" src="uploads/store/Carphone_warehouse.png"
+                                    <img class="w-100" src="{{ asset($store_value->store_logo) }}"
                                         alt="Brand Logo" />
                                 </div>
                                 <p class="descrpt">
@@ -51,11 +80,11 @@
                     </div>
                     @endforeach
 
-                </div>
+                </div> --}}
             </div>
-            <a class="banner-bottom-link" style="color: white;">When you buy through links on RetailEscaper we may
+            {{-- <a class="banner-bottom-link" style="color: white;">When you buy through links on RetailEscaper we may
                 earn a commission.
-            </a>
+            </a> --}}
         </div>
     </section>
 
@@ -66,7 +95,7 @@
     <section class="top-coupon-sec product-tiles">
         <div class="container">
             <div class="sec-title">
-                <h3>Top Coupon</h3>
+                <h3>Trending Coupon</h3>
                 <a href="#">View all</a>
             </div>
             <div class="row">
@@ -98,314 +127,8 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="8470" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/aeropostale1.png"
-                                    alt="https://retailescaper.com/uploads/store/aeropostale1.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>60% Off Sitewide</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="7720" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/baltiniresized.png"
-                                    alt="https://retailescaper.com/uploads/store/baltiniresized.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>15% Off All Orders</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="9784" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/aerosoles.png"
-                                    alt="https://retailescaper.com/uploads/store/aerosoles.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>25% Off Sitewide</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="15931" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/lego-coupon-code-logo2.png"
-                                    alt="https://retailescaper.com/uploads/store/lego-coupon-code-logo2.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>Christmas gifts: Up To 15% Off Selected Toys</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="6465" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/Monica_Vinader.png"
-                                    alt="https://retailescaper.com/uploads/store/Monica_Vinader.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>30% Off on Everything with Monica Vinader Coupon Code</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="1101" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/shein-discount-code.png"
-                                    alt="https://retailescaper.com/uploads/store/shein-discount-code.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>SHEIN 25% Off Coupon Code</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="9304" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/Pretty_logo.png"
-                                    alt="https://retailescaper.com/uploads/store/Pretty_logo.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>25% Off Everything</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="9859" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/the_deal_outlet_discount_code.png"
-                                    alt="https://retailescaper.com/uploads/store/the_deal_outlet_discount_code.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>Exlclusive: 20% Off Site-wide</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="17073" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/yosuda.png"
-                                    alt="https://retailescaper.com/uploads/store/yosuda.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>Black Friday Cyber Monday: Up To 35% Off</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="297" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/jacamo-discount-code.png"
-                                    alt="https://retailescaper.com/uploads/store/jacamo-discount-code.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>20% Off On All Orders</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="10644" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/mallet.png"
-                                    alt="https://retailescaper.com/uploads/store/mallet.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>15% Off Sitewide</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="10290" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/charles--colvard-coupon-co.png"
-                                    alt="https://retailescaper.com/uploads/store/charles--colvard-coupon-co.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>10% Off On Your First Order</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="12504" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/samsung.png"
-                                    alt="https://retailescaper.com/uploads/store/samsung.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>Black Friday Sale: Get Up To 40% Off</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="8720" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/hushpuppies.png"
-                                    alt="https://retailescaper.com/uploads/store/hushpuppies.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>50% Off On Sale Items </p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="290" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/the-body-shop.png"
-                                    alt="https://retailescaper.com/uploads/store/the-body-shop.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>Up To 50% Off On Selected Items</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="10534" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/moosejaw-coupon-code-logo.png"
-                                    alt="https://retailescaper.com/uploads/store/moosejaw-coupon-code-logo.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>Snow Sale Up To 50% Off</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="10031" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/vertagear-coupon-code-logo.png"
-                                    alt="https://retailescaper.com/uploads/store/vertagear-coupon-code-logo.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>Save Up To $50 on Selected Items</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="10597" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/carls-golfland.png"
-                                    alt="https://retailescaper.com/uploads/store/carls-golfland.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>Up To 50% Off Selected Items</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="10378" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/roborock-coupon-code-logo.png"
-                                    alt="https://retailescaper.com/uploads/store/roborock-coupon-code-logo.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>Sale: Get Up To 50% Off</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="16810" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/tj_hughes_discount_code.png"
-                                    alt="https://retailescaper.com/uploads/store/tj_hughes_discount_code.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>20% Off On Electric Heaters</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="10288" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/aeropostale1.png"
-                                    alt="https://retailescaper.com/uploads/store/aeropostale1.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>Buy 1 At Original Price, Get 1 Of Equal Or Lesser Value Free</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="13404" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/aspiga0000.png"
-                                    alt="https://retailescaper.com/uploads/store/aspiga0000.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>Summer Sale: Get Up To 50% Off</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+
+
             </div>
         </div>
     </section>
@@ -417,7 +140,7 @@
     <section class="clothing-and-accessories-sec product-tiles">
         <div class="container">
             <div class="sec-title" style="padding-top:20px;">
-                <h3>Clothing & Acessories</h3>
+                <h3>Top Trending Coupen</h3>
                 <a href="categories.html">View all</a>
             </div>
             <div class="row">
@@ -450,34 +173,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="350" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/boden-discount-code.png"
-                                    alt="https://retailescaper.com/uploads/store/boden-discount-code.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>20% Off On All Orders</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="10278" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/the0000.png"
-                                    alt="https://retailescaper.com/uploads/store/the0000.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>Extra 20% Off Everything</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+
             </div>
         </div>
     </section>
@@ -487,7 +183,7 @@
 
     <!-- Jewellery And Watches Section Start -->
 
-    <section class="jewelry-watch-sec product-tiles">
+    {{-- <section class="jewelry-watch-sec product-tiles">
         <div class="container">
             <div class="sec-title">
                 <h3>Travel & Tickets</h3>
@@ -541,13 +237,13 @@
 
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- Jewellery And Watches Section End -->
 
     <!-- Top Stores And Top Category Section Start -->
 
-    <section class="top-store-category-sec">
+    {{-- <section class="top-store-category-sec">
         <div class="container">
             <div id="accordion" class="accordion-container">
                 <div class="content-entry">
@@ -1296,80 +992,28 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- Start see on -->
     <section class="partner-sections pad-y hide_seen">
         <div class="container">
             <div class="main-heading text-center">
-                <h2 class="secondary-text mb-3 fw-700">As Seen on</h2>
+                <h2 class="secondary-text mb-3 fw-700">Category</h2>
             </div>
-            <div class="row g-2 g-sm-3">
-
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <p class="card-2">
-                        <img class="img-fluid" src="{{ asset('assetsite/images/entrep.png') }}" alt="brand-logos">
-                    </p>
-                </div>
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <p class="card-2">
-                        <img class="img-fluid" src="{{ asset('assetsite/images/fotolog.png') }}" alt="brand-logo">
-                    </p>
-                </div>
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <p class="card-2">
-                        <img class="img-fluid" src="{{ asset('assetsite/images/feastmagazine.png') }}"
-                            alt="brand-logo">
-                    </p>
-                </div>
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <p class="card-2">
-                        <img class="img-fluid" src="{{ asset('assetsite/images/hmluxury.png') }}" alt="brand-logo">
-                    </p>
-                </div>
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <p class="card-2">
-                        <img class="img-fluid" src="{{ asset('assetsite/images/ileel.png') }}" alt="brand-logo">
-                    </p>
-                </div>
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <p class="card-2">
-                        <img class="img-fluid" src="{{ asset('assetsite/images/karenkoupon.png') }}"
-                            alt="brand-logo">
-                    </p>
-                </div>
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <p class="card-2">
-                        <img class="img-fluid" src="{{ asset('assetsite/images/trustpilot.png') }}"
-                            alt="brand-logo">
-                    </p>
-                </div>
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <p class="card-2">
-                        <img class="img-fluid" src="{{ asset('assetsite/images/scubby.png') }}" alt="brand-logo">
-                    </p>
-                </div>
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <p class="card-2">
-                        <img class="img-fluid" src="{{ asset('assetsite/images/spacecoast.png') }}"
-                            alt="brand-logo">
-                    </p>
-                </div>
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <p class="card-2">
-                        <img class="img-fluid" src="{{ asset('assetsite/images/thebargaining.png') }}"
-                            alt="brand-logo">
-                    </p>
-                </div>
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <p class="card-2">
-                        <img class="img-fluid" src="{{ asset('assetsite/images/tracxn.png') }}" alt="brand-logo">
-                    </p>
-                </div>
-                <div class="col-6 col-sm-4 col-md-3 col-xl-2">
-                    <p class="card-2">
-                        <img class="img-fluid" src="{{ asset('assetsite/images/cb.png') }}" alt="brand-logo">
-                    </p>
+            <div class="wrap">
+                <div class="slide-container">
+                    <ul class="slides">
+                        @foreach (getCategory() as $category)
+                            <li>
+                                <p class="card-2">
+                                    <img class="img-fluid" style="    height: 170px;!important"
+                                        src="{{ asset($category->image) }}" alt="brand-logo">
+                                </p>
+                                {{ $category->name }}
+                            </li>
+                        @endforeach
+                        s
+                    </ul>
                 </div>
             </div>
         </div>
@@ -1451,8 +1095,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <a class="continue-btn" style="background-color: #ff00008f;"
-                                    href="javascript:;">Continue to Store</a>
+                                <a class="continue-btn" style="background-color: #ff00008f;" href="javascript:;">Continue
+                                    to Store</a>
                             </div>
                         </div>
                     </div>
@@ -1481,5 +1125,146 @@
             </form>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            const slider = $(".slider");
+            const slideGroups = $(".slide-group");
+            const totalSlides = slideGroups.length;
+            let currentSlide = 0;
 
+            const dotsContainer = $(".slider-dots");
+            for (let i = 0; i < totalSlides; i++) {
+                dotsContainer.append(`<div class="dot ${i === 0 ? "active" : ""}"></div>`);
+            }
+
+            $(".next-btn").click(() => navigate(1));
+            $(".prev-btn").click(() => navigate(-1));
+
+            $(".dot").click(function() {
+                const index = $(this).index();
+                goToSlide(index);
+            });
+
+            function navigate(direction) {
+                currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+                goToSlide(currentSlide);
+            }
+
+            function goToSlide(index) {
+                slider.css("transform", `translateX(-${index * 100}%)`);
+                $(".dot").removeClass("active").eq(index).addClass("active");
+                currentSlide = index;
+            }
+
+            $(".card").each(function() {
+                const card = $(this);
+
+                card.on("mousemove", function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    const rotateX = ((y - centerY) / centerY) * 15;
+                    const rotateY = ((centerX - x) / centerX) * 15;
+
+                    this.style.setProperty("--card-rotate-x", `${rotateX}deg`);
+                    this.style.setProperty("--card-rotate-y", `${rotateY}deg`);
+                });
+
+                card.on("mouseleave", function() {
+                    this.style.setProperty("--card-rotate-x", "0deg");
+                    this.style.setProperty("--card-rotate-y", "0deg");
+                });
+            });
+
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            slider.on("touchstart", function(e) {
+                touchStartX = e.originalEvent.touches[0].clientX;
+            });
+
+            slider.on("touchend", function(e) {
+                touchEndX = e.originalEvent.changedTouches[0].clientX;
+                const diff = touchStartX - touchEndX;
+
+                if (Math.abs(diff) > 50) {
+                    navigate(diff > 0 ? 1 : -1);
+                }
+            });
+
+            const $bokehBackground = $("#bokeh-background");
+            const numBokeh = 25;
+            const colors = [{
+                    start: "rgba(255, 69, 0, .6)",
+                    end: "rgba(255, 69, 0, 0.25)"
+                },
+                {
+                    start: "rgba(255, 0, 0, .6)",
+                    end: "rgba(255, 0, 0, 0.25)"
+                },
+                {
+                    start: "rgba(255, 165, 0, .6)",
+                    end: "rgba(255, 165, 0, 0.25)"
+                },
+                {
+                    start: "rgba(255, 20, 147, .6)",
+                    end: "rgba(255, 20, 147, 0.25)"
+                },
+                {
+                    start: "rgba(238, 130, 238, .6)",
+                    end: "rgba(238, 130, 238, 0.25)"
+                },
+                {
+                    start: "rgba(148, 0, 211, .6)",
+                    end: "rgba(148, 0, 211, 0.25)"
+                }
+            ];
+
+            for (let i = 0; i < numBokeh; i++) {
+                const $bokeh = $("<div>").addClass("bokeh");
+                const size = Math.random() * 120 + 50;
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const background = `radial-gradient(circle, ${color.start} 0%, ${color.end} 100%)`;
+                const animationDelay = `${Math.random() * 2}s`;
+                const animationDuration = `${Math.random() * 10 + 10}s`;
+
+                $bokeh.css({
+                    width: `${size}px`,
+                    height: `${size}px`,
+                    left: `${left}%`,
+                    top: `${top}%`,
+                    background: background,
+                    animationDelay: animationDelay,
+                    animationDuration: animationDuration
+                });
+
+                $bokehBackground.append($bokeh);
+            }
+        });
+
+
+
+        $(document).ready(function() {
+            $slides = $('.slides');
+            $slides.bind('contentchanged', function() {
+                animate($slides);
+            });
+            animate($slides);
+        });
+
+        function animate($slides) {
+            var slidesLength = $slides.find('li').length;
+            if (slidesLength > 3) {
+                $slides.find('li:nth-last-child(-n+3)').clone().prependTo($slides);
+                $slides.addClass('animate');
+                $slides.css('animation-duration', slidesLength * 2 + 's');
+            }
+        }
+    </script>
 @endsection

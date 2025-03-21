@@ -77,7 +77,7 @@
                 <ul aria-expanded="false" class="mm-collapse">
                     <li><a href="{{ route('category.index') }}">Category</a></li>
                     <li><a href="{{route('stores.index')}}">Store</a></li>
-                    <li><a href="https://retailescaper.com/admin/coupon">Coupon</a></li>
+                    <li><a href="{{ route('offer.index') }}">Coupon</a></li>
                 </ul>
             </li>
             {{-- <li><a href="https://retailescaper.com/admin/url_redirect" class="ai-icon" aria-expanded="false">

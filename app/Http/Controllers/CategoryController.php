@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
-use DB;
+
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -32,6 +33,7 @@ class CategoryController extends Controller
         $path =  uploadImage($request->category_icon, 'category');
         $category->image =  $path;
         $category->icon =  $path;
+        $category->created_by =auth()->user()->name;
         $category->save();
         DB::commit();
         return redirect()->route('category.index');
@@ -62,6 +64,7 @@ class CategoryController extends Controller
             $category->image =  $path;
             $category->icon =  $path;
         }
+        $category->created_by =auth()->user()->name;
         $category->save();
         DB::commit();
         return redirect()->route('category.index');
@@ -73,6 +76,8 @@ class CategoryController extends Controller
 
     public function destroy($id)
     {
-
+        $category =  Category::find($id);
+        $category->delete();
+        return redirect()->route('category.index')->with('success', 'category Deleted Successfully');
     }
 }

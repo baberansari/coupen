@@ -69,7 +69,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-4">
-                    <p>Coupon Codes - Retailescaper &copy;2025 - All rights reserved</p>
+                    <p>Coupon Codes - Discount Vault &copy;2025 - All rights reserved</p>
                 </div>
             </div>
         </div>

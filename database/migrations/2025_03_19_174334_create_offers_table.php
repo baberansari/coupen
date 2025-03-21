@@ -32,6 +32,7 @@ return new class extends Migration
             $table->boolean('offer_home_page_visibility')->default(false);
             $table->boolean('offer_home_page_category')->default(false);
             $table->boolean('offer_home_page_featured_offer')->default(false);
+            $table->string('created_by')->nullable();
             $table->timestamps();
         });
     }

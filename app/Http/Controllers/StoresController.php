@@ -143,6 +143,7 @@ class StoresController extends Controller
         $store->seo_head_script = $request->seo_head_script;
         $store->seo_footer_script = $request->seo_footer_script;
         $store->store_schema_code = $request->store_schema_code;
+        $store->created_by =auth()->user()->name;
         $store->save();
         DB::commit();
         return redirect()->route('stores.index')->with('success','Store Add Successfully');

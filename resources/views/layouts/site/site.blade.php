@@ -28,23 +28,22 @@
             return false;
         }
     </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" crossorigin="anonymous"
-        data-ad-client="ca-pub-1827856727469389"></script>
-    <script src="{{ asset('assetsite/script/2bd197fe-0efa-41a1-b218-12c1c5ccd632/bundle.js') }}"></script>
-    <link rel="icon" type="image/x-icon" href="de/uploads/settings/RE-Fav(48%c3%9748px).png">
-    <meta name="convertiser-verification" content="aae71ffeae28695b09dfec1e78845b4506fd77e9" />
-    <meta name="agd-partner-manual-verification" />
-    <meta name="partnerboostverifycode" content="32dc01246faccb7f5b3cad5016dd5033" />
-    <meta name="fo-verify" content="e7bca1d5-d54c-4567-b794-c52e8e652b56" />
-    <meta name="verify-yeahpromos" content="6869b0a95a44" />
-    <meta name="linkbuxverifycode" content="32dc01246faccb7f5b3cad5016dd5033" />
-    <meta name="google-site-verification" content="mu-sc7-j-8GiZFy-y5_5kalaKZgJ-gIC4HHFBEVwJg4" />
-    <meta name="verify-admitad" content="5816e1841c" />
-    <meta name="verify-admitad" content="23e944d1c4" />
-    <meta name="lomadee-verification" content="23030148" />
-    <script src="{{ asset('assetsite/script/2bd197fe-0efa-41a1-b218-12c1c5ccd632/bundle.js') }}"></script>
+
+<link rel="icon" type="image/x-icon" href="de/uploads/settings/RE-Fav(48%c3%9748px).png">
+<meta name="convertiser-verification" content="aae71ffeae28695b09dfec1e78845b4506fd77e9" />
+<meta name="agd-partner-manual-verification" />
+<meta name="partnerboostverifycode" content="32dc01246faccb7f5b3cad5016dd5033" />
+<meta name="fo-verify" content="e7bca1d5-d54c-4567-b794-c52e8e652b56" />
+<meta name="verify-yeahpromos" content="6869b0a95a44" />
+<meta name="linkbuxverifycode" content="32dc01246faccb7f5b3cad5016dd5033" />
+<meta name="google-site-verification" content="mu-sc7-j-8GiZFy-y5_5kalaKZgJ-gIC4HHFBEVwJg4" />
+<meta name="verify-admitad" content="5816e1841c" />
+<meta name="verify-admitad" content="23e944d1c4" />
+<meta name="lomadee-verification" content="23030148" />
+{{-- <script src="{{ asset('assetsite/script/2bd197fe-0efa-41a1-b218-12c1c5ccd632/bundle.js') }}"></script> --}}
+    {{-- <script src="{{ asset('assetsite/script/2bd197fe-0efa-41a1-b218-12c1c5ccd632/bundle.js') }}"></script> --}}
+    {{-- <script src="{{ asset('assetsite/script/7c5ae9ac-a540-4e95-9ba6-436e352fb920/bundle.js') }}"></script> --}}
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-55971924-2"></script>
-    <script src="{{ asset('assetsite/script/7c5ae9ac-a540-4e95-9ba6-436e352fb920/bundle.js') }}"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -76,10 +75,10 @@
     <meta name="verify-admitad" content="23e944d1c4" />
     <meta name="lomadee-verification" content="23030148" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{{ asset('assetsite/script/2bd197fe-0efa-41a1-b218-12c1c5ccd632/bundle.js') }}"></script>
+    {{-- <script src="{{ asset('assetsite/script/2bd197fe-0efa-41a1-b218-12c1c5ccd632/bundle.js') }}"></script> --}}
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-55971924-2"></script>
-    <script src="{{ asset('assetsite/script/7c5ae9ac-a540-4e95-9ba6-436e352fb920/bundle.js') }}"></script>
+    {{-- <script src="{{ asset('assetsite/script/7c5ae9ac-a540-4e95-9ba6-436e352fb920/bundle.js') }}"></script> --}}
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -108,6 +107,60 @@
 @include('layouts.site.header')
             @yield('content')
 
+
+            <section id="coupon_modal" class="coupon-popup-sec ">
+                <div class="coupon-popup-main">
+                    <div class="container">
+                        <div class="contentbox">
+                            <i class="close-btn fas fa-times"></i>
+                            <div class="row">
+                                <div class="titlebox margin_title col-md-3">
+                                    <img src="https://retailescaper.com/uploads/store/climbing-247-discount-code.png" alt="Brand Image">
+                                </div>
+                                <div class="copy-code col-md-8" id="">
+                                     <h4 class="main_title">15% rabatt på alla beställningar</h4>
+                                     <h4 class="no_code" style="display: none;">No coupon code required.</h4>
+                                        <div style="line: height 1.4em; margin:5px; margin-top:9px;">Join $100 Cashback offer by signing up for the program <br> using this link button: <button class="cashback_btn btn_cashback" id="openCashbackModal">"Win $100 Cashback"</button></div>
+        
+                                     <div class="mycustom">
+        
+                                         <input class="code-text" id="copyTarget" value="EMAILFF10" type="text" name="">
+                                         <div class="input-group-prepend">
+                                            <a style="background-color: #FE9213; color: white;" href="javascript:;" id="copyButton" class="btn btn-primary btn-sm"><i class="far fa-clone fa-flip-vertical"></i></a>
+                                         </div>
+                                     </div>
+                                     <div class="flex">
+                                     
+                                     <span>Copy and paste this code at  <a data-offer_id="3152" href="javascript:;" class="offer_anchor mainbox store_link">Climbing247</a></span>
+                                         
+                                     </div>
+                                </div>
+                                <div class="col-md-1"></div> 
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="popup-btn-box margin_top_b">
+                                        <div class="work-btn-box">
+                                            <span>Did it work?</span> 
+                                            <div class="toggle-radio">
+                                              <input type="radio" data-id="" class="rdo" name="rdo" id="yes" value="yes">
+                                              <input type="radio" data-id="" class="rdo" name="rdo" id="no" value="no">
+                                              <input type="hidden" value="3152" class="offer_id">
+                                              <div class="switch">
+                                                <label for="yes">Yes</label>
+                                                <label for="no">No</label>
+                                                <span></span>
+                                              </div>
+                                            </div>
+                                        </div>
+                                        <a class="continue-btn" style="background-color: #ff00008f;" href="javascript:;">Continue to Store</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 @include('layouts.site.footer')
 <!-- Footer End -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -178,6 +231,11 @@
                 }
             });
         });
+        $("#copyButton").click(function() {
+            alert('sss');
+            $(this).html('<i class="far fa-check-circle" style="color: #ffffff;"></i>');
+
+        });
     });
     // end popup signup luckydraw
 </script>
@@ -188,20 +246,7 @@
 <script src="{{ asset('assetsite/new/js/theme-lib.js') }}"></script>
 <script src="{{ asset('assetsite/new/js/theme-fun.js') }}"></script>
 <script src="{{ asset('assetsite/js/site.js') }}"></script>
-<script>
-    if (Cookies.get('cookie') === 'ture') {
-        document.getElementById("alert").style.display = "none";
-    } else {
-        document.getElementById("alert").style.display = "block";
-    }
 
-    function accpetCookie() {
-        document.getElementById("alert").style.display = "none";
-        Cookies.set('cookie', 'ture', {
-            expires: 7
-        });
-    }
-</script>
 
 
 <script type="text/javascript">
@@ -226,34 +271,7 @@
 
 <script>
     $(document).ready(function() {
-        $('.slectOne').on('change', function() {
-            $('.slectOne').not(this).prop('checked', false);
-            //console.log($(this).data( "id" ));
-            if ($(this).is(":checked")) {
-                if ($(this).data("id") == 'online') {
-                    console.log('online1');
-                    $('.online').show();
-                    $('.all').hide();
-                    $('.offline').hide();
-                } else if ($(this).data("id") == 'offline') {
-                    console.log('offline1');
-                    $('.offline').show();
-                    $('.all').hide();
-                    $('.online').hide();
-                } else if ($(this).data("id") == 'all') {
-                    console.log('all1');
-                    $('.all').show();
-                    $('.online').hide();
-                    $('.offline').hide();
-                    console.log("all1");
-                    //console.log($(this).data( "id" ));
-                    //console.log('emppty');
-                }
-            }
-        });
-
-
-        if ($('.store-short-desc > p').length > 1) {
+     if ($('.store-short-desc > p').length > 1) {
             $('.store-short-desc > p:gt(-3)').hide();
             $('.show-more').show();
         } else {
@@ -270,21 +288,21 @@
 
 
     });
-</script>
 
-
-<script>
     $(document).ready(function() {
-        $("#copyButton").click(function() {
+
+        $(document).on('click', '#copyButton', function () { 
             $(this).html('<i class="far fa-check-circle" style="color: #ffffff;"></i>');
-
         });
+      
     });
 
-
-    document.getElementById("copyButton").addEventListener("click", function() {
+    $(document).on('click', '#copyButton', function () { 
         copyToClipboard(document.getElementById("copyTarget"));
+        $(this).html('<i class="far fa-clone fa-flip-vertical"></i>');
+      
     });
+   
 
     function copyToClipboard(elem) {
         // create hidden text element, if it doesn't already exist
@@ -374,7 +392,7 @@
     })
 </script>
 
-<script>
+{{-- <script>
     jQuery('.offer_anchor').on('click', function() {
         //var offer_affiliate_url = $(this).attr("data-offer_affiliate_url");
         var offer_id = $(this).attr("data-offer_id");
@@ -416,7 +434,7 @@
             dataType: 'JSON'
         });
     }
-</script>
+</script> --}}
 
 
 <script>

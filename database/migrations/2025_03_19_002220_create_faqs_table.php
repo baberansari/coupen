@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('store_id');
             $table->longText('question')->nullable();
             $table->longText('answer')->nullable();
+            $table->string('created_by')->nullable();
             $table->timestamps();
         });
     }

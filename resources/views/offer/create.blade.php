@@ -1,6 +1,16 @@
 @extends('layouts.master')
 @section('content')
     <div class="container-fluid">
+        @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+         @endif
         <!-- row -->
         <div class="row">
             <div class="col-lg-12">
@@ -10,10 +20,28 @@
                     </div>
                     <div class="card-body">
                         <div class="form-validation">
-                            <form class="form-valide" role="form" action="https://retailescaper.com/admin/offer/form/1/add"
+                            <form class="form-valide" role="form" action="{{ route('offer.store') }}"
                                 method="post" enctype="multipart/form-data">
+                                @csrf
                                 <div class="row">
                                     <div class="col-xl-12">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="offer_type"> Store <small
+                                                    class="text-danger">( Required )</small>
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <select class="form-control" id="offer_type" name="store_id"
+                                                    data-validation="required" required>
+                                                    <option value="">Select: Store <small class="text-danger">(
+                                                            Required )</small></option>
+                                                        @foreach ($stores as $store)
+                                                        <option value="{{ $store->id }}">{{ $store->store_name }}</option>
+                                                        @endforeach
+                                                </select>
+
+                                            </div>
+                                        </div>
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="offer_type"> Type <small
                                                     class="text-danger">( Required )</small>
@@ -65,11 +93,11 @@
                                             </label>
                                             <div class="col-lg-6">
                                                 <input type="text" class="datepicker-default form-control picker__input"
-                                                    id="offer_expiry_date" name="" value="" readonly=""
+                                                    id="offer_expiry_date" name="offer_expiry_date" value="" readonly=""
                                                     aria-haspopup="true" aria-expanded="false" aria-readonly="false"
-                                                    aria-owns="offer_expiry_date_root">
+                                                    aria-owns="offer_expiry_date_root" >
 
-                                                <input type="hidden" name="offer_expiry_date">
+                                              
 
                                             </div>
                                         </div>
@@ -122,10 +150,7 @@
                                                 <span class="text-danger">*</span>
                                             </label>
                                             <div class="col-lg-6">
-                                                <textarea class="form-control" id="offer_affiliate_url" name="offer_affiliate_url">
-
-                                                </textarea>
-
+                                                <input type="text" class="form-control" id="offer_affiliate_url" name="offer_affiliate_url">
                                             </div>
                                         </div>
                                         <div class="form-group row">

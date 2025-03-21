@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('icon');
             $table->string('image')->nullable();
             $table->string('description');
+            $table->string('created_by')->nullable(); 
             $table->timestamps();
         });
     }
