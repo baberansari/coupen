@@ -144,6 +144,7 @@ class StoresController extends Controller
         $store->seo_footer_script = $request->seo_footer_script;
         $store->store_schema_code = $request->store_schema_code;
         $store->save();
+        DB::commit();
         return redirect()->route('stores.index')->with('success','Store Add Successfully');
     } catch (\Throwable $th) {
       DB::rollback();
