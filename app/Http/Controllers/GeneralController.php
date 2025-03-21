@@ -24,7 +24,7 @@ class GeneralController extends Controller
     
     public function store(Request $request)
     {
-        $store =   Store::where('store_slug',$request->slug)->first();
+        $store =   Store::with('faqs')->where('store_slug',$request->slug)->first();
             if(empty($store))
             {
                 return redirect()->back()->with('error','no store available');

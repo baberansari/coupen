@@ -113,7 +113,40 @@
         </div>
     </section>
 
+{{--  Faq Section  --}}
 
+@if(!empty($store->faqs) && count($store->faqs)>0)
+
+    <section class="container ko-faq-section">
+        <div class="ko-container">
+          <h2>Frequently asked questions</h2>
+          <p>Question you might ask about our services.</p>
+          <div class="ko-faq-accordion">
+            @foreach ($store->faqs as $faq)
+            <div class="ko-accordion-item">
+              <div class="ko-accordion-item-header">{!! $faq->question  !!}?</div>
+              <div class="ko-accordion-item-body">
+                <p class="ko-accordion-item-body-content">{!! $faq->answer  !!}</p>
+              </div>
+            </div>
+            @endforeach
+         
+          
+          </div>
+          {{-- <div class="ko-ask-qus">
+            <h3>Still have questions?</h3>
+            <p>Can't find the answer you're looking for? Please Ask the question.</p>
+            <form action="#">
+              <div class="ko-form-cotrl">
+                <input type="text" class="ko-faq-input-field" placeholder="Ask the question" />
+              </div>
+              <button class="ko-btn" type="submit">Ask Now</button>
+            </form>
+          </div> --}}
+        </div>
+      </section>
+ 
+@endif
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
 <script>
   $(document).ready(function() {
@@ -220,6 +253,18 @@
       });
   });
 
+const accordionItemh = document.querySelectorAll(".ko-accordion-item-header");
+accordionItemh.forEach((accordionItemh) => {
+  accordionItemh.addEventListener("click", (event) => {
+    accordionItemh.classList.toggle("active");
+    const accordionItemBody = accordionItemh.nextElementSibling;
+    if (accordionItemh.classList.contains("active")) {
+      accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+    } else {
+      accordionItemBody.style.maxHeight = 0;
+    }
+  });
+});
 
     </script>
 @endsection

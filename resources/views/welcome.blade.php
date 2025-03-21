@@ -1023,21 +1023,7 @@
 
     <!-- Never Miss Another Deal Section Start -->
 
-    <section class="never-miss-deals-sec">
-        <div class="container">
-            <div class="mainbox">
-                <h3>Never miss another deal</h3>
-                <p>Be the first to get notified as soon as we update a new offer or discount.</p>
-                <div class="subscribe-us">
-                    <form>
-                        <input type="email" placeholder="Enter your email address">
-                        <input type="submit" class="btn-primry" value="Subscribe">
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
+  
     <!-- Never Miss Another Deal Section End--> <!-- Coupon Popup Start -->
 
     <div class="overlay"></div>

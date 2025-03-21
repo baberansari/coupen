@@ -2290,4 +2290,98 @@ footer .footer-links ul li a {
   }
   
   
+  /*  FAQS  Store */
+
+
+  .ko-faq-section {
+    padding: 40px 0;
+  }
+  .ko-faq-section h2 {
+    text-align: center;
+    font-size: 42px;
+    line-height: 52px;
+    margin-bottom: 10px;
+  }
+  .ko-container {
+    width: 100%;
+    max-width: 1370px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  .ko-faq-section .ko-container > p {
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+  .ko-accordion-item {
+    background-color: #fff;
+    border-bottom: 1px solid #dfdfdf;
+  }
+  .ko-accordion-item-header {
+    padding: 20px 0;
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .ko-accordion-item-header::after {
+    content: "";
+    display: block;
+    width: 25px;
+    height: 25px;
+    background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTkgMThMMTUgMTJMOSA2IiBzdHJva2U9IiMwNDdDQzEiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==");
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all 0.4s ease;
+  }
+  .ko-accordion-item-header.active::after {
+    content: "";
+    transform: rotate(90deg);
+  }
+  .ko-accordion-item-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+  }
+  .ko-accordion-item-body-content {
+    padding-bottom: 20px;
+  }
+  .ko-faq-accordion {
+    margin-bottom: 30px;
+  }
+  .ko-ask-qus h3 {
+    font-size: 28px;
+    line-height: 38px;
+    margin-bottom: 10px;
+  }
+  .ko-ask-qus p {
+    margin-bottom: 20px;
+  }
+  .ko-form-cotrl {
+    margin-bottom: 20px;
+  }
+  .ko-faq-input-field {
+    width: 100%;
+    max-width: 520px;
+    padding: 10px;
+    outline: none;
+    border: 1px solid #dfdfdf;
+  }
+  .ko-faq-input-field:focus {
+    outline: none;
+    border: 1px solid #aae0ff;
+    box-shadow: 1px 1px 10px #aae0ff;
+  }
+  .ko-btn {
+    border: 0;
+    padding: 6px 12px;
+    background: #000000;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  /* faq section end */
   
