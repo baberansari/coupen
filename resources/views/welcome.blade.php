@@ -99,34 +99,24 @@
                 <a href="#">View all</a>
             </div>
             <div class="row">
+
+                @foreach (geTopTrendingCoupen() as $coupen)
                 <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="3949" href="javascript:;" class="offer_anchor">
+                    <a onclick="getCode('{{$coupen->id}}',this)" data-offer_id="{{$coupen->id}}" href="javascript:;" class="offer_anchor" data-offer_affiliate_url="{{$coupen->offer_affiliate_url}}">
                         <div class="mainbox">
                             <div class="imgbox">
-                                <img class="w-100" src="uploads/store/newchic-discount-code.png"
-                                    alt="https://retailescaper.com/uploads/store/newchic-discount-code.png" />
+                                <img class="w-100" src="{{ asset($coupen->store->store_logo) }}"
+                                    alt="{{ asset($coupen->store->store_logo) }}" />
                             </div>
                             <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>Exclusive : 22% OFF on orders over $110</p>
+                                <span>{{ $coupen->store->store_name }}</span>
+                                <p>{{ $coupen->offer_exclusive??'Exclusive' }} : {{ $coupen->offer_discount_tittle }}</p>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="7155" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/vevor_coupon_code.png"
-                                    alt="https://retailescaper.com/uploads/store/vevor_coupon_code.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>Exclusive: 5% Off on orders of $189 or more</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                @endforeach
+
 
 
             </div>
@@ -144,35 +134,22 @@
                 <a href="categories.html">View all</a>
             </div>
             <div class="row">
-
+                @foreach (geTopTrendingCoupen() as $coupen)
                 <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="1061" href="javascript:;" class="offer_anchor">
+                    <a onclick="getCode('{{$coupen->id}}',this)" data-offer_id="{{$coupen->id}}" href="javascript:;" class="offer_anchor" data-offer_affiliate_url="{{$coupen->offer_affiliate_url}}">
                         <div class="mainbox">
                             <div class="imgbox">
-                                <img class="w-100" src="uploads/store/jaggad-discount-code.png"
-                                    alt="https://retailescaper.com/uploads/store/jaggad-discount-code.png" />
+                                <img class="w-100" src="{{ asset($coupen->store->store_logo) }}"
+                                    alt="{{ asset($coupen->store->store_logo) }}" />
                             </div>
                             <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>20% Off sitewide with Jaggad Promo Code</p>
+                                <span>{{ $coupen->store->store_name }}</span>
+                                <p>{{ $coupen->offer_exclusive??'Exclusive' }} : {{ $coupen->offer_discount_tittle }}</p>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-4">
-                    <a data-offer_id="1839" href="javascript:;" class="offer_anchor">
-                        <div class="mainbox">
-                            <div class="imgbox">
-                                <img class="w-100" src="uploads/store/ickle-bubble-discount-code.png"
-                                    alt="https://retailescaper.com/uploads/store/ickle-bubble-discount-code.png" />
-                            </div>
-                            <div class="contentbox">
-                                <span>exclusive code</span>
-                                <p>15% Off sitewide with Ickle Bubba Discount Code</p>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                @endforeach
 
             </div>
         </div>
@@ -1023,7 +1000,7 @@
 
     <!-- Never Miss Another Deal Section Start -->
 
-  
+
     <!-- Never Miss Another Deal Section End--> <!-- Coupon Popup Start -->
 
     <div class="overlay"></div>

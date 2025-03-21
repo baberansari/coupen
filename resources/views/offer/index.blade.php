@@ -62,8 +62,8 @@
                             <tbody class="ui-sortable">
 
                                 @foreach ( $offers as $offer)
-                                    
-                         
+
+
                                 <tr id="sort_14" role="row" class="odd">
                                     <td class="sorting_1">1</td>
                                     <td>{{ $offer->offer_type }}</td>
@@ -76,7 +76,7 @@
 
                                     <td>{{$offer->offer_expiry_date }}</td>
 
-                                    <td>45</td>
+                                    <td>{{ $offer->views_count }}</td>
 
                                     <td>{{ $offer->offer_working=='yes'?'Yes':'No' }}</td>
 
@@ -96,8 +96,8 @@
                                 @endforeach
                             </tbody>
                         </table>
-                      
-                      
+
+
                     </div>
                 </div>
             </div>

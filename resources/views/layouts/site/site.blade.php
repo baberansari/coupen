@@ -120,28 +120,31 @@
                                 <div class="copy-code col-md-8" id="">
                                      <h4 class="main_title">15% rabatt på alla beställningar</h4>
                                      <h4 class="no_code" style="display: none;">No coupon code required.</h4>
-                                        <div style="line: height 1.4em; margin:5px; margin-top:9px;">Join $100 Cashback offer by signing up for the program <br> using this link button: <button class="cashback_btn btn_cashback" id="openCashbackModal">"Win $100 Cashback"</button></div>
-        
+                                        <div class="description" style="line: height 1.4em; margin:5px; margin-top:9px;">
+                                            Join $100 Cashback offer by signing up for the program <br> using this link button:
+                                            {{-- <button class="cashback_btn btn_cashback" id="openCashbackModal">"Win $100 Cashback"</button> --}}
+                                        </div>
+
                                      <div class="mycustom">
-        
+
                                          <input class="code-text" id="copyTarget" value="EMAILFF10" type="text" name="">
                                          <div class="input-group-prepend">
                                             <a style="background-color: #FE9213; color: white;" href="javascript:;" id="copyButton" class="btn btn-primary btn-sm"><i class="far fa-clone fa-flip-vertical"></i></a>
                                          </div>
                                      </div>
                                      <div class="flex">
-                                     
+
                                      <span>Copy and paste this code at  <a data-offer_id="3152" href="javascript:;" class="offer_anchor mainbox store_link">Climbing247</a></span>
-                                         
+
                                      </div>
                                 </div>
-                                <div class="col-md-1"></div> 
+                                <div class="col-md-1"></div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="popup-btn-box margin_top_b">
                                         <div class="work-btn-box">
-                                            <span>Did it work?</span> 
+                                            <span>Did it work?</span>
                                             <div class="toggle-radio">
                                               <input type="radio" data-id="" class="rdo" name="rdo" id="yes" value="yes">
                                               <input type="radio" data-id="" class="rdo" name="rdo" id="no" value="no">
@@ -291,18 +294,18 @@
 
     $(document).ready(function() {
 
-        $(document).on('click', '#copyButton', function () { 
+        $(document).on('click', '#copyButton', function () {
             $(this).html('<i class="far fa-check-circle" style="color: #ffffff;"></i>');
         });
-      
+
     });
 
-    $(document).on('click', '#copyButton', function () { 
+    $(document).on('click', '#copyButton', function () {
         copyToClipboard(document.getElementById("copyTarget"));
         $(this).html('<i class="far fa-clone fa-flip-vertical"></i>');
-      
+
     });
-   
+
 
     function copyToClipboard(elem) {
         // create hidden text element, if it doesn't already exist
@@ -392,52 +395,57 @@
     })
 </script>
 
-{{-- <script>
-    jQuery('.offer_anchor').on('click', function() {
-        //var offer_affiliate_url = $(this).attr("data-offer_affiliate_url");
-        var offer_id = $(this).attr("data-offer_id");
-        window.open('https://retailescaper.com/#offer_' + offer_id);
-        popup_open(offer_id);
-        location.replace(base_url + 'route/' + offer_id);
-    });
 
-    function popup_open(offer_id) {
-
-        jQuery.ajax({
-            url: base_url + 'get-offer',
-            method: 'post',
-            data: {
-                offer_id: offer_id
-            },
-            success: function(response) {
-                if (response != false) {
-
-                    jQuery('#coupon_modal .coupon-store-thumb img').attr('src', base_url +
-                        'uploads/store/' + response.store_logo);
-                    jQuery('#coupon_modal .coupon-title').html(response.offer_title);
-                    if (response.offer_type == 'deal') {
-                        jQuery('#coupon_modal .code-text').text('NO CODE REQUIRED');
-                    } else {
-                        jQuery('#coupon_modal .code-text').text(response.offer_code);
-                    }
-                    jQuery('#coupon_modal .go-store').attr('href', response.offer_affiliate_url);
-                    jQuery('#coupon_modal .coupon-popup-detail .description').html(response
-                        .offer_description);
-                    jQuery('#coupon_modal .used').text(response.offer_views);
-
-                    jQuery('#coupon_modal').modal('show');
-                } else {
-                    console.log('Something went wrong.');
-                }
-
-            },
-            dataType: 'JSON'
-        });
-    }
-</script> --}}
 
 
 <script>
+    function getCode(id,elemet)
+    {
+
+        var offer_affiliate_url = $(elemet).attr("data-offer_affiliate_url");
+        var offer_id = $(elemet).attr("data-offer_id");
+        window.open(offer_affiliate_url, '_blank', 'noopener,noreferrer');
+        popup_open(offer_id);
+
+
+    }
+    function popup_open(offer_id) {
+    var base_url = 'http://coupen.test/'
+    var id  = offer_id;
+    jQuery.getJSON('https://api64.ipify.org?format=json', function(data) {
+        var userIp = data.ip; // G
+        jQuery.ajax({
+            url: "{{ route('getCode') }}",
+            method: 'get',
+            data: {
+                id: id,userIp:userIp
+            },
+            success: function(response) {
+                    jQuery('#coupon_modal .titlebox img').attr('src', base_url + response.data.store.store_logo);
+                    jQuery('#coupon_modal .main_title').html(response.data.offer_discount_tittle);
+                    if (response.data.offer_type == 'deal') {
+                        jQuery('#coupon_modal .code-text').val('NO CODE REQUIRED');
+                        jQuery('#coupon_modal .no_code').css('display','block');
+                    } else {
+                        jQuery('#coupon_modal .code-text').val(response.data.offer_code);
+                    }
+                    jQuery('#coupon_modal .store_link').attr('href', response.data.offer_affiliate_url);
+                    jQuery('#coupon_modal .continue-btn').attr('href', response.data.offer_affiliate_url);
+                    jQuery('#coupon_modal .store_link').html(response.data.store.store_name);
+                    jQuery('#coupon_modal .coupon-popup-detail .description').html(response
+                        .data.offer_description);
+                    jQuery('#coupon_modal .description').html(response
+                        .data.offer_description);
+                    jQuery('#coupon_modal .used').text(response.data.offer_views);
+
+                    jQuery('#coupon_modal').addClass('active');
+
+
+
+                }
+        });
+    });
+    }
     $(document).ready(function() {
 
         $(".store_list a:not([data-category='A'])").hide();

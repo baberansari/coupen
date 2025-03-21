@@ -11,12 +11,13 @@ class OfferController extends Controller
 {
     public function index(Request $request){
 
-        $offers =  Offer::with('store');
+        $offers =  Offer::with('store')->withCount('views');
 
         if($request->store_id)
         {
             $offers =  $offers->where('store_id',$request->store_id);
         }
+
         $offers =   $offers->get();
         return  view('offer.index',compact('offers'));
     }
@@ -27,7 +28,7 @@ class OfferController extends Controller
     }
     public function store(Request $request)
     {
-     
+
         DB::beginTransaction();
         try {
             // Validate request data
@@ -52,7 +53,7 @@ class OfferController extends Controller
                 'offer_home_page_category' => 'boolean',
                 'offer_home_page_featured_offer' => 'boolean',
             ]);
-    
+
             // Manually assign values to the Offer model
             $offer = new Offer();
             $offer->store_id = $request->store_id;
@@ -77,9 +78,9 @@ class OfferController extends Controller
             $offer->created_by =auth()->user()->name;
             // Save the offer
             $offer->save();
-    
+
             DB::commit();
-          
+
             return redirect()->route('offer.index')->with('success', 'Offer Added Successfully');
         } catch (\Throwable $th) {
             DB::rollback();
@@ -94,6 +95,6 @@ class OfferController extends Controller
        $offer->delete();
        return redirect()->route('offer.index')->with('success', 'Offer Deleted Successfully');
     }
-    
-    
+
+
 }

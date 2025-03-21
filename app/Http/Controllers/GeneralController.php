@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Offer;
 use App\Models\Store;
+use App\Models\CoupenView;
 use Illuminate\Http\Request;
 
 class GeneralController extends Controller
@@ -21,7 +22,7 @@ class GeneralController extends Controller
         $categories  = Category::all();
         return view('category.categories',compact('categories'));
     }
-    
+
     public function store(Request $request)
     {
         $store =   Store::with('faqs')->where('store_slug',$request->slug)->first();
@@ -32,7 +33,7 @@ class GeneralController extends Controller
         if($request->ajax())
         {
             $search = $request->input('type', '');
-         
+
             $query = Offer::where('store_id',$store->id);
             if($search =='code' || $search == 'deal'){
                 $query =  $query->where('offer_type',$search);
@@ -51,5 +52,18 @@ class GeneralController extends Controller
         }
         $slug = $request->slug;
         return view('store.list',compact('store','slug'));
+    }
+
+    public function getCode(Request $request)
+    {
+        $coupen = Offer::with('store')->find($request->id);
+        CoupenView::firstOrCreate([
+            'offer_id'=>$coupen->id,
+            'ip'=>$request->userIp
+        ]);
+        return response()->json([
+            'data' => $coupen,
+
+        ]);
     }
 }

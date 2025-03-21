@@ -3,6 +3,7 @@
 use App\Models\Category;
 use App\Models\Setting;
 use App\Models\Store;
+use App\Models\Offer;
 use \Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -103,6 +104,19 @@ if (! function_exists('getRelatedStoregs')) {
         }
         $stores = Store::where('category_id',$store->category_id)->take(5)->get();
         return $stores;
+    }
+
+}
+
+if (! function_exists('geTopTrendingCoupen')) {
+    function geTopTrendingCoupen()
+    {
+        $offers = Offer::with('store')->get();
+        if(empty($offers))
+        {
+            return [];
+        }
+        return $offers;
     }
 
 }

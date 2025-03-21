@@ -47,11 +47,12 @@ Route::middleware('auth')->group(function(){
     Route::post('faq-store',[FaqController::class,'store'])->name('faqs.store');
     Route::get('faq-destroy/{id}', [OfferController::class,'destroy'])->name('faqs.destroy');
 });
-  // This Route For  Store List By Categories  
+  // This Route For  Store List By Categories
   Route::get('/store-by-category/{slug}',[GeneralController::class,'index'])->name('store-by-category');
-   
+
   // This is Categories
   Route::get('/categories',[GeneralController::class,'categories'])->name('categories');
 
-  //  This Route For Store Web Site Listing  
+  //  This Route For Store Web Site Listing
   Route::get('/store/{slug}',[GeneralController::class,'store'])->name('store');
+  Route::get('/get-code',[GeneralController::class,'getCode'])->name('getCode');

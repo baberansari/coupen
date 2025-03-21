@@ -71,7 +71,7 @@
                                          {{$related->store_name}} </a>
                                     </li>
                                     @endforeach
-                                 
+
                                 </ul>
                             </div>
                                 {{-- ENd Related STore  --}}
@@ -153,8 +153,8 @@
               </div>
             </div>
             @endforeach
-         
-          
+
+
           </div>
           {{-- <div class="ko-ask-qus">
             <h3>Still have questions?</h3>
@@ -168,7 +168,7 @@
           </div> --}}
         </div>
       </section>
- 
+
 @endif
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
 <script>
@@ -198,31 +198,31 @@
                       </tr>`
                       $('.data-table').html(tableRows);
                   }else{
-                    
+
                 console.log(response.data);
 
                 let tableRows = response.data.map(item => `
                             <div class="coupon-tile">
                                 <div class="discount-percentage">
-                                    ${item.offer_free_shipping ? 
-                                        '<h4><i class="fas fa-shipping-fast" style="font-size:50px"></i></h4>' : 
+                                    ${item.offer_free_shipping ?
+                                        '<h4><i class="fas fa-shipping-fast" style="font-size:50px"></i></h4>' :
                                         `<h4>${item.offer_discount_number}%</h4>`
                                     }
                                 </div>
                                 <div class="coupon-content">
                                     <span>${item.offer_type}</span>
                                     <p>${item.offer_discount_number}% ${item.offer_discount_tittle}</p>
-                                    ${item.offer_verified ? 
+                                    ${item.offer_verified ?
                                         `<div class="verified">
-                                            <span>Verified <i class="far fa-check-circle" 
+                                            <span>Verified <i class="far fa-check-circle"
                                                 style="background: #ffffff00; color: #18f351; font-size: 15px;">
                                             </i></span>
                                         </div>` : ''
                                     }
                                 </div>
                                 <div class="getcodebtn">
-                                    <a rel="nofollow noopener sponsored" data-offer_id="${item.id}" 
-                                        href="javascript:;" class="offer_anchor">
+                                    <a onclick="getCode('${item.id}',this)" rel="nofollow noopener sponsored" data-offer_id="${item.id}"
+                                        href="javascript:;" class="offer_anchor" data-offer_affiliate_url="${item.offer_affiliate_url}">
                                         Get Code
                                     </a>
                                     <span>${item.offer_code || 'N/A'}</span>
@@ -266,12 +266,12 @@
               fetchData(nextPageUrl, $('.search').val());
           }
       });
-      $('.slectOne').on('change', function () {  
-        let type = $('input[name="offer_type"]:checked').data('id'); 
+      $('.slectOne').on('change', function () {
+        let type = $('input[name="offer_type"]:checked').data('id');
         fetchData('/store/'+slug, type);
     });
 
-    $('ul li').on('click', function () {  
+    $('ul li').on('click', function () {
     let type = $(this).data('tab'); // Get data-tab value
     $('ul li').removeClass('active'); // Remove active class from all
     $(this).addClass('active'); // Add active class to clicked item
