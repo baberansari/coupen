@@ -142,17 +142,17 @@ $(document).ready(function() {
 
     // single Product detail tabbing
 
-    $('.store-tabbing .tabs li').click(function() {
-        $('.store-tabbing .tabs li').removeClass('active');
-        $('.store-tabbing .tabbing-content .tab-content').removeClass('active');
-        $(this).addClass('active');
-        var tab_id = $(this).index();
-        tab_id += 1;
-        $('.store-tabbing .tabbing-content .tab-content:nth-child(' + tab_id + ')').addClass('active');
+    // $('.store-tabbing .tabs li').click(function() {
+    //     $('.store-tabbing .tabs li').removeClass('active');
+    //     $('.store-tabbing .tabbing-content .tab-content').removeClass('active');
+    //     $(this).addClass('active');
+    //     var tab_id = $(this).index();
+    //     tab_id += 1;
+    //     $('.store-tabbing .tabbing-content .tab-content:nth-child(' + tab_id + ')').addClass('active');
 
-    });
-    $('.store-tabbing .tabs li:first-child').addClass('active');
-    $('.store-tabbing .tabbing-content .tab-content:first-child').addClass('active');
+    // });
+    // $('.store-tabbing .tabs li:first-child').addClass('active');
+    // $('.store-tabbing .tabbing-content .tab-content:first-child').addClass('active');
 
 
     // Home Page Accordion

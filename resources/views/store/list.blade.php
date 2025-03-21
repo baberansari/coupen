@@ -34,7 +34,6 @@
     </style>
     <section class="store-sec sec-padding" style="height: auto !important;">
         <div class="container" style="height: auto !important;">
-
             <div class="row" style="height: auto !important;">
                 <div class="col-lg-3" style="height: auto !important; min-height: 0px !important;">
                     <div class="main-sidebar" style="height: auto !important;">
@@ -98,9 +97,33 @@
                         </div>
                     </div>
                     <div class="desktop-coupon-tiles">
-                        <div id="data-table" style="display:block;"  class="coupons-tiles all ">
+                        <div id="data-table" style="display:block;"  class="coupons-tiles all  data-table">
                         </div>
                     </div>
+
+
+
+
+                    <div class="store-tabbing mobile-tabbing">
+                        <div class="tabs">
+                          <ul>
+                            <li data-tab="all" class="active">All Offers</li>
+                            <li data-tab="code">Coupons</li>
+                            <li data-tab="deal">Deals</li>
+                          </ul>
+                        </div>
+                        <span class="store-short-desc"
+                          >When you buy through links on Retailescaper we may earn a
+                          commission. <a href="#">Learn More</a></span
+                        >
+                        <div class="tabbing-content">
+                          <div class="tab-content active">
+                            <div class="coupons-tiles data-table">
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
                 </div>
             </div>
             <div class="row">
@@ -160,7 +183,7 @@
             <div class="spinner-border text-danger" role="status">
             <span class="visually-hidden"></span>
             </div></td></tr>`;
-            $('#data-table').html(loader);
+            $('.data-table').html(loader);
           var type = type;
           $.ajax({
               url: url,
@@ -173,7 +196,7 @@
                     let tableRows = `<tr >
                       <td colspan="7">No Data Found</td>
                       </tr>`
-                      $('#data-table').html(tableRows);
+                      $('.data-table').html(tableRows);
                   }else{
                     
                 console.log(response.data);
@@ -207,7 +230,7 @@
                             </div>
                         `).join('');
 
-                        $('#data-table').html(tableRows);
+                        $('.data-table').html(tableRows);
 
                 }
 
@@ -246,6 +269,15 @@
       $('.slectOne').on('change', function () {  
         let type = $('input[name="offer_type"]:checked').data('id'); 
         fetchData('/store/'+slug, type);
+    });
+
+    $('ul li').on('click', function () {  
+    let type = $(this).data('tab'); // Get data-tab value
+    $('ul li').removeClass('active'); // Remove active class from all
+    $(this).addClass('active'); // Add active class to clicked item
+
+    // Update the radio button selection based on clicked <li>
+    $('input[name="offer_type"][data-id="' + type + '"]').prop('checked', true).trigger('change');
     });
       // Handle search input
       $('.search').on('input', function() {
