@@ -2,7 +2,7 @@
 @section('content')
 <style>
     .baby{
-    width: 70%;
+    width: 100%;
     float: left;
     }
     
@@ -82,13 +82,13 @@
                         
                         </div>
                         @if(empty($stores) || count($stores) > 0)
-                        <aside class="sidebarc">
+                        {{-- <aside class="sidebarc">
                             <div>
                                 <h4>About {{ $category->name }} Codes &amp; Deals</h4>
                                 Get All the Latest &amp; Verified {{ $category->name }}  Deals &amp; Discount from discountvaults.com |
                                 Verified Deals for 2021
                             </div>
-                        </aside>
+                        </aside> --}}
                         @endif
                     </div>
                 </div>
