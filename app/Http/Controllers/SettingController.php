@@ -33,7 +33,8 @@ class SettingController extends Controller
         DB::beginTransaction();
         try {
 
-            $sett = new Setting();
+
+            $sett = Setting::first();
             $sett->settings_site_title = $request->settings_site_title;
             $sett->settings_top_bar = $request->settings_top_bar;
             $sett->settings_top_bar_link = $request->settings_top_bar_link;
@@ -58,7 +59,7 @@ class SettingController extends Controller
             $sett->settings_popup_content = $request->settings_popup_content;
             $sett->save();
             DB::commit();
-            return redirect()->route('home');
+            return redirect()->route('setting.create')->with('success','Updated Successfully');
         } catch (\Throwable $th) {
             DB::rollback();
             dd($th);
