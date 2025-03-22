@@ -27,15 +27,15 @@ class FaqController extends Controller
     }
     public function store(Request $request)
     {
-     
+
         DB::beginTransaction();
         try {
             // Validate request data
             $validated = $request->validate([
                 'store_id' => 'required|exists:stores,id',
-               
+
             ]);
-    
+
             // Manually assign values to the Offer model
             $offer = new Faq();
             $offer->store_id = $request->store_id;
@@ -44,9 +44,9 @@ class FaqController extends Controller
             $offer->created_by =auth()->user()->name;
             // Save the offer
             $offer->save();
-    
+
             DB::commit();
-          
+
             return redirect()->route('faqs.index')->with('success', 'faqs Added Successfully');
         } catch (\Throwable $th) {
             DB::rollback();
@@ -61,4 +61,43 @@ class FaqController extends Controller
        $offer->delete();
        return redirect()->route('faqs.index')->with('success', 'faqs Deleted Successfully');
     }
+
+    public function edit(Request $request)
+    {
+        $id = $request->id;
+        $stores =  Store::all();
+        $faq = Faq::find($id);
+        return view('faqs.edit',compact('faq','stores'));
+    }
+
+    public function update(Request $request,$id)
+    {
+
+        DB::beginTransaction();
+        try {
+            // Validate request data
+            $validated = $request->validate([
+                'store_id' => 'required|exists:stores,id',
+
+            ]);
+
+            // Manually assign values to the Offer model
+            $offer =  Faq::find($id);
+            $offer->store_id = $request->store_id;
+            $offer->question = $request->question;
+            $offer->answer = $request->answer;
+            $offer->created_by =auth()->user()->name;
+            // Save the offer
+            $offer->save();
+
+            DB::commit();
+
+            return redirect()->route('faqs.index')->with('success', 'faqs Update Successfully');
+        } catch (\Throwable $th) {
+            DB::rollback();
+            dd($th);
+            return redirect()->back()->with('error', 'Something went wrong!')->withInput();
+        }
+    }
+
 }

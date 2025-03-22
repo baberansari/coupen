@@ -33,6 +33,10 @@ class CategoryController extends Controller
         $path =  uploadImage($request->category_icon, 'category');
         $category->image =  $path;
         $category->icon =  $path;
+        $category->category_home_page_visibility = $request->category_home_page_visibility;
+        $category->category_home_page_sidebar_visibility = $request->category_home_page_sidebar_visibility;
+        $category->category_homepage_1 = $request->category_homepage_1;
+        $category->category_homepage_2 = $request->category_homepage_2;
         $category->created_by =auth()->user()->name;
         $category->save();
         DB::commit();
@@ -57,6 +61,10 @@ class CategoryController extends Controller
         $category =   Category::find($id);
         $category->name =   $request->category_name;
         $category->description = $request->category_description;
+        $category->category_home_page_visibility = $request->category_home_page_visibility;
+        $category->category_home_page_sidebar_visibility = $request->category_home_page_sidebar_visibility;
+        $category->category_homepage_1 = $request->category_homepage_1;
+        $category->category_homepage_2 = $request->category_homepage_2;
         if($request->hasFile('category_icon'))
         {
 
@@ -74,7 +82,7 @@ class CategoryController extends Controller
         }
     }
 
-    public function destroy($id)
+    public function show($id)
     {
         $category =  Category::find($id);
         $category->delete();

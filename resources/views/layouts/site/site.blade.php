@@ -29,7 +29,7 @@
         }
     </script>
 
-<link rel="icon" type="image/x-icon" href="de/uploads/settings/RE-Fav(48%c3%9748px).png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/admin/images/favicon.png">
 <meta name="convertiser-verification" content="aae71ffeae28695b09dfec1e78845b4506fd77e9" />
 <meta name="agd-partner-manual-verification" />
 <meta name="partnerboostverifycode" content="32dc01246faccb7f5b3cad5016dd5033" />

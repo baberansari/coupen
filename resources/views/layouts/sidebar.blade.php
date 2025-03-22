@@ -28,17 +28,17 @@
 
                 </ul>
             </li>
-               {{--     <li>
+              <li>
                 <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-381-internet"></i>
-                    <span class="nav-text">Reports</span>
+                    <span class="nav-text">Faq</span>
                 </a>
                 <ul aria-expanded="false" class="mm-collapse">
-                    <li><a href="https://retailescaper.com/admin/visit_report">Store View Report</a></li>
+                    <li><a href="{{ route('faqs.index') }}">List</a></li>
                     <!-- <li><a href="https://retailescaper.com/admin/header_top_navbar">Offers avail Reports</a></li> -->
                 </ul>
             </li>
-            <li>
+          {{--        <li>
                 <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-381-box"></i>
                     <span class="nav-text">Cashback Offer</span>
@@ -97,7 +97,7 @@
             </li>
         </ul>
         <div class="copyright">
-            <p>Coupon Codes - Retailescaper <br>© 2025 All Rights Reserved</p>
+            <p>Coupon Codes - Discountvaults <br>© 2025 All Rights Reserved</p>
             <p class="op5">Made with <span class="heart"></span> by MA-Ware &amp; Tech</p>
         </div>
         <div class="ps__rail-x" style="left: 0px; bottom: 0px;">

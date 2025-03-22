@@ -1,6 +1,15 @@
 @extends('layouts.master')
 @section('content')
 <div class="container-fluid">
+    @if ($message = Session::get('success'))
+
+    <div class="alert alert-success">
+
+    <p>{{ $message }}</p>
+
+    </div>
+
+    @endif
     <div class="row mb-5 align-items-center">
         <div class="col-lg-3 mb-4 mb-lg-0">
             <a href="{{ route('seo.create') }}"
@@ -33,28 +42,30 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($seos as $seo)
+
 
                             <tr role="row" class="odd">
-                                <td class="sorting_1">1</td>
-                                <td>Active Skin - Store</td>
+                                <td class="sorting_1">{{ $seo->id }}</td>
+                                <td>{{ $seo->page_name }}</td>
 
-                                <td>https://phpstack-1204741-4260865.cloudwaysapps.com/active-skin</td>
+                                <td>{{ $seo->seo_page_link }}</td>
 
-                                <td>index, follow</td>
+                                <td>{{ $seo->seo_meta_index }}</td>
 
                                 <td class="d-flex">
-                                    <a href="https://retailescaper.com/admin/seo/form/edit/1"><i
+                                    <a href="{{ route('seo.edit',$seo->id) }}"><i
                                             class="lar la-edit"></i></a>
-                                    <a href="https://retailescaper.com/admin/seo/view/1" class="ml-4"><i
+                                    {{-- <a href="https://retailescaper.com/admin/seo/view/1" class="ml-4"><i
                                             class="las la-eye"></i></a>
                                     <a href="https://retailescaper.com/admin/seo/form/duplicate/1" class="ml-4"><i
-                                            class="lar la-copy"></i></a>
-                                    <a href="https://retailescaper.com/admin/seo/delete/1" class="ml-4"><i
+                                            class="lar la-copy"></i></a> --}}
+                                    <a href="{{  route('seo.destroy',$seo->id) }}" class="ml-4"><i
                                             class="las la-trash-alt"></i></a>
 
                                 </td>
                             </tr>
-
+                            @endforeach
                         </tbody>
                     </table>
 

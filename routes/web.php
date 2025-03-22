@@ -40,12 +40,16 @@ Route::middleware('auth')->group(function(){
     // Offer
     Route::get('offer-index', [OfferController::class,'index'])->name('offer.index');
     Route::get('offer-create', [OfferController::class,'create'])->name('offer.create');
+    Route::get('offer-edit/{id}', [OfferController::class,'edit'])->name('offer.edit');
     Route::post('offer-store', [OfferController::class,'store'])->name('offer.store');
+    Route::post('offer-update/{id}', [OfferController::class,'update'])->name('offer.update');
     Route::get('offer-destroy/{id}', [OfferController::class,'destroy'])->name('offer.destroy');
     // FAQ
     Route::get('faq-index',[FaqController::class,'index'])->name('faqs.index');
     Route::get('faq-create',[FaqController::class,'create'])->name('faqs.create');
+    Route::get('faq-edit/{id}',[FaqController::class,'edit'])->name('faqs.edit');
     Route::post('faq-store',[FaqController::class,'store'])->name('faqs.store');
+    Route::post('faq-update/{id}',[FaqController::class,'update'])->name('faqs.update');
     Route::get('faq-destroy/{id}', [OfferController::class,'destroy'])->name('faqs.destroy');
 
     Route::resource('seo', SeoController::class);

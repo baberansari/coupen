@@ -1,6 +1,15 @@
 @extends('layouts.master')
 @section('content')
     <div class="container-fluid">
+        @if ($message = Session::get('success'))
+
+        <div class="alert alert-success">
+
+        <p>{{ $message }}</p>
+
+        </div>
+
+        @endif
         <div class="row mb-5 align-items-center">
             <div class="col-lg-3 mb-4 mb-lg-0">
                 <a href="{{ route('category.create') }}"
@@ -42,8 +51,8 @@
                                     <td class="d-flex">
                                         <a href="{{route('category.edit',$category->id)}}"><i
                                                 class="lar la-edit"></i></a>
-                                        <a href="{{route('category.edit',$category->id)}}" class="ml-4"><i
-                                                class="las la-eye"></i></a>
+                                        {{-- <a href="{{route('category.edit',$category->id)}}" class="ml-4"><i
+                                                class="las la-eye"></i></a> --}}
                                         {{-- <a href="https://retailescaper.com/admin/category/form/duplicate/48"
                                             class="ml-4"><i class="lar la-copy"></i></a> --}}
                                         <a href="{{route('category.destroy',$category->id)}}" class="ml-4"><i

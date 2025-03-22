@@ -78,16 +78,16 @@
                                         <a href="{{ route('offer.index', ['store_id' => $value->id]) }}" class="btn btn-sm btn-primary">
                                         <i class="fa fa-tags"></i> 3 Deals, 8 Codes
                                     </a>
-                                    
+
                                     </td>
                                     <td class="d-flex">
-                                        <a href="#"><i
+                                        <a href="{{ route('stores.edit',$value->id) }}"><i
                                                 class="lar la-edit"></i></a>
-                                        <a href="#" class="ml-4"><i
+                                        {{-- <a href="#" class="ml-4"><i
                                                 class="las la-eye"></i></a>
                                         <a href="#" class="ml-4"><i
-                                                class="lar la-copy"></i></a>
-                                        <a href="#" class="ml-4"><i
+                                                class="lar la-copy"></i></a> --}}
+                                        <a href="{{ route('stores.destroy',$value->id) }}" class="ml-4"><i
                                                 class="las la-trash-alt"></i></a>
                                     </td>
                                 </tr>

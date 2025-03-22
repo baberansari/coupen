@@ -82,9 +82,9 @@
 
                                     <td>{{ $offer->created_by??'admin' }}</td>
                                     <td class="d-flex">
-                                        {{-- <a href="#"><i
+                                      <a href="{{ route('offer.edit',$offer->id) }}"><i
                                                 class="lar la-edit"></i></a>
-                                        <a href="#" class="ml-4"><i
+                                        {{--   <a href="#" class="ml-4"><i
                                                 class="las la-eye"></i></a>
                                         <a href="#"
                                             class="ml-4"><i class="lar la-copy"></i></a> --}}

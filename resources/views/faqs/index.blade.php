@@ -29,8 +29,18 @@
                                     <td>{{ $faq->id }}</td>
                                     <td>{!! $faq->question !!}</td>
                                     <td>{!! $faq->answer !!}</td>
-                                   
-                          
+
+                                    <td class="d-flex">
+                                        <a href="{{ route('faqs.edit',$faq->id) }}"><i
+                                                  class="lar la-edit"></i></a>
+                                          {{--   <a href="#" class="ml-4"><i
+                                                  class="las la-eye"></i></a>
+                                          <a href="#"
+                                              class="ml-4"><i class="lar la-copy"></i></a> --}}
+                                          <a href="{{ route('faqs.destroy',$faq->id) }}" class="ml-4"><i
+                                                  class="las la-trash-alt"></i></a>
+
+                                      </td>
                                 </tr>
                             @endforeach
                         </tbody>
