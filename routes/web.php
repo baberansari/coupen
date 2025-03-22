@@ -6,6 +6,7 @@ use App\Http\Controllers\GeneralController;
 use App\Http\Controllers\OfferController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\StoresController;
+use App\Http\Controllers\SeoController;
 use App\Models\Category;
 use App\Models\Faq;
 use App\Models\Setting;
@@ -46,6 +47,8 @@ Route::middleware('auth')->group(function(){
     Route::get('faq-create',[FaqController::class,'create'])->name('faqs.create');
     Route::post('faq-store',[FaqController::class,'store'])->name('faqs.store');
     Route::get('faq-destroy/{id}', [OfferController::class,'destroy'])->name('faqs.destroy');
+
+    Route::resource('seo', SeoController::class);
 });
   // This Route For  Store List By Categories
   Route::get('/store-by-category/{slug}',[GeneralController::class,'index'])->name('store-by-category');

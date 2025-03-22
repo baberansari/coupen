@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Store;
+use App\Models\Seo;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 class StoresController extends Controller
@@ -65,22 +66,11 @@ class StoresController extends Controller
             'store_logo_alt_attribute' => 'required|string|max:255',
             'store_name' => 'required|string|max:255',
             // 'store_url' => 'required',
+            'store_affiliate_url' => 'nullable|url',
             'store_slug' => 'required|string|unique:stores,store_slug|max:255',
-            // 'store_affiliate_url' => 'nullable',
-            // 'store_description' => 'required|string',
-            // 'store_rating' => 'nullable|numeric|min:0|max:5',
-            // 'store_how_to_use' => 'nullable|string',
-            // 'store_how_to_use_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            // 'store_buyer_guide' => 'nullable|string',
-            // 'store_buyers_guide_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            // 'store_heading' => 'nullable|string|max:255',
-            // 'store_sidebar_heading' => 'nullable|string|max:255',
-            // 'store_sidebar_content' => 'nullable|string',
-            // 'store_content' => 'nullable|string',
-            // 'store_video_embedded_tittle' => 'nullable|string|max:255',
-            // 'store_video_embedded_code' => 'nullable|string',
-            // 'store_instagram_url' => 'nullable',
-            // 'store_facebook_url' => 'nullable',
+            'store_heading' => 'nullable|string|max:255',
+
+
         ]);
 
         if ($validator->fails()) {
@@ -145,6 +135,22 @@ class StoresController extends Controller
         $store->store_schema_code = $request->store_schema_code;
         $store->created_by =auth()->user()->name;
         $store->save();
+
+        $seo = new Seo();
+        $seo->slug = $request->store_slug;
+        $seo->page_link = 'http://coupen.test/store/'+$request->store_slug;
+        $seo->page_name = $request->store_slug;
+        $seo->seo_page_title = $request->seo_page_title;
+        $seo->seo_meta_title = $request->seo_meta_title;
+        $seo->seo_meta_description = $request->seo_meta_description;
+        $seo->seo_meta_keyword = $request->seo_meta_keyword;
+        $seo->seo_meta_canonical = $request->seo_meta_canonical;
+        $seo->seo_meta_tags = $request->seo_meta_tags;
+        $seo->seo_meta_index = $request->seo_meta_index;
+        $seo->seo_head_script = $request->seo_head_script;
+        $seo->seo_footer_script = $request->seo_footer_script;
+        $seo->store_schema_code = $request->store_schema_code;
+        $seo->save();
         DB::commit();
         return redirect()->route('stores.index')->with('success','Store Add Successfully');
     } catch (\Throwable $th) {

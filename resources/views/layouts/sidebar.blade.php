@@ -18,18 +18,17 @@
                     <li><a href="https://retailescaper.com/admin/master_admin">Users</a></li> --}}
                 </ul>
             </li>
-           {{--   <li>
+      <li>
                 <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-381-layer-1"></i>
                     <span class="nav-text">SEO</span>
                 </a>
                 <ul aria-expanded="false" class="mm-collapse">
-                    <li><a href="https://retailescaper.com/admin/seo">SEO</a></li>
-                    <li><a href="https://retailescaper.com/admin/robots">Robots.txt</a></li>
-                    <li><a href="https://retailescaper.com/admin/sitemap">Sitemap.xml</a></li>
+                    <li><a href="{{ route('seo.index') }}">SEO</a></li>
+
                 </ul>
             </li>
-            <li>
+               {{--     <li>
                 <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-381-internet"></i>
                     <span class="nav-text">Reports</span>
