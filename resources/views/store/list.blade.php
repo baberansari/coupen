@@ -212,7 +212,7 @@
                                 <div class="coupon-content">
                                     <span>${item.offer_type}</span>
                                     <h3>${item.offer_title}</h3>
-                                    <p>${item.offer_discount_number}</p>
+
                                     ${item.offer_verified ?
                                         `<div class="verified">
                                             <span>Verified <i class="far fa-check-circle"
