@@ -49,7 +49,7 @@
                                 <td class="sorting_1">{{ $seo->id }}</td>
                                 <td>{{ $seo->page_name }}</td>
 
-                                <td>{{ $seo->seo_page_link }}</td>
+                                <td>{{ $seo->page_link }}</td>
 
                                 <td>{{ $seo->seo_meta_index }}</td>
 
