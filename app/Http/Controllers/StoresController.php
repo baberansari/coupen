@@ -15,7 +15,7 @@ class StoresController extends Controller
      */
     public function index()
     {
-        $stores =  Store::all();
+        $stores =  Store::withCount('deal','code','faqs')->get();
         return view('store.index',compact('stores'));
     }
 
@@ -33,31 +33,7 @@ class StoresController extends Controller
      */
     public function store(Request $request)
     {
-        // $validator = Validator::make($request->all(), [
-        //     'category_id' => 'required|integer|exists:categories,id',
-        //     'store_sort_number' => 'nullable|integer',
-        //     'store_logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        //     'store_featured_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        //     'store_logo_alt_attribute' => 'required|string|max:255',
-        //     'store_name' => 'required|string|max:255',
-        //     'store_url' => 'required|url',
-        //     'store_slug' => 'required|string|unique:stores,store_slug|max:255',
-        //     'store_affiliate_url' => 'nullable|url',
-        //     'store_description' => 'required|string',
-        //     'store_rating' => 'nullable|numeric|min:0|max:5',
-        //     'store_how_to_use' => 'nullable|string',
-        //     'store_how_to_use_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        //     'store_buyer_guide' => 'nullable|string',
-        //     'store_buyers_guide_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        //     'store_heading' => 'nullable|string|max:255',
-        //     'store_sidebar_heading' => 'nullable|string|max:255',
-        //     'store_sidebar_content' => 'nullable|string',
-        //     'store_content' => 'nullable|string',
-        //     'store_video_embedded_tittle' => 'nullable|string|max:255',
-        //     'store_video_embedded_code' => 'nullable|string',
-        //     'store_instagram_url' => 'nullable|url',
-        //     'store_facebook_url' => 'nullable|url',
-        // ]);
+
         $validator = Validator::make($request->all(), [
             'category_id' => 'required|integer|exists:categories,id',
             // 'store_sort_number' => 'nullable|integer',
@@ -138,7 +114,7 @@ class StoresController extends Controller
 
         $seo = new Seo();
         $seo->slug = $request->store_slug;
-        $seo->page_link = 'http://coupen.test/store/'+$request->store_slug;
+        $seo->page_link = 'https://discountvaults.com/store/'.$request->store_slug;
         $seo->page_name = $request->store_slug;
         $seo->seo_page_title = $request->seo_page_title;
         $seo->seo_meta_title = $request->seo_meta_title;
@@ -261,7 +237,7 @@ class StoresController extends Controller
 
         $seo = new Seo();
         $seo->slug = $request->store_slug;
-        $seo->page_link = '';
+        $seo->page_link = 'https://discountvaults.com/store/'.$request->store_slug;
         $seo->page_name = $request->store_slug;
         $seo->seo_page_title = $request->seo_page_title;
         $seo->seo_meta_title = $request->seo_meta_title;

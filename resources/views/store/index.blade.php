@@ -73,10 +73,10 @@
                                     <td>{{ $value->store_slug }}</td>
                                     <td>Master Admin</td>
                                     <td><a href="{{ route('faqs.index',['store_id'=>$value->id]) }}" class="btn btn-sm btn-primary"><i
-                                                class="fa fa-tags"></i> 0 FAQ's</a></td>
+                                                class="fa fa-tags"></i> {{ $value->faqs_count }} FAQ's</a></td>
                                     <td>
                                         <a href="{{ route('offer.index', ['store_id' => $value->id]) }}" class="btn btn-sm btn-primary">
-                                        <i class="fa fa-tags"></i> 3 Deals, 8 Codes
+                                        <i class="fa fa-tags"></i> {{ $value->deal_count }} Deals, {{ $value->code_count }} Codes
                                     </a>
 
                                     </td>
