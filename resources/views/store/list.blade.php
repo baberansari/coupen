@@ -211,6 +211,7 @@
                                 </div>
                                 <div class="coupon-content">
                                     <span>${item.offer_type}</span>
+                                    <h3>${item.offer_title}</h3>
                                     <p>${item.offer_discount_number}% ${item.offer_discount_tittle}</p>
                                     ${item.offer_verified ?
                                         `<div class="verified">
@@ -222,7 +223,7 @@
                                 </div>
                                 <div class="getcodebtn">
                                     <a onclick="getCode('${item.id}',this)" rel="nofollow noopener sponsored" data-offer_id="${item.id}"
-                                        href="javascript:;" class="offer_anchor" data-offer_affiliate_url="${item.offer_affiliate_url}">
+                                        href="javascript:;" class="offer_anchor" data-offer_affiliate_url="${item.store.store_affiliate_url}">
                                         Get Code
                                     </a>
                                     <span>${item.offer_code || 'N/A'}</span>

@@ -17,13 +17,19 @@ class FaqController extends Controller
         {
             $faq =  $faq->where('store_id',$request->store_id);
         }
+        $store_id =$request->store_id;
         $faqs =   $faq->get();
-        return  view('faqs.index',compact('faqs'));
+        return  view('faqs.index',compact('faqs','store_id'));
     }
-    public function create()
+    public function create(Request $request)
     {
+        $store_id =  $request->store_id;
+        if(empty($store_id))
+        {
+            return redirect()->route('faqs.index');
+        }
         $stores =  Store::all();
-        return view('faqs.create',compact('stores'));
+        return view('faqs.create',compact('stores','store_id'));
     }
     public function store(Request $request)
     {
@@ -47,7 +53,7 @@ class FaqController extends Controller
 
             DB::commit();
 
-            return redirect()->route('faqs.index')->with('success', 'faqs Added Successfully');
+            return redirect()->route('faqs.index',['store_id'=>$request->store_id])->with('success', 'faqs Added Successfully');
         } catch (\Throwable $th) {
             DB::rollback();
             dd($th);

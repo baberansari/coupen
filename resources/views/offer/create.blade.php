@@ -23,9 +23,10 @@
                             <form class="form-valide" role="form" action="{{ route('offer.store') }}"
                                 method="post" enctype="multipart/form-data">
                                 @csrf
+                                <input type="hidden" name="store_id" value="{{ $store_id }}" id="">
                                 <div class="row">
                                     <div class="col-xl-12">
-                                        <div class="form-group row">
+                                        {{-- <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="offer_type"> Store <small
                                                     class="text-danger">( Required )</small>
                                                 <span class="text-danger">*</span>
@@ -41,7 +42,7 @@
                                                 </select>
 
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="offer_type"> Type <small
                                                     class="text-danger">( Required )</small>
@@ -97,7 +98,7 @@
                                                     aria-haspopup="true" aria-expanded="false" aria-readonly="false"
                                                     aria-owns="offer_expiry_date_root" >
 
-                                              
+
 
                                             </div>
                                         </div>

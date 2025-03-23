@@ -34,7 +34,7 @@ class GeneralController extends Controller
         {
             $search = $request->input('type', '');
 
-            $query = Offer::where('store_id',$store->id);
+            $query = Offer::with('store')->where('store_id',$store->id);
             if($search =='code' || $search == 'deal'){
                 $query =  $query->where('offer_type',$search);
             }

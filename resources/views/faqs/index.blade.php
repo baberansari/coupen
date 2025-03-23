@@ -2,10 +2,12 @@
 @section('content')
     <div class="container-fluid">
         <div class="row mb-5 align-items-center">
+            @if($store_id)
             <div class="col-lg-3 mb-4 mb-lg-0">
-                <a href="{{ route('faqs.create') }}"
+                <a href="{{ route('faqs.create',['store_id'=>$store_id]) }}"
                     class="btn btn-primary light btn-lg btn-block rounded shadow px-2">+Add New</a>
             </div>
+            @endif
             <div class="col-lg-3 mb-4 mb-lg-0">
                 <a href="#" class="updateOrder btn btn-primary light btn-lg btn-block rounded shadow px-2"
                     style="display: none;">Update Order</a>
@@ -31,8 +33,10 @@
                                     <td>{!! $faq->answer !!}</td>
 
                                     <td class="d-flex">
+                                        @if($store_id)
                                         <a href="{{ route('faqs.edit',$faq->id) }}"><i
                                                   class="lar la-edit"></i></a>
+                                                  @endif
                                           {{--   <a href="#" class="ml-4"><i
                                                   class="las la-eye"></i></a>
                                           <a href="#"

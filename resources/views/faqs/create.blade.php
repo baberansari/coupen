@@ -15,23 +15,8 @@
                                 @csrf
                                 <div class="row">
                                     <div class="col-xl-12">
-                                        <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="offer_type"> Store <small
-                                                    class="text-danger">( Required )</small>
-                                                <span class="text-danger">*</span>
-                                            </label>
-                                            <div class="col-lg-6">
-                                                <select class="form-control" id="offer_type" name="store_id"
-                                                    data-validation="required" required>
-                                                    <option value="">Select: Store <small class="text-danger">(
-                                                            Required )</small></option>
-                                                        @foreach ($stores as $store)
-                                                        <option value="{{ $store->id }}">{{ $store->store_name }}</option>
-                                                        @endforeach
-                                                </select>
+                                        <input type="hidden" value="{{ $store_id }}" name="store_id">
 
-                                            </div>
-                                        </div>
                                         <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="faq_question"> Question <small
                                                     class="text-danger">( Required )</small>

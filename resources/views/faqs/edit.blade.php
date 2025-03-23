@@ -16,24 +16,8 @@
 
                               <div class="row">
                                   <div class="col-xl-12">
-                                      <div class="form-group row">
-                                          <label class="col-lg-4 col-form-label" for="store_id"> Store <small
-                                                  class="text-danger">( Required )</small>
-                                              <span class="text-danger">*</span>
-                                          </label>
-                                          <div class="col-lg-6">
-                                              <select class="form-control" id="store_id" name="store_id"
-                                                      data-validation="required" required>
-                                                  <option value="">Select: Store <small class="text-danger">(
-                                                          Required )</small></option>
-                                                  @foreach ($stores as $store)
-                                                  <option value="{{ $store->id }}" {{ $faq->store_id == $store->id ? 'selected' : '' }}>
-                                                      {{ $store->store_name }}
-                                                  </option>
-                                                  @endforeach
-                                              </select>
-                                          </div>
-                                      </div>
+                                    <input type="hidden" value="{{ $faq->store_id }}" name="store_id">
+
                                       <div class="form-group row">
                                           <label class="col-lg-4 col-form-label" for="question"> Question <small
                                                   class="text-danger">( Required )</small>

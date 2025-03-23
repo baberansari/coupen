@@ -11,10 +11,12 @@
 
         @endif
         <div class="row mb-5 align-items-center">
+            @if($store_id)
             <div class="col-lg-3 mb-4 mb-lg-0">
-                <a href="{{ route('offer.create') }}"
+                <a href="{{ route('offer.create',['store_id'=>$store_id]) }}"
                     class="btn btn-primary light btn-lg btn-block rounded shadow px-2">+Add New</a>
             </div>
+            @endif
             <div class="col-lg-3 mb-4 mb-lg-0">
                 <a href="#" class="updateOrder btn btn-primary light btn-lg btn-block rounded shadow px-2"
                     style="display: none;">Update Order</a>
@@ -68,7 +70,9 @@
                                     <td class="sorting_1">1</td>
                                     <td>{{ $offer->offer_type }}</td>
 
-                                    <td>Spend ${{ $offer->offer_discount_number }}  &amp;
+                                    <td>
+                                        {{ $offer->offer_title }}
+                                        Spend ${{ $offer->offer_discount_number }}  &amp;
                                         {{ $offer->offer_discount_tittle }} Promo
                                         Code</td>
 
@@ -82,8 +86,10 @@
 
                                     <td>{{ $offer->created_by??'admin' }}</td>
                                     <td class="d-flex">
+                                        @if($store_id)
                                       <a href="{{ route('offer.edit',$offer->id) }}"><i
                                                 class="lar la-edit"></i></a>
+                                                @endif
                                         {{--   <a href="#" class="ml-4"><i
                                                 class="las la-eye"></i></a>
                                         <a href="#"

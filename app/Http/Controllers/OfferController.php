@@ -17,14 +17,19 @@ class OfferController extends Controller
         {
             $offers =  $offers->where('store_id',$request->store_id);
         }
-
+        $store_id =$request->store_id;
         $offers =   $offers->get();
-        return  view('offer.index',compact('offers'));
+        return  view('offer.index',compact('offers','store_id'));
     }
-    public function create()
+    public function create(Request $request)
     {
+        $store_id =$request->store_id;
+        if(empty($store_id))
+        {
+            return redirect()->route('offer.index')->with('success','Store are Missing please Go to store First and Select copne Code and then create Coupen ');
+        }
         $stores =  Store::all();
-        return view('offer.create',compact('stores'));
+        return view('offer.create',compact('store_id'));
     }
     public function store(Request $request)
     {
@@ -37,16 +42,16 @@ class OfferController extends Controller
                 'offer_type' => 'required|in:deal,code',
                 'offer_working' => 'nullable|in:yes,no',
                 'offer_online' => 'required|in:online,in-store',
-                'offer_expiry_date' => 'nullable|date',
+                // 'offer_expiry_date' => 'nullable|date',
                 'offer_title' => 'required|string|max:255',
-                'offer_description' => 'required|string',
-                'offer_trem_condition' => 'required|string',
+                // 'offer_description' => 'required|string',
+                // 'offer_trem_condition' => 'required|string',
                 'offer_code' => 'nullable|string|max:255',
-                'offer_affiliate_url' => 'nullable|string|url',
+                // 'offer_affiliate_url' => 'nullable|string|url',
                 'offer_free_shipping' => 'boolean',
                 'offer_gift' => 'boolean',
-                'offer_discount_tittle' => 'nullable|string|max:255',
-                'offer_discount_number' => 'nullable|string|max:255',
+                // 'offer_discount_tittle' => 'nullable|string|max:255',
+                // 'offer_discount_number' => 'nullable|string|max:255',
                 'offer_verified' => 'boolean',
                 'offer_exclusive' => 'boolean',
                 'offer_home_page_visibility' => 'boolean',
@@ -81,7 +86,7 @@ class OfferController extends Controller
 
             DB::commit();
 
-            return redirect()->route('offer.index')->with('success', 'Offer Added Successfully');
+            return redirect()->route('offer.index',['store_id'=> $request->store_id])->with('success', 'Offer Added Successfully');
         } catch (\Throwable $th) {
             DB::rollback();
             dd($th);
@@ -112,16 +117,16 @@ class OfferController extends Controller
                 'offer_type' => 'required|in:deal,code',
                 'offer_working' => 'nullable|in:yes,no',
                 'offer_online' => 'required|in:online,in-store',
-                'offer_expiry_date' => 'nullable|date',
+                // 'offer_expiry_date' => 'nullable|date',
                 'offer_title' => 'required|string|max:255',
-                'offer_description' => 'required|string',
-                'offer_trem_condition' => 'required|string',
+                // 'offer_description' => 'required|string',
+                // 'offer_trem_condition' => 'required|string',
                 'offer_code' => 'nullable|string|max:255',
-                'offer_affiliate_url' => 'nullable|string|url',
+                // 'offer_affiliate_url' => 'nullable|string|url',
                 'offer_free_shipping' => 'boolean',
                 'offer_gift' => 'boolean',
-                'offer_discount_tittle' => 'nullable|string|max:255',
-                'offer_discount_number' => 'nullable|string|max:255',
+                // 'offer_discount_tittle' => 'nullable|string|max:255',
+                // 'offer_discount_number' => 'nullable|string|max:255',
                 'offer_verified' => 'boolean',
                 'offer_exclusive' => 'boolean',
                 'offer_home_page_visibility' => 'boolean',
@@ -156,7 +161,7 @@ class OfferController extends Controller
 
             DB::commit();
 
-            return redirect()->route('offer.index')->with('success', 'Offer Update Successfully');
+            return redirect()->route('offer.index',['store_id'=> $request->store_id])->with('success', 'Offer Update Successfully');
         } catch (\Throwable $th) {
             DB::rollback();
             dd($th);
