@@ -102,7 +102,7 @@
 
                 @foreach (geTopTrendingCoupen() as $coupen)
                 <div class="col-lg-3 col-md-4">
-                    <a onclick="getCode('{{$coupen->id}}',this)" data-offer_id="{{$coupen->id}}" href="javascript:;" class="offer_anchor" data-offer_affiliate_url="{{$coupen->store->store_affiliate_url}}">
+                    <a onclick="getCode('{{$coupen->id}}',this)" data-offer_id="{{$coupen->id}}" href="javascript:;" class="offer_anchor" data-offer_affiliate_url="{{$coupen->offer_affiliate_url}}">
                         <div class="mainbox">
                             <div class="imgbox">
                                 <img class="w-100" src="{{ asset($coupen->store->store_logo) }}"

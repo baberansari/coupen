@@ -422,7 +422,7 @@
             },
             success: function(response) {
                     jQuery('#coupon_modal .titlebox img').attr('src', base_url + response.data.store.store_logo);
-                    jQuery('#coupon_modal .main_title').html(response.data.offer_discount_tittle);
+                    jQuery('#coupon_modal .main_title').html(response.data.offer_title);
                     if (response.data.offer_type == 'deal') {
                         jQuery('#coupon_modal .code-text').val('NO CODE REQUIRED');
                         jQuery('#coupon_modal .no_code').css('display','block');
