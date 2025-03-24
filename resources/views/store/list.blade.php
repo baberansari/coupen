@@ -224,9 +224,9 @@
                                 <div class="getcodebtn">
                                     <a onclick="getCode('${item.id}',this)" rel="nofollow noopener sponsored" data-offer_id="${item.id}"
                                         href="javascript:;" class="offer_anchor" data-offer_affiliate_url="${item.offer_affiliate_url}">
-                                        Get Code
+                                        Activate Code
                                     </a>
-                                    <span>${item.offer_code || 'N/A'}</span>
+                                    <span>${item.offer_code.toString().slice(-2) || 'N/A'}</span>
                                 </div>
                             </div>
                         `).join('');

@@ -111,12 +111,26 @@ if (! function_exists('getRelatedStoregs')) {
 if (! function_exists('geTopTrendingCoupen')) {
     function geTopTrendingCoupen()
     {
-        $offers = Offer::with('store')->get();
+        $offers = Offer::with('store')->where('offer_home_page_visibility',1)->get();
         if(empty($offers))
         {
             return [];
         }
         return $offers;
+    }
+
+}
+
+if (! function_exists('geTopTrendingStore')) {
+    function geTopTrendingStore()
+    {
+        $store = Store::where('store_slug',1)->get();
+
+        if(empty($store))
+        {
+            return [];
+        }
+        return $store;
     }
 
 }
