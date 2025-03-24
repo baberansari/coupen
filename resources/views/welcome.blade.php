@@ -174,7 +174,7 @@
                                 {{ $category->name }}
                             </li>
                         @endforeach
-                        s
+
                     </ul>
                 </div>
             </div>
