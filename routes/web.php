@@ -26,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-   $stores3 =  Store::take(4)->get();
+   $stores3 =  Store::where('store_nav_bar_visibility',1)->get();
     return view('welcome',compact('stores3'));
 });
 

@@ -99,6 +99,12 @@ class StoresController extends Controller
         $store->store_youtube_url = $request->store_youtube_url;
         $store->store_pinterest_url = $request->store_pinterest_url;
         $store->store_linkedin_url = $request->store_linkedin_url;
+        $store->store_home_page_visibility = $request->store_home_page_visibility;
+        $store->store_home_page_sidebar_visibility = $request->store_home_page_sidebar_visibility;
+        $store->store_home_page_top_store = $request->store_home_page_top_store;
+        $store->store_nav_bar_visibility = $request->store_nav_bar_visibility;
+        $store->store_month_visibility = $request->store_month_visibility;
+        $store->store_sitemap = $request->store_sitemap;
         $store->seo_page_title = $request->seo_page_title;
         $store->seo_meta_title = $request->seo_meta_title;
         $store->seo_meta_description = $request->seo_meta_description;
@@ -162,7 +168,7 @@ class StoresController extends Controller
             // 'store_sort_number' => 'nullable|integer',
             // 'store_logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             // 'store_featured_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'store_logo_alt_attribute' => 'required|string|max:255',
+            'store_logo_alt_attribute' =>
             'store_name' => 'required|string|max:255',
             // 'store_url' => 'required',
             'store_affiliate_url' => 'nullable|url',
@@ -222,6 +228,12 @@ class StoresController extends Controller
         $store->store_youtube_url = $request->store_youtube_url;
         $store->store_pinterest_url = $request->store_pinterest_url;
         $store->store_linkedin_url = $request->store_linkedin_url;
+        $store->store_home_page_visibility = $request->store_home_page_visibility;
+        $store->store_home_page_sidebar_visibility = $request->store_home_page_sidebar_visibility;
+        $store->store_home_page_top_store = $request->store_home_page_top_store;
+        $store->store_nav_bar_visibility = $request->store_nav_bar_visibility;
+        $store->store_month_visibility = $request->store_month_visibility;
+        $store->store_sitemap = $request->store_sitemap;
         $store->seo_page_title = $request->seo_page_title;
         $store->seo_meta_title = $request->seo_meta_title;
         $store->seo_meta_description = $request->seo_meta_description;
