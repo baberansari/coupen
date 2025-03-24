@@ -84,6 +84,14 @@ if (! function_exists('getCategory')) {
     }
 
 }
+if (! function_exists('getTrendingCategory')) {
+    function getTrendingCategory()
+    {
+        $categories =  Category::where('category_home_page_visibility',1)->get();
+        return $categories;
+    }
+
+}
 
 if (! function_exists('settings')) {
     function settings()

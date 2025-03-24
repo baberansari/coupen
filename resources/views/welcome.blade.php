@@ -160,12 +160,12 @@
     <section class="partner-sections pad-y hide_seen">
         <div class="container">
             <div class="main-heading text-center">
-                <h2 class="secondary-text mb-3 fw-700">Category</h2>
+                <h2 class="secondary-text mb-3 fw-700">Trending Category</h2>
             </div>
             <div class="wrap">
                 <div class="slide-container">
                     <ul class="slides">
-                        @foreach (getCategory() as $category)
+                        @foreach (getTrendingCategory() as $category)
                             <li>
                                 <p class="card-2">
                                     <img class="img-fluid" style="    height: 170px;!important"
