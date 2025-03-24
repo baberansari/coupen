@@ -168,7 +168,7 @@ class StoresController extends Controller
             // 'store_sort_number' => 'nullable|integer',
             // 'store_logo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             // 'store_featured_img' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'store_logo_alt_attribute' =>
+
             'store_name' => 'required|string|max:255',
             // 'store_url' => 'required',
             'store_affiliate_url' => 'nullable|url',
