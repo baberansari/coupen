@@ -132,7 +132,7 @@ if (! function_exists('geTopTrendingCoupen')) {
 if (! function_exists('geTopTrendingStore')) {
     function geTopTrendingStore()
     {
-        $store = Store::where('store_slug',1)->get();
+        $store = Store::where('store_home_page_top_store',1)->get();
 
         if(empty($store))
         {

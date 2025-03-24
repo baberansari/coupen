@@ -130,21 +130,21 @@
     <section class="clothing-and-accessories-sec product-tiles">
         <div class="container">
             <div class="sec-title" style="padding-top:20px;">
-                <h3>Top Trending Coupen</h3>
+                <h3>Top Trending Stores</h3>
                 <a href="categories.html">View all</a>
             </div>
             <div class="row">
-                @foreach (geTopTrendingCoupen() as $coupen)
+                @foreach (geTopTrendingStore() as $store_value)
                 <div class="col-lg-3 col-md-4">
-                    <a onclick="getCode('{{$coupen->id}}',this)" data-offer_id="{{$coupen->id}}" href="javascript:;" class="offer_anchor" data-offer_affiliate_url="{{$coupen->offer_affiliate_url}}">
+                    <a  data-offer_id="{{$store_value->id}}" href="{{ route('store',$store_value->store_slug) }}" class="" >
                         <div class="mainbox">
                             <div class="imgbox">
-                                <img class="w-100" src="{{ asset($coupen->store->store_logo) }}"
-                                    alt="{{ asset($coupen->store->store_logo) }}" />
+                                <img class="w-100" src="{{ asset($store_value->store_logo) }}"
+                                    alt="{{ asset($store_value->store_logo) }}" />
                             </div>
                             <div class="contentbox">
-                                <span>{{ $coupen->store->store_name }}</span>
-                                <p>{{ $coupen->offer_exclusive??'Exclusive' }} : {{ $coupen->offer_title }}</p>
+                                <span>{{ $store_value->store_name }}</span>
+                                {{-- <p>{{ $store_value->offer_exclusive??'Exclusive' }} : {{ $store_value->offer_title }}</p> --}}
                             </div>
                         </div>
                     </a>
