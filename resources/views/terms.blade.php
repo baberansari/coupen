@@ -7,7 +7,7 @@
 
             <h2>Terms of Service</h2>
 
-<p>Last Updated: July 2024 - Bold</p>
+<p style="    width: 100%;">Last Updated: July 2024 - Bold</p>
 
 <p>Welcome to Discountvaults.com (&quot;we,&quot; &quot;our,&quot; &quot;us&quot;). These Terms of Service (&quot;Terms&quot;) govern your use of our website, services, and all content, offers, and functionality provided by Discountvaults.com (collectively, the &quot;Site&quot;). By accessing or using the Site, you agree to be bound by these Terms and our Privacy Policy. If you do not agree to these Terms, you should not use the Site.</p>
 

@@ -6,7 +6,7 @@
         <div class="row" style="height: auto !important;">
             <h2>Privacy Policy&nbsp;</h2>
 
-<h3>Last Updated: July 2024</h3>
+<h3 style="    width: 100%;">Last Updated: July 2024</h3>
 
 <p>At Discountvaults.com (&quot;we,&quot; &quot;our,&quot; &quot;us&quot;), we are committed to protecting your privacy and ensuring that your personal information is handled in a safe and responsible manner. This Privacy Policy explains how we collect, use, and protect your information when you visit and use our website, Discountvaults.com (the &quot;Site&quot;). By accessing or using the Site, you agree to the collection and use of information in accordance with this policy.</p>
 
