@@ -71,5 +71,5 @@ Route::middleware('auth')->group(function(){
     return view('privacy');
   })->name('privacy');
   Route::get('/accessibillity',function(){
-    return view('accessibillity');
+    return view('accessibility');
   })->name('accessibillity');
