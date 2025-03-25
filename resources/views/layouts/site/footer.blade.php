@@ -79,9 +79,9 @@
             <div class="row">
                 <div class="col-lg-8 col-md-8">
                     <ul class="list-unstyled d-flex align-items-center">
-                        <li><a rel="nav" href="terms-Condition.html">Terms & Condition</a></li>
-                        <li><a rel="nav" href="privacy-policy.html">Privacy Policy</a></li>
-                        <li><a rel="nav" href="sitemap.html">Sitemap</a></li>
+                        <li><a rel="nav" href="{{ route('termcondition') }}">Terms & Condition</a></li>
+                        <li><a rel="nav" href="{{ route('privacy') }}">Privacy Policy</a></li>
+                        <li><a rel="nav" href="{{ route('accessibillity') }}">Accessibillity</a></li>
                         <li><a rel="nav" href="our_team.html">Our Team</a></li>
                     </ul>
                 </div>

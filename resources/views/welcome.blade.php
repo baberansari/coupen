@@ -252,6 +252,47 @@
             </div>
         </div>
     </section>
+
+    <section class="container ko-faq-section">
+        <div class="ko-container">
+            <h2>Frequently asked questions</h2>
+            <p>Question you might ask about our services.</p>
+            <div class="ko-faq-accordion">
+              
+                    <div class="ko-accordion-item">
+                        <div class="ko-accordion-item-header">How can Discountvaults help me save money while shopping online?</div>
+                        <div class="ko-accordion-item-body">
+                            <p class="ko-accordion-item-body-content">At Discountvaults, you will find tons of coupons, deals, promotions, and sales offers of your desired brand which you can use at Checkout while shopping online. These codes will help you save money.</p>
+                        </div>
+                    </div>
+                    <div class="ko-accordion-item">
+                        <div class="ko-accordion-item-header">How many brands does Discountvaults have discount codes & coupon codes for?</div>
+                        <div class="ko-accordion-item-body">
+                            <p class="ko-accordion-item-body-content">Discountvaults has discount codes & coupon codes for almost 2000+ stores, and brands. Our team of experienced Deal Hunters is constantly looking for latested deals, discounts, and coupon codes for our prestige users so that they can save money while shopping online or in-store.</p>
+                        </div>
+                    </div>
+                    <div class="ko-accordion-item">
+                        <div class="ko-accordion-item-header">Does Discountvaults provide cashback offers?</div>
+                        <div class="ko-accordion-item-body">
+                            <p class="ko-accordion-item-body-content">Right now, we are not offering any Cashback for online purchaes.</p>
+                        </div>
+                    </div>
+                    <div class="ko-accordion-item">
+                        <div class="ko-accordion-item-header">Does Discountvaults have a browser extension?</div>
+                        <div class="ko-accordion-item-body">
+                            <p class="ko-accordion-item-body-content">Right now, Discountvaults have no browser extension but our team of professionals are working on it.</p>
+                        </div>
+                    </div>
+               
+                    <div class="ko-accordion-item">
+                        <div class="ko-accordion-item-header">Does Discountvaults have an Mobile Application?</div>
+                        <div class="ko-accordion-item-body">
+                            <p class="ko-accordion-item-body-content">Right now, Discountvaults have no Mobile Application.</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
     <!-- Coupon Popup End -->
     <!-- Cashback Modal -->
     <div id="cashbackModal" class="modal">
@@ -269,6 +310,20 @@
             </form>
         </div>
     </div>
+    <script>
+        const accordionItemh = document.querySelectorAll(".ko-accordion-item-header");
+        accordionItemh.forEach((accordionItemh) => {
+            accordionItemh.addEventListener("click", (event) => {
+                accordionItemh.classList.toggle("active");
+                const accordionItemBody = accordionItemh.nextElementSibling;
+                if (accordionItemh.classList.contains("active")) {
+                    accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+                } else {
+                    accordionItemBody.style.maxHeight = 0;
+                }
+            });
+        });
+    </script>
     <script>
         $(document).ready(function() {
             const slider = $(".slider");

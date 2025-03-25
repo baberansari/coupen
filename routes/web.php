@@ -63,3 +63,13 @@ Route::middleware('auth')->group(function(){
   //  This Route For Store Web Site Listing
   Route::get('/store/{slug}',[GeneralController::class,'store'])->name('store');
   Route::get('/get-code',[GeneralController::class,'getCode'])->name('getCode');
+
+  Route::get('/termcondition',function(){
+    return view('terms');
+  })->name('termcondition');
+  Route::get('/privacy',function(){
+    return view('privacy');
+  })->name('privacy');
+  Route::get('/accessibillity',function(){
+    return view('accessibillity');
+  })->name('accessibillity');
