@@ -1,93 +1,86 @@
-
-<section class="never-miss-deals-sec">
-    <div class="container">
-        <div class="mainbox">
-            <h3>Never miss another deal</h3>
-            <p>Be the first to get notified as soon as we update a new offer or discount.</p>
-            <div class="subscribe-us">
-                <form>
-                    <input type="email" placeholder="Enter your email address">
-                    <input type="submit" class="btn-primry" value="Subscribe">
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- Footer Start -->
- <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-12">
-
-                    <div class="footer-links">
-                        <h4>Connect with Us</h4>
-                        <ul>
-                            <ul>
-                                <li><a href="https://www.facebook.com/retailescaper" target="_blank">Facebook</a>
+<footer class="mod-footer">
+    <div class="footer-top">
+        <div class="grid_frame">
+            <div class="container_grid clearfix">
+                <div class="grid_3">
+                    <div class="company-info">
+                        <img src="images/logo-gray.png" alt="CouponDay">
+                        <p class="rs">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud</p>
+                        <p class="rs">
+                            1200 Balh Blah Avenue <br>
+                            Hanoi, Vietnam 12137
+                        </p>
+                    </div>
+                </div>
+                <div class="grid_3">
+                    <div class="block social-link">
+                        <h3 class="title-block">Follow us</h3>
+                        <div class="block-content">
+                            <ul class="rs">
+                                <li>
+                                    <i class="fa fa-facebook-square fa-2x"></i>
+                                    <a href="#" target="_blank">Our Facebook page</a>
                                 </li>
-                                <li><a href="https://twitter.com/RetailEscaper" target="_blank">Twitter</a></li>
-                                <li><br></li>
+                                <li>
+                                    <i class="fa fa-twitter-square fa-2x"></i>
+                                    <a href="#" target="_blank">Follow our Tweets</a>
+                                </li>
+                                <li>
+                                    <i class="fa fa-pinterest-square fa-2x"></i>
+                                    <a href="#" target="_blank">Follow our Pin board</a>
+                                </li>
                             </ul>
-                            <p><br></p>
-                        </ul>
+                        </div>
                     </div>
-
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-
-                    <div class="footer-links">
-                        <h4>Popular Events</h4>
-                        <ul>
-                            <ul>
-                                <li>Black Friday</li>
-                                <li>Thanks Giving</li>
-                                <li>Cyber Monday</li>
-                                <li>Valentine's Offer<br></li>
-                            </ul>
-                        </ul>
+                </div><!--end: Follow us -->
+                <div class="grid_3">
+                    <div class="block intro-video">
+                        <h3 class="title-block">Intro Video</h3>
+                        <div class="block-content">
+                            <div class="wrap-video" id="sys_wrap_video">
+                                <div class="lightbox-video">
+                                        <a class="html5lightbox" href="http://player.vimeo.com/video/36932496" title=""><i class="btn-play"></i><img src="images/video-img.png" alt=""></a>     
+                                    </div>
+                            </div>
+                        </div>
                     </div>
-
-                </div>
-                <div class="col-lg-4 col-md-6 col-12">
-
-                    <div class="footer-links">
-                        <h4>General</h4>
-                        <ul>
-                            <ul>
-                                <li><a href="https://phpstack-1204741-4260865.cloudwaysapps.com/about-us"
-                                        target="_blank">About</a></li>
-                                <li><a href="https://phpstack-1204741-4260865.cloudwaysapps.com/scholarship"
-                                        target="_blank">Scholarships</a></li>
-                                <li><a href="https://phpstack-1204741-4260865.cloudwaysapps.com/advertise"
-                                        target="_blank">Partner with us</a></li>
-                                <li><a href="https://phpstack-1204741-4260865.cloudwaysapps.com/categories"
-                                        target="_blank">Categories</a></li>
-                            </ul>
-                        </ul>
+                </div><!--end: Intro Video -->
+                <div class="grid_3">
+                    <div class="block blog-recent">
+                        <h3 class="title-block">Latest blog</h3>
+                        <div class="block-content">
+                            <div class="entry-item flex">
+                                <a class="thumb-left" href="#">
+                                    <img src="images/ex/04-15.jpg" alt="$TITLE">
+                                </a>
+                                <div class="flex-body"><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing eli</a></div>
+                            </div>
+                            <div class="entry-item flex">
+                                <a class="thumb-left" href="#">
+                                    <img src="images/ex/04-16.jpg" alt="$TITLE">
+                                </a>
+                                <div class="flex-body"><a href="#">Ut wisi enim ad minim veniam, quis nostrud</a></div>
+                            </div>
+                        </div>
                     </div>
-
-                </div>
-
-
+                </div><!--end: blog-recent -->
             </div>
         </div>
-    </footer>
-    <div class="copyright">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-8">
-                    <ul class="list-unstyled d-flex align-items-center">
-                        <li><a rel="nav" href="{{ route('termcondition') }}">Terms & Condition</a></li>
-                        <li><a rel="nav" href="{{ route('privacy') }}">Privacy Policy</a></li>
-                        <li><a rel="nav" href="{{ route('accessibillity') }}">Accessibillity</a></li>
-                        <li><a rel="nav" href="our_team.html">Our Team</a></li>
-                    </ul>
+    </div><!--end: .foot-top-->
+    <div class="foot-copyright">
+        <div class="grid_frame">
+            <div class="container_grid clearfix">
+                <div class="left-link">
+                    <a href="#">Home</a>
+                    <a href="#">Term of conditions</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Support</a>
+                    <a href="#">Contact</a>
                 </div>
-                <div class="col-lg-4 col-md-4">
-                    <p>Coupon Codes - Discount Vault &copy;2025 - All rights reserved</p>
+                <div class="copyright">
+                   <a href="templateshub.net">Templates Hub</a>
                 </div>
             </div>
         </div>
     </div>
+</footer>

@@ -3,93 +3,141 @@
 $categories =  getCategory();
 $setting = settings();
  @endphp
- <header style="padding-top: 10px; padding-bottom: 10px;">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-2 col-md-2">
-                <a href="/" class="logo">
-                    <img class="w-100" style="width: 160px !important; height: 80px !important;" src="{{ asset($setting->settings_logo) }}" alt="Header Logo" />
-                </a>
-            </div>
-            <div class="col-lg-6">
-            </div>
-            <div class="col-lg-4 col-md-4">
-                <div class="navigations">
-                    <ul class="d-flex list-unstyled align-items-center menus">
-                        <li class="has-child browse-btn">
-                            <a rel="index nofollow" href="javascript:;">Categories</a>
-                        </li>
-                    </ul>
-                    <div class="other-navigations">
-                        <ul class="list-unstyled d-flex align-items-center">
-                            <li><a href="#" class="btn-primry add_to_chrome">Add To Chrome</a></li>
+<header class="mod-header">
+    <div class="grid_frame">
+        <div class="container_grid clearfix">
+            <div class="grid_12">
+                <div class="header-content clearfix">
+                    <h1 id="logo" class="rs">
+                        <a href="index.html">
+                            <img src="images/logo.png" alt="$SITE_NAME">
+                        </a>
+                    </h1>
+                    <a id="sys_head_login" class="btn btn-green type-login btn-login" href="#">Login</a>
+                    <nav class="main-nav">
+                        <ul id="main-menu" class="nav nav-horizontal clearfix">
+                            <li class="active">
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li>
+                                <a href="coupon.html">Coupons</a>
+                            </li>
+                            <li class="has-sub">
+                                <a href="coupon-code.html">Coupons Code</a>
+                                <ul class="sub-menu">
+                                    <li><a href="coupon-code.html">Coupons Code 1</a></li>
+                                    <li><a href="coupon-code-2.html">Coupons Code 2</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-sub">
+                                <a href="brand-list.html">Brands</a>
+                                <ul class="sub-menu">
+                                    <li><a href="brand-detail-1.html">Brand Detail 1</a></li>
+                                    <li><a href="brand-detail-2.html">Brand Detail 2</a></li>
+                                    <li><a href="brand-detail-3.html">Brand Detail 3</a></li>
+                                    <li><a href="brand-detail-4.html">Brand Detail 4</a></li>
+                                    <li><a href="brand-detail-5.html">Brand Detail 5</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li>
+                                <a href="my-coupon.html">My coupons</a>
+                                <i class="icon iPickRed lbl-count"><span>12</span></i>
+                            </li>
                         </ul>
-                    </div>
+                        <a id="sys_btn_toogle_menu" class="btn-toogle-res-menu" href="#alternate-menu"></a>
+                    </nav>
                 </div>
-
             </div>
         </div>
-        <ul class="d-flex sub-menu browse-sub-menu list-unstyled" style="justify-content: space-around;align-items: flex-end;">
-            @foreach ($categories as $category)
-                <li>
-                    <a rel="index nofollow" href="{{ route('store-by-category',$category->slug) }}">
-                        <img style="width: 67px;"  src="{{ asset($category->image) }}" alt="Sportswear" />
-                        <span>{{ $category->name }}</span>
-                    </a>
-                </li>
-            @endforeach
-
-            <li>
-                <a href="{{ route('categories') }}">
-                    <img   style="width: 67px;" src="{{ asset('assetsite/new/images/category/More.png') }}" alt="Holiday" />
-                    <span>More</span>
-                </a>
-            </li>
-        </ul>
+    </div>
+    <div id="sys_pop_login" class="pop-login">
+        <div class="viewport-pop">
+            <div class="transport-viewer clearfix">
+                <div class="mod-register">
+                    <h3 class="rs title-mod">Hello pretty! Welcome to Couponday.com</h3>
+                    <div class="wrap-form-reg clearfix">
+                        <form action="#">
+                            <div class="left-form">
+                                <label class="wrap-txt" for="sys_email">
+                                    <input class="input-txt" id="sys_email" type="email" placeholder="you@mail.com">
+                                </label>
+                                <label class="wrap-txt" for="sys_pass">
+                                    <input class="input-txt" id="sys_pass" type="password" placeholder="password please!">
+                                </label>
+                                <label class="wrap-check" for="sys_chk_news">
+                                    <input id="sys_chk_news" class="input-chk" type="checkbox"> Remember me
+                                    <i class="icon iUncheck"></i>
+                                    <a class="lost-pass" href="#">Forgot password ?</a>
+                                </label>
+                                <div class="wrap-login-btn">
+                                    <button class="btn-flat gr btn-submit-reg" type="submit">Login</button>
+                                    <div class="sep-connect">
+                                        <span>Or</span>
+                                    </div>
+                                    <div class="grp-connect">
+                                        <a class="btn-flat fb" href="#">Facebook</a>
+                                        <a class="btn-flat gg" href="#">Google</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right-create-acc">
+                                <img class="account" src="images/reg-account.png" alt="Couponday.com">
+                                <p class="lbl-dung-lo rs">Not a member? Don’t worry</p>
+                                <a id="sys_link_reg_panel" href="register.html" class="btn-flat yellow btn-submit-reg">Create an account</a>
+                                <div id="sys_warning_sms" class="warning-sms" data-warning-txt="No spam guarantee,No disturb,Promotion News" style="display: block;">No disturb</div>
+                            </div>
+                        </form>
+                        <i class="line-sep"></i>
+                    </div>
+                </div><!--end: Login panel -->
+                <div class="mod-register">
+                    <h3 class="rs title-mod">Hello pretty! Welcome to Couponday.com</h3>
+                    <div class="desc-reg">Sign up for free and get exclusive access to members-only savings, rewards and special promotions from Coupons.com. Enter in an email and a password or sign up with Facebook.</div>
+                    <div class="wrap-form-reg clearfix">
+                        <form action="#">
+                            <div class="left-form">
+                                <label class="wrap-txt" for="sys_email_reg">
+                                    <input class="input-txt" id="sys_email_reg" type="email" placeholder="you@mail.com">
+                                </label>
+                                <label class="wrap-txt" for="sys_pass_reg">
+                                    <input class="input-txt" id="sys_pass_reg" type="password" placeholder="password please!">
+                                </label>
+                                <label class="wrap-check" for="sys_chk_news_reg">
+                                    <input id="sys_chk_news_reg" class="input-chk" type="checkbox"> Send me the weekly Couponday.com’s offers.
+                                    <i class="icon iUncheck"></i>
+                                </label>
+                                <label class="wrap-check" for="sys_chk_agree">
+                                    <input id="sys_chk_agree" class="input-chk" type="checkbox"> I agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.
+                                    <i class="icon iUncheck"></i>
+                                </label>
+                            </div>
+                            <div class="right-connect">
+                                <button class="btn-flat yellow btn-submit-reg" type="submit">Create an account</button>
+                                <div class="sep-connect">
+                                    <span>Or</span>
+                                </div>
+                                <div class="grp-connect">
+                                    <p class="rs">Sign up using your account on:</p>
+                                    <a class="btn-flat fb" href="#">Facebook</a>
+                                    <a class="btn-flat gg" href="#">Google</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <p class="rs wrap-link-back">
+                        <a id="sys_link_login_panel" href="login.html" class="link-back">
+                            <i class="pick-r"></i>
+                            Back to login
+                        </a>
+                    </p>
+                </div><!--end: Register panel -->
+            </div>
+            <div id="sys_paging_state" class="paging-state">
+                <i class="active"></i>
+                <i></i>
+            </div>
+            <i id="sys_close_login_popup" class="icon iClose close-popop"></i>
+        </div>
     </div>
 </header>
-<div class="mobile-header">
-    <div class="container">
-        <div class="mainbox">
-            <div class="logo">
-                <a href="index.html">
-                    <img class="w-100" src="{{ asset($setting->settings_logo) }}" alt="Header Logo" />
-                </a>
-            </div>
-            <div class="searchbar searchbox" id="searchbox_nav">
-                <input type="search" placeholder="what are you looking for?" />
-                <i class="fa fa-search"></i>
-                <div>
-                    <ul style="border-top-left-radius: 25px;border-top-right-radius: 25px; top: 101%; display:none;"
-                        class="list-unstyled search-results results results_nav">
-
-                    </ul>
-
-                </div>
-            </div>
-            <div class="mobile-nav-btn">
-                <i class="fa fa-bars"></i>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="mobile-nav-main">
-    <div class="mobile-nav">
-        <i class="fa fa-times close_btn"></i>
-        <a href="#" class="logo">
-            <img class="w-100" src="{{ asset($setting->settings_logo) }}" alt="Logo" />
-        </a>
-        <h6>Browse By Category</h6>
-        <ul class="list-unstyled">
-            @foreach ($categories as $category)
-            <li>
-                <a rel="index nofollow" href="{{ route('store-by-category',$category->slug) }}">
-                    <img  src="{{ asset($category->image) }}" alt="Sportswear" />
-                    <span>{{ $category->name }}</span>
-                </a>
-            </li>
-        @endforeach
-
-        </ul>
-    </div>
-</div>
