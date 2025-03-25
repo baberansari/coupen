@@ -9,15 +9,26 @@
 
                     <div id="sys_head_slide" class="head-slide flexslider">
                         <div class="flex-viewport" style="overflow: hidden; position: relative;">
-                            <ul class="slides"
+                            {{-- <ul class="slides"
                                 style="width: 1000%; transition-duration: 0s; transform: translate3d(-1068px, 0px, 0px);">
-                                @foreach (geTopTrendingStore() as $store)
+                                     @foreach (geTopTrendingStore() as $store)
                                   
                                     <li class="clone" aria-hidden="true"
                                         style="width: 1068px; float: left; display: block;">
                                         <img src="https://discountvaults.com/{{ $store->store_logo }}" alt="" draggable="false">
                                     </li>
-                                @endforeach
+                                @endforeach 
+                            </ul> --}}
+                            <ul class="slides">
+                                <li>
+                                    <img src="{{ asset('site/images/ex/01_banner.jpg')}}" alt=""/>
+                                </li>
+                                <li>
+                                    <img src="{{ asset('site/images/ex/02_banner.jpg')}}" alt=""/>
+                                </li>
+                                <li>
+                                    <img src="{{ asset('site/images/ex/03_banner.jpg')}}" alt=""/>
+                                </li>
                             </ul>
                         </div>
                         <ol class="flex-control-nav flex-control-paging">
