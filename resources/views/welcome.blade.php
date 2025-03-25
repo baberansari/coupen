@@ -15,7 +15,7 @@
                                   
                                     <li class="clone" aria-hidden="true"
                                         style="width: 1068px; float: left; display: block;">
-                                        <img src="{{ asset($store->store_logo) }}" alt="" draggable="false">
+                                        <img src="https://discountvaults.com/{{ $store->store_logo }}" alt="" draggable="false">
                                     </li>
                                 @endforeach
                             </ul>
@@ -112,7 +112,7 @@
                             <div class="img-thumb-center">
                                 <div class="wrap-img-thumb">
                                     <span class="ver_hold"></span>
-                                    <a href="#" class="ver_container"><img src="{{ asset( $coupen->store->store_logo) }}"
+                                    <a href="#" class="ver_container"><img src="https://discountvaults.com/{{ $coupen->store->store_logo }}"
                                             alt="$COUPON_TITLE"></a>
                                 </div>
                             </div>
@@ -145,7 +145,7 @@
                             <div class="img-thumb-center">
                                 <div class="wrap-img-thumb">
                                     <span class="ver_hold"></span>
-                                    <a href="#" class="ver_container"><img src="{{ asset( $store->store_logo) }}"
+                                    <a href="#" class="ver_container"><img src="https://discountvaults.com/{{$store->store_logo}}"
                                             alt="$COUPON_TITLE"></a>
                                 </div>
                             </div>
@@ -193,7 +193,7 @@
                             <div class="brand-logo">
                                 <div class="wrap-img-logo">
                                     <span class="ver_hold"></span>
-                                    <a href="{{ route('store-by-category',$category->slug) }}" class="ver_container"><img src="{{ asset($category->image) }}"
+                                    <a href="{{ route('store-by-category',$category->slug) }}" class="ver_container"><img src="https://discountvaults.com/{{$category->image}}"
                                             alt="$BRAND_TITLE"></a>
                                             {{ $category->name }}
                                 </div>
