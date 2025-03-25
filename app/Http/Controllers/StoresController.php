@@ -171,7 +171,7 @@ class StoresController extends Controller
 
             'store_name' => 'required|string|max:255',
             // 'store_url' => 'required',
-            'store_affiliate_url' => 'nullable|url',
+            // 'store_affiliate_url' => 'nullable|url',
             'store_slug' => 'required',
             'store_heading' => 'nullable|string|max:255',
 

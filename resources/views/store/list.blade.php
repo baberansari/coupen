@@ -31,55 +31,16 @@
             margin: 5px;
             padding-left: 11px;
         }
+        .store-sec h3{
+            text-align: left;
+            text-decoration: none;
+            color: #000000
+        }
     </style>
     <section class="store-sec sec-padding" style="height: auto !important;">
         <div class="container" style="height: auto !important;">
             <div class="row" style="height: auto !important;">
-                <div class="col-lg-3" style="height: auto !important; min-height: 0px !important;">
-                    <div class="main-sidebar" style="height: auto !important;">
-                        <a class="store-img" href="{{ route('store',$store->store_slug) }}">
-                            <img class="w-100" src="{{ asset($store->store_logo) }}"
-                                alt="{{ $store->store_name }} coupons and coupon codes">
-                        </a>
-                        <span class="store-short-desc"><a class="show-more" href="javascript:;" style="display: none;">Show more</a></span>
-                        <div class="store-sidebar" style="height: auto !important;">
-                            <div class="available-offers">
-                                <p>Coupon Type</p>
-                                <div class="available-options">
-                                    <label>
-                                        <input name="offer_type" type="radio" class="slectOne" id="all"
-                                            data-id="all" checked="">
-                                        <span>All Offers</span>
-                                    </label>
-                                    <label>
-                                        <input name="offer_type" type="radio" class="slectOne" data-id="code">
-                                        <span>Coupons</span>
-                                    </label>
-                                    <label>
-                                        <input name="offer_type" type="radio" class="slectOne" data-id="deal">
-                                        <span>Deals</span>
-                                    </label>
-                                </div>
-                            </div>
-                            {{-- Realted  Store  --}}
-                            <div class="today-top-offers related-stores">
-                                <h4>Related stores</h4>
-                                <ul>
-                                    @foreach (getRelatedStoregs($slug) as $related)
-                                    <li>
-                                        <a href="{{ route('store',$related->store_slug) }}" target="_blank">
-                                         {{$related->store_name}} </a>
-                                    </li>
-                                    @endforeach
 
-                                </ul>
-                            </div>
-                                {{-- ENd Related STore  --}}
-                            <div class="social-media-store-kit">
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-lg-9 main-contentbar">
                     <div class="tile-mainbox">
                         <div class="store-img">
@@ -124,6 +85,53 @@
 
                         </div>
                       </div>
+                </div>
+                <div class="col-lg-3" style="height: auto !important; min-height: 0px !important;">
+                    <div class="main-sidebar" style="height: auto !important;">
+                        <a class="store-img" href="{{ route('store',$store->store_slug) }}">
+                            <img class="w-100" src="{{ asset($store->store_logo) }}"
+                                alt="{{ $store->store_name }} coupons and coupon codes">
+                                <h3>{{ $store->store_name }}</h3>
+                        </a>
+
+                        <span class="store-short-desc"><a class="show-more" href="javascript:;" style="display: none;">Show more</a></span>
+                        <div class="store-sidebar" style="height: auto !important;">
+                            <div class="available-offers">
+                                <p>Coupon Type</p>
+                                <div class="available-options">
+                                    <label>
+                                        <input name="offer_type" type="radio" class="slectOne" id="all"
+                                            data-id="all" checked="">
+                                        <span>All Offers</span>
+                                    </label>
+                                    <label>
+                                        <input name="offer_type" type="radio" class="slectOne" data-id="code">
+                                        <span>Coupons</span>
+                                    </label>
+                                    <label>
+                                        <input name="offer_type" type="radio" class="slectOne" data-id="deal">
+                                        <span>Deals</span>
+                                    </label>
+                                </div>
+                            </div>
+                            {{-- Realted  Store  --}}
+                            <div class="today-top-offers related-stores">
+                                <h4>Related stores</h4>
+                                <ul>
+                                    @foreach (getRelatedStoregs($slug) as $related)
+                                    <li>
+                                        <a href="{{ route('store',$related->store_slug) }}" target="_blank">
+                                         {{$related->store_name}} </a>
+                                    </li>
+                                    @endforeach
+
+                                </ul>
+                            </div>
+                                {{-- ENd Related STore  --}}
+                            <div class="social-media-store-kit">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
