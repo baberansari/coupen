@@ -1,8 +1,8 @@
 on:
   push:
-    branches: [main]
+    branches: [newtheme]
   pull_request:
-    branches: [main]
+    branches: [newtheme]
 name: 🚀 Deploy website on push
 jobs:
   web-deploy:
