@@ -73,3 +73,10 @@ Route::middleware('auth')->group(function(){
   Route::get('/accessibillity',function(){
     return view('accessibility');
   })->name('accessibillity');
+
+  Route::get('/coupen',function(){
+    return view('coupen');
+  })->name('coupen');
+  Route::get('/blog',function(){
+    return view('blog');
+  })->name('blog');

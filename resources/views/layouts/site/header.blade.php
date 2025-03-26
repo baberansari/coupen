@@ -13,14 +13,14 @@ $setting = settings();
                             <img style="width: 38px;" src="{{ asset($setting->settings_logo)}}" alt="$SITE_NAME">
                         </a>
                     </h1>
-                    <a id="sys_head_login" class="btn btn-green type-login btn-login" href="#">Login</a>
+                    {{-- <a id="sys_head_login" class="btn btn-green type-login btn-login" href="#">Login</a> --}}
                     <nav class="main-nav">
                         <ul id="main-menu" class="nav nav-horizontal clearfix">
                             <li class="active">
                                 <a href="/">Home</a>
                             </li>
                             <li>
-                                <a href="coupon.html">Coupons</a>
+                                <a href="{{ route('coupen') }}">Coupons</a>
                             </li>
                             {{-- <li class="has-sub">
                                 <a href="coupon-code.html">Coupons Code</a>
@@ -38,7 +38,7 @@ $setting = settings();
                                     <li><a href="{{ route('categories') }}">more</a></li>
                                 </ul>
                             </li>
-                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="{{ route('blog') }}">Blog</a></li>
                             {{-- <li>
                                 <a href="my-coupon.html">Stores</a>
                                 <i class="icon iPickRed lbl-count"><span>12</span></i>
