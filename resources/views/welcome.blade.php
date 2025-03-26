@@ -46,7 +46,7 @@
 
     {{-- End slider --}}
     {{-- Filter --}}
-    <div id="sys_mod_filter" class="mod-filter fix-top">
+    {{-- <div id="sys_mod_filter" class="mod-filter fix-top">
         <div class="grid_frame">
             <div class="container_grid clearfix">
                 <div class="grid_12">
@@ -100,8 +100,8 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div id="sys_tmp_height_filter" style="height: 80px;"></div>
+    </div> --}}
+    {{-- <div id="sys_tmp_height_filter" style="height: 80px;"></div> --}}
     {{-- Filter  --}}
 
     {{-- Grid Fram  --}}
