@@ -132,7 +132,7 @@
                             <div class="coupon-desc">{{ $coupen->offer_title }} </div>
                             <div class="time-left">{{ $coupen->offer_expiry_date }}</div>
                             <a class="btn btn-blue btn-take-coupon"
-                            type="button"  onclick="getCode('{{ $coupen->id }}',this)" data-offer_id="{{ $coupen->id  }}}"
+                            type="button"  onclick="getCode('{{ $coupen->id }}',this)" data-offer_id="{{ $coupen->id  }}"
                                     href="javascript:;" class="offer_anchor" data-offer_affiliate_url="{{ $coupen->offer_affiliate_url}}"
 
                             >Take Coupon</a>
