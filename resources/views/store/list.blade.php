@@ -1,183 +1,145 @@
 @extends('layouts.site.site')
-
 @section('content')
-    <style>
-        ol {
-            margin-left: 21px;
-        }
-
-        .coupons-tiles .coupon-content span {
-            font-size: 14px;
-            text-transform: uppercase;
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        .store-sidebar h3 {
-            font-size: 17px;
-        }
-
-        .store-sidebar .hints-tips ul {
-            font-weight: 400;
-        }
-
-        span.ali_madad {
-            background-color: cornflowerblue;
-            width: 120px;
-            padding: 7px;
-            color: aliceblue;
-            font-size: 12px;
-            border-radius: 10px;
-            margin: 5px;
-            padding-left: 11px;
-        }
-        .store-sec h3{
-            text-align: left;
-            text-decoration: none;
-            color: #000000
-        }
-    </style>
-    <section class="store-sec sec-padding" style="height: auto !important;">
-        <div class="container" style="height: auto !important;">
-            <div class="row" style="height: auto !important;">
-
-                <div class="col-lg-9 main-contentbar">
-                    <div class="tile-mainbox">
-                        <div class="store-img">
-                            <img src="{{ asset($store->store_logo) }}" alt="{{ asset($store->store_logo) }}">
-                        </div>
-                        <div class="sec-title">
-                            <span class="ali_madad">Ya Ali. AS Madad</span>
-                            <h1>{{ $store->store_name }}</h1>
-                            <h2 class="store_tit"><img class="reload_image" src="{{ asset('assets/admin/images/updatee.svg')}}" alt=""> 6 coupon
-                                codes updated on 21 March, 2025</h2>
-                            <ul class="list-unstyled d-flex">
-                                <li>Delivery</li>
-                                <li>Free Shipping</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="desktop-coupon-tiles">
-                        <div id="data-table" style="display:block;"  class="coupons-tiles all  data-table">
-                        </div>
-                    </div>
-
-
-
-
-                    <div class="store-tabbing mobile-tabbing">
-                        <div class="tabs">
-                          <ul>
-                            <li data-tab="all" class="active">All Offers</li>
-                            <li data-tab="code">Coupons</li>
-                            <li data-tab="deal">Deals</li>
-                          </ul>
-                        </div>
-                        <span class="store-short-desc"
-                          >When you buy through links on Retailescaper we may earn a
-                          commission. <a href="#">Learn More</a></span
-                        >
-                        <div class="tabbing-content">
-                          <div class="tab-content active">
-                            <div class="coupons-tiles data-table">
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
-                </div>
-                <div class="col-lg-3" style="height: auto !important; min-height: 0px !important;">
-                    <div class="main-sidebar" style="height: auto !important;">
-                        <a class="store-img" href="{{ route('store',$store->store_slug) }}">
-                            <img class="w-100" src="{{ asset($store->store_logo) }}"
-                                alt="{{ $store->store_name }} coupons and coupon codes">
-                                <h3>{{ $store->store_name }}</h3>
-                        </a>
-
-                        <span class="store-short-desc"><a class="show-more" href="javascript:;" style="display: none;">Show more</a></span>
-                        <div class="store-sidebar" style="height: auto !important;">
-                            <div class="available-offers">
-                                <p>Coupon Type</p>
-                                <div class="available-options">
-                                    <label>
-                                        <input name="offer_type" type="radio" class="slectOne" id="all"
-                                            data-id="all" checked="">
-                                        <span>All Offers</span>
-                                    </label>
-                                    <label>
-                                        <input name="offer_type" type="radio" class="slectOne" data-id="code">
-                                        <span>Coupons</span>
-                                    </label>
-                                    <label>
-                                        <input name="offer_type" type="radio" class="slectOne" data-id="deal">
-                                        <span>Deals</span>
-                                    </label>
+<style>
+    .gray .coupon-item:hover .coupon-content, .gray .coupons-code-item
+    {
+            border-color: #04BFBF;
+    }
+</style>
+<div class="grid_frame page-content">
+    <div class="container_grid">
+        <div class="layout-2cols clearfix">
+            <div class="grid_8 content">
+                <div class="mod-coupons-code">
+                    <div class="wrap-list data-table">
+                        {{-- <div class="coupons-code-item right-action flex">
+                            <div class="brand-logo thumb-left">
+                                <div class="wrap-logo">
+                                    <div class="center-img">
+                                        <span class="ver_hold"></span>
+                                        <a href="#" class="ver_container"><img src="images/ex/04-06.jpg" alt="$BRAND_NAME"></a>
+                                    </div>
                                 </div>
                             </div>
-                            {{-- Realted  Store  --}}
-                            <div class="today-top-offers related-stores">
-                                <h4>Related stores</h4>
-                                <ul>
-                                    @foreach (getRelatedStoregs($slug) as $related)
-                                    <li>
-                                        <a href="{{ route('store',$related->store_slug) }}" target="_blank">
-                                         {{$related->store_name}} </a>
-                                    </li>
-                                    @endforeach
+                            <div class="right-content flex-body">
+                                <p class="rs save-price"><a href="#">Save 20%-50% Off All Vitamin World Brand Items</a></p>
+                                <p class="rs coupon-desc">Must book by 11:59PM CT on 11/17/13. Travel completed by 3/30/14.</p>
+                                <div class="bottom-action">
+                                    <div class="left-vote">
+                                        <span class="lbl-work">100% work</span>
+                                        <span>
+                                            <span class="lbl-vote">12 <i class="icon iAddVote"></i></span>
+                                            <span class="lbl-vote">2 <i class="icon iSubVote"></i></span>
+                                        </span>
+                                    </div>
+                                    <a class="btn btn-blue btn-view-coupon" href="#">VIEW <span>COUPON</span> CODE</a>
+                                </div>
+                            </div>
+                        </div><!--end: .coupons-code-item --> --}}
 
-                                </ul>
-                            </div>
-                                {{-- ENd Related STore  --}}
-                            <div class="social-media-store-kit">
-                            </div>
+                    </div>
+                    <div id="pagination-links" class="table-pagination pagination">
+                    </div>
+                </div><!--end: .mod-coupons-code -->
+            </div>
+            <div class="grid_4 sidebar">
+                <div class="mod-search block">
+                    <h3 class="title-block">{{ $store->store_name }}</h3>
+                    <div class="block-content">
+                        <div class="store-img">
+                            <img style="width:225p×;height:225px;" src="{{ asset($store->store_logo) }}" alt="{{ asset($store->store_logo) }}">
+                        </div>
+                        {{-- <label class="lbl-wrap" for="sys_search_coupon_code">
+                            <input class="keyword-search" id="sys_search_coupon_code" type="search" placeholder="Search">
+                            <input type="submit" class="btn-search" value="">
+                        </label> --}}
+                    </div>
+                </div><!--end: .mod-search -->
+
+                <div class="mod-popular-tag block">
+                    <h3 class="title-block">Search By Type</h3>
+                    <div class="block-content">
+                        <label>
+                            <input name="offer_type" type="radio" class="slectOne" id="all"
+                                data-id="all" checked="">
+                            <span  class="btn btn-gray type-tag">All Offers</span>
+                        </label>
+                        <label>
+                            <input name="offer_type" type="radio" class="slectOne" data-id="code">
+                            <span  class="btn btn-gray type-tag">Coupons</span>
+                        </label>
+                        <label>
+                            <input name="offer_type" type="radio" class="slectOne" data-id="deal">
+                            <span  class="btn btn-gray type-tag">Deals</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="mod-list-store block">
+                    <h3 class="title-block">Related  store</h3>
+                    <div class="block-content">
+                        <div class="wrap-list-store clearfix">
+                            @foreach (getRelatedStoregs($slug) as $related)
+                            <a class="brand-logo" href="{{ route('store',$related->store_slug) }}">
+                                <span class="wrap-logo">
+                                    <span class="center-img">
+                                        <span class="ver_hold"></span>
+                                        <span class="ver_container"><img src=" {{asset($related->store_logo)}}" alt="$BRAND_NAME">
+                                        {{ $related->store_name }}
+                                        </span>
+                                    </span>
+                                </span>
+                            </a>
+                            @endforeach
+
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="offset-lg-3 col-lg-9 ">
-                    <div id="pagination-links" class="table-pagination">
+                </div><!--end: .mod-list-store -->
+                <div class="mod-simple-coupon block">
+                    <h3 class="title-block">Latest coupon</h3>
+                    <div class="block-content">
+                        <div class="coupons-code-item simple flex">
+                            <div class="brand-logo thumb-left">
+                                <div class="wrap-logo">
+                                    <div class="center-img">
+                                        <span class="ver_hold"></span>
+                                        <a href="#" class="ver_container"><img src="images/ex/04-13.jpg" alt="$BRAND_NAME"></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right-content flex-body">
+                                <p class="rs save-price"><a href="#">Save 10% Off a New Hotel Booking at Participating Price Match Guarantee Hotels</a></p>
+                            </div>
+                        </div><!--end: .coupons-code-item -->
 
                     </div>
-                </div>
+                </div><!--end: .mod-simple-coupon -->
+                <div class="mod-ads"><a href="#"><img src="images/ex/04-17.jpg" alt="$NAME"></a></div>
+
             </div>
         </div>
-    </section>
+        <div class="layout-2cols clearfix">
+        @if(!empty($store->faqs) && count($store->faqs)>0)
+                <section class="container ko-faq-section">
+                    <div class="ko-container">
+                    <h2>Frequently asked questions</h2>
+                    <p>Question you might ask about our services.</p>
+                    <div class="ko-faq-accordion">
+                        @foreach ($store->faqs as $faq)
+                        <div class="ko-accordion-item">
+                        <div class="ko-accordion-item-header">{!! $faq->question  !!}?</div>
+                        <div class="ko-accordion-item-body">
+                            <p class="ko-accordion-item-body-content">{!! $faq->answer  !!}</p>
+                        </div>
+                        </div>
+                        @endforeach
+                    </div>
 
-{{--  Faq Section  --}}
-
-@if(!empty($store->faqs) && count($store->faqs)>0)
-
-    <section class="container ko-faq-section">
-        <div class="ko-container">
-          <h2>Frequently asked questions</h2>
-          <p>Question you might ask about our services.</p>
-          <div class="ko-faq-accordion">
-            @foreach ($store->faqs as $faq)
-            <div class="ko-accordion-item">
-              <div class="ko-accordion-item-header">{!! $faq->question  !!}?</div>
-              <div class="ko-accordion-item-body">
-                <p class="ko-accordion-item-body-content">{!! $faq->answer  !!}</p>
-              </div>
-            </div>
-            @endforeach
-
-
-          </div>
-          {{-- <div class="ko-ask-qus">
-            <h3>Still have questions?</h3>
-            <p>Can't find the answer you're looking for? Please Ask the question.</p>
-            <form action="#">
-              <div class="ko-form-cotrl">
-                <input type="text" class="ko-faq-input-field" placeholder="Ask the question" />
-              </div>
-              <button class="ko-btn" type="submit">Ask Now</button>
-            </form>
-          </div> --}}
+                    </div>
+                </section>
+            @endif
         </div>
-      </section>
-
-@endif
+    </div>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
 <script>
   $(document).ready(function() {
@@ -210,16 +172,21 @@
                 console.log(response.data);
 
                 let tableRows = response.data.map(item => `
-                            <div class="coupon-tile">
-                                <div class="discount-percentage">
-                                    ${item.offer_free_shipping ?
-                                        '<h4><i class="fas fa-shipping-fast" style="font-size:50px"></i></h4>' :
+                           <div class="coupons-code-item right-action flex">
+                            <div class="brand-logo thumb-left">
+                                <div class="wrap-logo">
+                                    <div class="center-img">
+                                        <span class="ver_hold"></span>
+                                        <a href="#" class="ver_container">  ${item.offer_free_shipping ?
+                                        '<img src="{{ asset("site/images/8552007.png") }}" alt="$BRAND_NAME">' :
                                         `<h4>${item.offer_discount_number}%</h4>`
-                                    }
+                                    }</a>
+                                    </div>
                                 </div>
-                                <div class="coupon-content">
-                                    <span>${item.offer_type}</span>
-                                    <h3>${item.offer_title}</h3>
+                            </div>
+                            <div class="right-content flex-body">
+                                <p class="rs save-price"><a href="#">${item.offer_title}</a></p>
+                                <p class="rs coupon-desc">
 
                                     ${item.offer_verified ?
                                         `<div class="verified">
@@ -228,15 +195,21 @@
                                             </i></span>
                                         </div>` : ''
                                     }
-                                </div>
-                                <div class="getcodebtn">
-                                    <a onclick="getCode('${item.id}',this)" rel="nofollow noopener sponsored" data-offer_id="${item.id}"
-                                        href="javascript:;" class="offer_anchor" data-offer_affiliate_url="${item.offer_affiliate_url}">
-                                        Activate Code
-                                    </a>
-                                    <span>${item.offer_code.toString().slice(-2) || 'N/A'}</span>
+                                        ${item.offer_type}
+                                    </p>
+                                <div class="bottom-action">
+                                    <div class="left-vote">
+                                        <span class="lbl-work">${item.offer_type}</span>
+                                        <span>
+                                            <span class="lbl-vote">12 <i class="icon iAddVote"></i></span>
+                                            <span class="lbl-vote">2 <i class="icon iSubVote"></i></span>
+                                        </span>
+                                    </div>
+                                    <button type="button" class="btn btn-blue btn-view-coupon" onclick="getCode('${item.id}',this)" data-offer_id="${item.id}"
+                                    href="javascript:;" class="offer_anchor" data-offer_affiliate_url="${item.offer_affiliate_url}">VIEW <span>COUPON</span> CODE</button>
                                 </div>
                             </div>
+                        </div>
                         `).join('');
 
                         $('.data-table').html(tableRows);
@@ -251,8 +224,8 @@
                   $('#pagination-links').html(`
                    <div class="page-no">Page ${currentPage} of ${lastPage}</div>
                    <div class="pagination-btns">
-                      ${prevPageUrl ? '<button id="prev-btn">Previous</button>' : '<button id="prev-btn">Previous</button>'}
-                      ${nextPageUrl ? '<button id="next-btn">Next</button>' : '<button id="next-btn">Next</button>'}
+                      ${prevPageUrl ? ' <a class="page-nav" id="prev-btn"><i class="icon iPrev"></i></a>' : '<a class="page-nav" id="prev-btn"><i class="icon iPrev"></i></a>'}
+                      ${nextPageUrl ? ' <a class="page-nav"id="next-btn"><i class="icon iNext"></i></a>' : '<a class="page-nav"id="next-btn"><i class="icon iNext"></i></a>'}
                   </div>
                       `);
               }
@@ -309,3 +282,4 @@ accordionItemh.forEach((accordionItemh) => {
 
     </script>
 @endsection
+

@@ -1,98 +1,71 @@
 @extends('layouts.site.site')
+
 @section('content')
 <style>
-    .baby{
-    width: 100%;
-    float: left;
+  .gray .coupon-item .coupon-content, .gray .coupons-code-item {
+
+            border-color: #04BFBF  !important;
     }
-    
-    .product-tiles .mainbox .contentbox{
-    padding: 0px !important;
-    border-top: 0px !important;
-    }
-    
-    .swingup{
-    margin-top: 8px !important;
-    }
-    
-    .mainbb{
-    width: 100%;
-    float: left;
-    }
-    
-    .sidebarc{
-    width: 28%;
-    margin-left: 5px;
-    float: left;
-    padding-left: 5px;
-    }
-    
-    
-    
-     @media screen and (max-width: 800px) {
-    .baby{
-    width: 100%;
-    float: left;
-    }
-    
-    .mainbb{
-    width: 100%;
-    float: left;
-    }
-    
-    .sidebarc{
-    width: 100%;
-    margin-left: 5px;
-    
-    float: right;
-    }
-    
-    }
-    </style>
-    <div class="mainbb">
-        <section class="top-store-category-sec sec-padding">
-            <div class="container">
-                <div class="content-entry">
-                    <div class="accordion-title">
-                        <h1>{{ $category->name }} Recent Offers &amp; Deals</h1>
-                        @if(empty($stores) || count($stores) == 0)
-                              <img style="width: 100%;" src="{{ asset('assets/admin/images/nofound.jpg') }}" alt="No Data Found" />
-                        @endif
-                    </div>
-                    <div class="product-tiles">
-                        <div class="row baby">
-                            @foreach ($stores as $store)
-                            <div class="col-lg-3 col-md-3 swingup">
-                                <a href="{{ route('store',$store->store_slug) }}">
-                                    <div class="mainbox">
-                                        <div class="imgbox">
-                                            <img class="w-100"
-                                                src="{{ asset($store->store_logo) }}"
-                                                alt="{{ asset($store->store_logo) }}">
-                                        </div>
-                                        <div class="contentbox">
-                                            <span>{{ $store->store_name }}</span>
-                                          
-                                            <p>{{ $store->store_description }}</p>
-                                        </div>
+</style>
+<div class="top-area">
+    <div class="grid_frame">
+        <div class="container_grid clearfix">
+            <div class="grid_12">
+                <h2 class="page-title">{{ $category->name }} Recent Offers &amp; Deals</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="grid_frame page-content">
+    <div class="container_grid">
+        <div class="my-coupon mod-grp-coupon block clearfix tabbable tab-style-2">
+            <div class="grid_12">
+                <h3 class="title-block">
+                    <span class="wrap-tab clearfix">
+                        <span class="lbl-tab active">Store ({{ $stores->count() }})</span>
+
+                    </span>
+                </h3>
+            </div>
+            <div class="block-content list-coupon clearfix">
+                <div class="tab-content">
+                    <div class="tab-content-item clearfix active">
+                        @foreach ($stores as $store)
+                        <div class="coupon-item grid_3">
+                            <div class="coupon-content">
+                                <div class="img-thumb-center">
+                                    <div class="wrap-img-thumb">
+                                        <span class="ver_hold"></span>
+                                        <a href="#" class="ver_container"><img src="{{ asset($store->store_logo) }}"
+                                            alt="{{ asset($store->store_logo) }}"></a>
                                     </div>
-                                </a>
+                                </div>
+                                {{-- <div class="coupon-price">$2.00 Off</div> --}}
+                                <div class="coupon-brand">{{  $store->store_name }}</div>
+                                <div class="coupon-desc">{!!  $store->store_description !!} </div>
+                                {{-- <div class="time-left">9 days 4 hours left</div> --}}
+                                <br>
+                                <a class="btn-discard" href="{{ route('store',$store->store_slug) }}">View Coup</a>
                             </div>
-                            @endforeach
-                        
-                        </div>
-                        @if(empty($stores) || count($stores) > 0)
-                        {{-- <aside class="sidebarc">
-                            <div>
-                                <h4>About {{ $category->name }} Codes &amp; Deals</h4>
-                                Get All the Latest &amp; Verified {{ $category->name }}  Deals &amp; Discount from discountvaults.com |
-                                Verified Deals for 2021
+                            <i class="stick-lbl hot-sale"></i>
+                        </div><!--end: .coupon-item -->
+                        @endforeach
+                        {{-- <div class="grid_12">
+                            <div class="pagination">
+                                <a class="txt-nav" href="#">Newer <span>post</span></a>
+                                <a class="page-num active" href="#">1</a>
+                                <a class="page-num" href="#">2</a>
+                                <a class="page-num" href="#">3</a>
+                                <a class="page-num" href="#">4</a>
+                                <a class="page-num" href="#">5</a>
+                                <a class="txt-nav" href="#">Older <span>post</span></a>
                             </div>
-                        </aside> --}}
-                        @endif
-                    </div>
+                        </div> --}}
+                    </div><!--end: tab coupon-->
                 </div>
             </div>
-        </section>
+        </div><!--end block: Tab Coupons-->
     </div>
+</div>
 @endsection

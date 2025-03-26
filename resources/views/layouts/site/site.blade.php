@@ -48,50 +48,57 @@
         <div class="coupon-popup-main">
             <div class="container">
                 <div class="contentbox">
-                    <i class="close-btn fas fa-times"></i>
-                    <div class="row">
-                        <div class="titlebox margin_title col-md-3">
-                            <img src="https://retailescaper.com/uploads/store/climbing-247-discount-code.png" alt="Brand Image">
-                        </div>
-                        <div class="copy-code col-md-8" id="">
-                             <h4 class="main_title">15% rabatt på alla beställningar</h4>
-                             <h4 class="no_code" style="display: none;">No coupon code required.</h4>
-                                <div class="description" style="line: height 1.4em; margin:5px; margin-top:9px;">
-                                    Join $100 Cashback offer by signing up for the program <br> using this link button:
-                                </div>
+                    <button type="button" onclick="closed()"><i   class="icon iClose close-popop"></i></button>
 
-                             <div class="mycustom">
+                    <div class="container_grid">
+                        <div class="layout-2cols clearfix">
+                            <div class="grid_3 content titlebox margin_title">
+                                <img src="https://retailescaper.com/uploads/store/climbing-247-discount-code.png" alt="Brand Image">
+                            </div>
+                             <div class="copy-code grid_8">
+                                <h4 class="main_title">15% rabatt på alla beställningar</h4>
+                                <h4 class="no_code" style="display: none;">No coupon code required.</h4>
+                                   <div class="description" style="line: height 1.4em; margin:5px; margin-top:9px;">
+                                       Join $100 Cashback offer by signing up for the program <br> using this link button:
+                                   </div>
 
-                                 <input class="code-text" id="copyTarget" value="EMAILFF10" type="text" name="">
-                                 <div class="input-group-prepend">
-                                    <a style="background-color: #FE9213; color: white;" href="javascript:;" id="copyButton" class="btn btn-primary btn-sm"><i class="far fa-clone fa-flip-vertical"></i></a>
-                                 </div>
-                             </div>
-                             <div class="flex">
+                                <div class="mycustom">
 
-                             <span>Copy and paste this code at  <a data-offer_id="3152" href="javascript:;" class="offer_anchor mainbox store_link">Climbing247</a></span>
-
-                             </div>
-                        </div>
-                        <div class="col-md-1"></div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="popup-btn-box margin_top_b">
-                                <div class="work-btn-box">
-                                    <span>Did it work?</span>
-                                    <div class="toggle-radio">
-                                      <input type="radio" data-id="" class="rdo" name="rdo" id="yes" value="yes">
-                                      <input type="radio" data-id="" class="rdo" name="rdo" id="no" value="no">
-                                      <input type="hidden" value="3152" class="offer_id">
-                                      <div class="switch">
-                                        <label for="yes">Yes</label>
-                                        <label for="no">No</label>
-                                        <span></span>
-                                      </div>
+                                    <input class="code-text" id="copyTarget" value="EMAILFF10" type="text" name="">
+                                    <div class="input-group-prepend">
+                                       <a style="background-color: #FE9213; color: white;" href="javascript:;" id="copyButton" class="btn btn-primary btn-sm"><i class="far fa-clone fa-flip-vertical"></i></a>
                                     </div>
                                 </div>
-                                <a class="continue-btn" style="background-color: #ff00008f;" href="javascript:;">Continue to Store</a>
+                                <div class="flex">
+
+                                <span>Copy and paste this code at  <a data-offer_id="3152" href="javascript:;" class="offer_anchor mainbox store_link">Climbing247</a></span>
+
+                                </div>
+                             </div>
+                             <div class="grid_1">
+
+                             </div>
+                        </div>
+                    </div>
+                    <div class="container_grid">
+                        <div class="layout-2cols clearfix">
+                            <div class="grid_12">
+                                <div class="popup-btn-box margin_top_b">
+                                    <div class="work-btn-box">
+                                        <span>Did it work?</span>
+                                        <div class="toggle-radio">
+                                          <input type="radio" data-id="" class="rdo" name="rdo" id="yes" value="yes">
+                                          <input type="radio" data-id="" class="rdo" name="rdo" id="no" value="no">
+                                          <input type="hidden" value="3152" class="offer_id">
+                                          <div class="switch">
+                                            <label for="yes">Yes</label>
+                                            <label for="no">No</label>
+                                            <span></span>
+                                          </div>
+                                        </div>
+                                    </div>
+                                    <a class="continue-btn" style="background-color: #ff00008f;" href="javascript:;">Continue to Store</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -110,15 +117,21 @@
     <script type="text/javascript" src="{{ asset('site/js/mlpushmenu.js')}}"></script>
     <script type="text/javascript" src="{{ asset('site/js/script.js')}}"></script>
     <script>
+        function closed()
+        {
+            $('#coupon_modal .no_code').css('display','none');
+            $('#coupon_modal').removeClass('active');
+
+        }
         function getCode(id,elemet)
         {
-    
+
             var offer_affiliate_url = $(elemet).attr("data-offer_affiliate_url");
             var offer_id = $(elemet).attr("data-offer_id");
             window.open(offer_affiliate_url, '_blank', 'noopener,noreferrer');
             popup_open(offer_id);
-    
-    
+
+
         }
     function popup_open(offer_id) {
         var base_url = 'https://discountvaults.com/'
@@ -148,22 +161,36 @@
                         jQuery('#coupon_modal .description').html(response
                             .data.offer_description);
                         jQuery('#coupon_modal .used').text(response.data.offer_views);
-    
+
                         jQuery('#coupon_modal').addClass('active');
-    
-    
-    
+
+
+
                     }
             });
         });
         }
         $(document).ready(function() {
-    
+
             $(".store_list a:not([data-category='A'])").hide();
-    
+
         });
-    
+
     </script>
+        <script>
+            const accordionItemh = document.querySelectorAll(".ko-accordion-item-header");
+            accordionItemh.forEach((accordionItemh) => {
+                accordionItemh.addEventListener("click", (event) => {
+                    accordionItemh.classList.toggle("active");
+                    const accordionItemBody = accordionItemh.nextElementSibling;
+                    if (accordionItemh.classList.contains("active")) {
+                        accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+                    } else {
+                        accordionItemBody.style.maxHeight = 0;
+                    }
+                });
+            });
+        </script>
 </body>
 
 </html>
@@ -238,7 +265,7 @@
  --}}
 
 
-{{-- 
+{{--
 <script>
     $(document).ready(function() {
      if ($('.store-short-desc > p').length > 1) {

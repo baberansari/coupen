@@ -1,24 +1,44 @@
 @extends('layouts.site.site')
-
 @section('content')
-    <section class="banner-sec all-cat-banner  sec-padding">
-        <div class="container">
-            <div class="contentbox">
-                <h1 style="font-size:22px;">All Categories</h1>
-                <span>variety of coupon in different categoriess</span>
-            </div>
-            <div class="all-cats-main">
-                <div class="row">
-                    @foreach ($categories as  $category)
 
-                    <div class="col-lg-2 col-md-4 col-sm-4 col-6">
-                        <a href="{{ route('store-by-category',$category->slug) }}">{{  $category->name }}</a>
-                    </div>
-                    @endforeach
-
-
-                </div>
+<div class="top-area">
+    <div class="grid_frame">
+        <div class="container_grid clearfix">
+            <div class="grid_12">
+                <h2 class="page-title">Categories</h2>
             </div>
         </div>
-    </section>
+    </div>
+</div>
+<div class="grid_frame page-content">
+    <div class="container_grid">
+        <div class="layout-2cols pt-hight clearfix">
+
+            <div class="grid_12 sidebar">
+
+                <div class="mod-list-store block">
+
+                    <div class="block-content">
+                        <div class="wrap-list-store clearfix">
+                            @foreach ($categories as  $category)
+                            <a class="brand-logo" href="{{ route('store-by-category',$category->slug) }}">
+                                <span class="wrap-logo">
+                                    <span class="center-img">
+                                        <span class="ver_hold"></span>
+                                        <span class="ver_container"><img src="{{ asset($category->image) }}" alt="$BRAND_NAME"></span>
+                                  {{ $category->name }}
+                                    </span>
+                                </span>
+                            </a>
+                            @endforeach
+
+                        </div>
+                    </div>
+                </div><!--end: .mod-list-store -->
+
+
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

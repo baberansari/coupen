@@ -9,41 +9,40 @@ $setting = settings();
             <div class="grid_12">
                 <div class="header-content clearfix">
                     <h1 id="logo" class="rs">
-                        <a href="index.html">
-                            <img src="images/logo.png" alt="$SITE_NAME">
+                        <a href="/">
+                            <img style="width: 38px;" src="{{ asset($setting->settings_logo)}}" alt="$SITE_NAME">
                         </a>
                     </h1>
                     <a id="sys_head_login" class="btn btn-green type-login btn-login" href="#">Login</a>
                     <nav class="main-nav">
                         <ul id="main-menu" class="nav nav-horizontal clearfix">
                             <li class="active">
-                                <a href="index.html">Home</a>
+                                <a href="/">Home</a>
                             </li>
                             <li>
                                 <a href="coupon.html">Coupons</a>
                             </li>
-                            <li class="has-sub">
+                            {{-- <li class="has-sub">
                                 <a href="coupon-code.html">Coupons Code</a>
                                 <ul class="sub-menu">
                                     <li><a href="coupon-code.html">Coupons Code 1</a></li>
                                     <li><a href="coupon-code-2.html">Coupons Code 2</a></li>
                                 </ul>
-                            </li>
+                            </li> --}}
                             <li class="has-sub">
-                                <a href="brand-list.html">Brands</a>
+                                <a href="javascript;">Categories</a>
                                 <ul class="sub-menu">
-                                    <li><a href="brand-detail-1.html">Brand Detail 1</a></li>
-                                    <li><a href="brand-detail-2.html">Brand Detail 2</a></li>
-                                    <li><a href="brand-detail-3.html">Brand Detail 3</a></li>
-                                    <li><a href="brand-detail-4.html">Brand Detail 4</a></li>
-                                    <li><a href="brand-detail-5.html">Brand Detail 5</a></li>
+                                    @foreach (getTrendingCategory() as $category)
+                                    <li><a href="{{ route('store-by-category',$category->slug) }}">{{ $category->name }}</a></li>
+                                    @endforeach
+                                    <li><a href="{{ route('categories') }}">more</a></li>
                                 </ul>
                             </li>
                             <li><a href="blog.html">Blog</a></li>
-                            <li>
-                                <a href="my-coupon.html">My coupons</a>
+                            {{-- <li>
+                                <a href="my-coupon.html">Stores</a>
                                 <i class="icon iPickRed lbl-count"><span>12</span></i>
-                            </li>
+                            </li> --}}
                         </ul>
                         <a id="sys_btn_toogle_menu" class="btn-toogle-res-menu" href="#alternate-menu"></a>
                     </nav>
@@ -51,6 +50,39 @@ $setting = settings();
             </div>
         </div>
     </div>
+    {{-- Modal  --}}
+    <div id="sys_pop_login" class="pop-login">
+        <div class="viewport-pop">
+            <div class="transport-viewer clearfix">
+                <div class="mod-register">
+                    <h3 class="rs title-mod">Hello pretty! Welcome to Couponday.com</h3>
+                    <div class="wrap-form-reg clearfix">
+                        <form action="#">
+                            <div class="left-form">
+                                <label class="wrap-txt" for="sys_email">
+                                    <input class="input-txt" id="sys_email" type="email" placeholder="you@mail.com">
+                                </label>
+                            </div>
+                            <div class="right-create-acc">
+                                <img class="account" src="images/reg-account.png" alt="Couponday.com">
+                                <p class="lbl-dung-lo rs">Not a member? Don’t worry</p>
+                                <a id="sys_link_reg_panel" href="register.html" class="btn-flat yellow btn-submit-reg">Create an account</a>
+                                <div id="sys_warning_sms" class="warning-sms" data-warning-txt="No spam guarantee,No disturb,Promotion News" style="display: block;">No disturb</div>
+                            </div>
+                        </form>
+                        <i class="line-sep"></i>
+                    </div>
+                </div><!--end: Login panel -->
+                <div class="mod-register">
+                </div><!--end: Register panel -->
+            </div>
+
+            <i id="sys_close_login_popup" class="icon iClose close-popop"></i>
+        </div>
+    </div>
+    {{--  ENd Model --}}
+
+{{--
     <div id="sys_pop_login" class="pop-login">
         <div class="viewport-pop">
             <div class="transport-viewer clearfix">
@@ -139,5 +171,5 @@ $setting = settings();
             </div>
             <i id="sys_close_login_popup" class="icon iClose close-popop"></i>
         </div>
-    </div>
+    </div> --}}
 </header>

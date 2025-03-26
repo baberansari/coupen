@@ -1,7 +1,7 @@
 @extends('layouts.site.site')
 @section('content')
     {{--  Slider  --}}
-    
+
     <div class="top-area">
         <div class="mod-head-slide">
             <div class="grid_frame">
@@ -12,12 +12,12 @@
                             {{-- <ul class="slides"
                                 style="width: 1000%; transition-duration: 0s; transform: translate3d(-1068px, 0px, 0px);">
                                      @foreach (geTopTrendingStore() as $store)
-                                  
+
                                     <li class="clone" aria-hidden="true"
                                         style="width: 1068px; float: left; display: block;">
                                         <img src="https://discountvaults.com/{{ $store->store_logo }}" alt="" draggable="false">
                                     </li>
-                                @endforeach 
+                                @endforeach
                             </ul> --}}
                             <ul class="slides">
                                 <li>
@@ -32,7 +32,7 @@
                             </ul>
                         </div>
                         <ol class="flex-control-nav flex-control-paging">
-                        
+
                         </ol>
                         <ul class="flex-direction-nav">
                             <li><a class="flex-prev" href="#">Previous</a></li>
@@ -117,13 +117,13 @@
                 </div>
                 <div class="block-content list-coupon clearfix">
                     @foreach (geTopTrendingCoupen() as $coupen)
-                 
+
                     <div class="coupon-item grid_3">
                         <div class="coupon-content">
                             <div class="img-thumb-center">
                                 <div class="wrap-img-thumb">
                                     <span class="ver_hold"></span>
-                                    <a href="#" class="ver_container"><img src="https://discountvaults.com/{{ $coupen->store->store_logo }}"
+                                    <a href="#" class="ver_container"><img src="{{ asset($coupen->store->store_logo) }}"
                                             alt="$COUPON_TITLE"></a>
                                 </div>
                             </div>
@@ -131,11 +131,15 @@
                             <div class="coupon-brand">{{ $coupen->store->store_name }}</div>
                             <div class="coupon-desc">{{ $coupen->offer_title }} </div>
                             <div class="time-left">{{ $coupen->offer_expiry_date }}</div>
-                            <a class="btn btn-blue btn-take-coupon" href="#">Take Coupon</a>
+                            <a class="btn btn-blue btn-take-coupon"
+                            type="button"  onclick="getCode('{{ $coupen->id }}',this)" data-offer_id="{{ $coupen->id  }}}"
+                                    href="javascript:;" class="offer_anchor" data-offer_affiliate_url="{{ $coupen->offer_affiliate_url}}"
+
+                            >Take Coupon</a>
                         </div>
                         <i class="stick-lbl hot-sale"></i>
                     </div><!--end: .coupon-item -->
-                           
+
                     @endforeach
                 </div>
             </div><!--end block: New Coupons-->
@@ -149,21 +153,21 @@
                 <div class="block-content list-coupon clearfix">
 
                     @foreach (geTopTrendingStore() as $store)
-                        
-                    
+
+
                     <div class="coupon-item grid_3">
                         <div class="coupon-content">
                             <div class="img-thumb-center">
                                 <div class="wrap-img-thumb">
                                     <span class="ver_hold"></span>
-                                    <a href="#" class="ver_container"><img src="https://discountvaults.com/{{$store->store_logo}}"
+                                    <a href="#" class="ver_container"><img src="{{asset($store->store_logo)}}"
                                             alt="$COUPON_TITLE"></a>
                                 </div>
                             </div>
                             {{-- <div class="coupon-price">$12.00 Off</div> --}}
                             <div class="coupon-brand">{{ $store->store_name }}</div>
-                            <div class="coupon-desc">{{ $store->store_description }}</div>
-                            
+                            <div class="coupon-desc"> {!! $store->store_description  !!}</div>
+
                             <a class="btn btn-blue btn-take-coupon" href="{{ route('store',$store->store_slug) }}">VIEW STORE</a>
                         </div>
                         <i class="stick-lbl hot-sale"></i>
@@ -197,14 +201,14 @@
                 </div>
                 <div class="block-content list-brand clearfix">
                     @foreach (getTrendingCategory() as $category)
-                        
-                   
+
+
                     <div class="brand-item grid_4">
                         <div class="brand-content">
                             <div class="brand-logo">
                                 <div class="wrap-img-logo">
                                     <span class="ver_hold"></span>
-                                    <a href="{{ route('store-by-category',$category->slug) }}" class="ver_container"><img src="https://discountvaults.com/{{$category->image}}"
+                                    <a href="{{ route('store-by-category',$category->slug) }}" class="ver_container"><img src="{{asset($category->image)}}"
                                             alt="$BRAND_TITLE"></a>
                                             {{ $category->name }}
                                 </div>
@@ -216,6 +220,51 @@
                     @endforeach
                 </div>
             </div><!--end: .mod-brand -->
+
+
+
+
+
+    <section class="container mod-brands block clearfix ko-faq-section">
+        <div class="ko-container">
+            <h2>Frequently asked questions</h2>
+            <p>Question you might ask about our services.</p>
+            <div class="ko-faq-accordion">
+
+                    <div class="ko-accordion-item">
+                        <div class="ko-accordion-item-header">How can Discountvaults help me save money while shopping online?</div>
+                        <div class="ko-accordion-item-body">
+                            <p class="ko-accordion-item-body-content">At Discountvaults, you will find tons of coupons, deals, promotions, and sales offers of your desired brand which you can use at Checkout while shopping online. These codes will help you save money.</p>
+                        </div>
+                    </div>
+                    <div class="ko-accordion-item">
+                        <div class="ko-accordion-item-header">How many brands does Discountvaults have discount codes & coupon codes for?</div>
+                        <div class="ko-accordion-item-body">
+                            <p class="ko-accordion-item-body-content">Discountvaults has discount codes & coupon codes for almost 2000+ stores, and brands. Our team of experienced Deal Hunters is constantly looking for latested deals, discounts, and coupon codes for our prestige users so that they can save money while shopping online or in-store.</p>
+                        </div>
+                    </div>
+                    <div class="ko-accordion-item">
+                        <div class="ko-accordion-item-header">Does Discountvaults provide cashback offers?</div>
+                        <div class="ko-accordion-item-body">
+                            <p class="ko-accordion-item-body-content">Right now, we are not offering any Cashback for online purchaes.</p>
+                        </div>
+                    </div>
+                    <div class="ko-accordion-item">
+                        <div class="ko-accordion-item-header">Does Discountvaults have a browser extension?</div>
+                        <div class="ko-accordion-item-body">
+                            <p class="ko-accordion-item-body-content">Right now, Discountvaults have no browser extension but our team of professionals are working on it.</p>
+                        </div>
+                    </div>
+
+                    <div class="ko-accordion-item">
+                        <div class="ko-accordion-item-header">Does Discountvaults have an Mobile Application?</div>
+                        <div class="ko-accordion-item-body">
+                            <p class="ko-accordion-item-body-content">Right now, Discountvaults have no Mobile Application.</p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
         </div>
     </div>
 @endsection
