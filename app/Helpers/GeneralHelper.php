@@ -143,3 +143,31 @@ if (! function_exists('geTopTrendingStore')) {
 
 }
 
+if (! function_exists('getPopulorStore')) {
+    function getPopulorStore()
+    {
+        $store = Store::take(5)->get();
+
+        if(empty($store))
+        {
+            return [];
+        }
+        return $store;
+    }
+
+}
+
+
+if (! function_exists('getLetestCoup')) {
+    function getLetestCoup()
+    {
+        $store = Offer::with('store')->take(5)->orderBy('created_at','DESC')->get();
+
+        if(empty($store))
+        {
+            return [];
+        }
+        return $store;
+    }
+
+}

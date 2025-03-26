@@ -71,6 +71,15 @@
             <li>
                 <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-381-heart"></i>
+                    <span class="nav-text">Blog</span>
+                </a>
+                <ul aria-expanded="false" class="mm-collapse">
+                    <li><a href="{{ route('blogs.index') }}">Blogs</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+                    <i class="flaticon-381-heart"></i>
                     <span class="nav-text">Offers</span>
                 </a>
                 <ul aria-expanded="false" class="mm-collapse">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\GeneralController;
@@ -7,6 +8,7 @@ use App\Http\Controllers\OfferController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\StoresController;
 use App\Http\Controllers\SeoController;
+use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Faq;
 use App\Models\Setting;
@@ -52,6 +54,8 @@ Route::middleware('auth')->group(function(){
     Route::post('faq-update/{id}',[FaqController::class,'update'])->name('faqs.update');
     Route::get('faq-destroy/{id}', [OfferController::class,'destroy'])->name('faqs.destroy');
 
+    Route::resource('blogs', BlogController::class);
+
     Route::resource('seo', SeoController::class);
 });
   // This Route For  Store List By Categories
@@ -74,9 +78,12 @@ Route::middleware('auth')->group(function(){
     return view('accessibility');
   })->name('accessibillity');
 
-  Route::get('/coupen',function(){
-    return view('coupen');
-  })->name('coupen');
-  Route::get('/blog',function(){
-    return view('blog');
-  })->name('blog');
+  // Route::get('/coupen',function(){
+  //   return view('coupen');
+  // })->name('coupen');
+  Route::get('/coupen',[GeneralController::class,'coupen'])->name('coupen');
+
+  Route::get('/blog', [BlogController::class,'list'])->name('blog');
+  // Route::get('/blog',function(){
+  //   return view('blog');
+  // })->name('blog.list');

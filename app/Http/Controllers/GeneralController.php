@@ -66,4 +66,10 @@ class GeneralController extends Controller
 
         ]);
     }
+
+    public function coupen()
+    {
+        $offers =  Offer::paginate(10);
+        return  view('coupen',compact('offers'));  
+    }
 }
