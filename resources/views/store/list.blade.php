@@ -205,8 +205,8 @@
                                             <span class="lbl-vote">2 <i class="icon iSubVote"></i></span>
                                         </span>
                                     </div>
-                                    <button type="button" class="btn btn-blue btn-view-coupon" onclick="getCode('${item.id}',this)" data-offer_id="${item.id}"
-                                    href="javascript:;" class="offer_anchor" data-offer_affiliate_url="${item.offer_affiliate_url}">VIEW <span>COUPON</span> CODE</button>
+                                    <a type="button" class="btn btn-blue btn-view-coupon offer_anchor" onclick="getCode('${item.id}',this)" data-offer_id="${item.id}"
+                                     data-offer_affiliate_url="${item.offer_affiliate_url}">VIEW <span>COUPON</span> CODE</a>
                                 </div>
                             </div>
                         </div>
