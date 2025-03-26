@@ -127,7 +127,7 @@
                                             alt="$COUPON_TITLE"></a>
                                 </div>
                             </div>
-                            <div class="coupon-price">{{ $coupen->store->discount_title }} Off</div>
+                            {{-- <div class="coupon-price">{{ $coupen->store->discount_title }} Off</div> --}}
                             <div class="coupon-brand">{{ $coupen->store->store_name }}</div>
                             <div class="coupon-desc">{{ $coupen->offer_title }} </div>
                             <div class="time-left">{{ $coupen->offer_expiry_date }}</div>
