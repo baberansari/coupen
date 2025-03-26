@@ -130,8 +130,8 @@
             var offer_id = $(elemet).attr("data-offer_id");
             popup_open(offer_id);
             setTimeout(function() {
-        window.open(offer_affiliate_url, '_blank', 'noopener,noreferrer');
-    }, 3000);
+            window.open(offer_affiliate_url, '_blank', 'noopener,noreferrer');
+        }, 3000);
         }
     function popup_open(offer_id) {
         var base_url = 'https://discountvaults.com/'
