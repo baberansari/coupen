@@ -1,11 +1,14 @@
+@php
+$setting = settings();
+ @endphp
 <footer class="mod-footer">
     <div class="footer-top">
         <div class="grid_frame">
             <div class="container_grid clearfix">
                 <div class="grid_3">
                     <div class="company-info">
-                        <img src="images/logo-gray.png" alt="CouponDay">
-                        <p class="rs">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud</p>
+                        <img src="{{ asset($setting->settings_footer_logo) }}" alt="CouponDay">
+                        <p class="rs">Discountvaults is your trusted partner in saving money both online and in-store at your favorite brands. Whether you're seeking a coupon code, a discount, or a free shipping offer, we are committed to continuously verifying and updating the best deals to ensure you never miss an opportunity to save.</p>
                         <p class="rs">
                             1200 Balh Blah Avenue <br>
                             Hanoi, Vietnam 12137
@@ -39,7 +42,7 @@
                         <div class="block-content">
                             <div class="wrap-video" id="sys_wrap_video">
                                 <div class="lightbox-video">
-                                        <a class="html5lightbox" href="http://player.vimeo.com/video/36932496" title=""><i class="btn-play"></i><img src="images/video-img.png" alt=""></a>     
+                                        <a class="html5lightbox" href="http://player.vimeo.com/video/36932496" title=""><i class="btn-play"></i><img src="images/video-img.png" alt=""></a>
                                     </div>
                             </div>
                         </div>
@@ -72,9 +75,9 @@
             <div class="container_grid clearfix">
                 <div class="left-link">
                     <a href="#">Home</a>
-                    <a href="#">Term of conditions</a>
-                    <a href="#">Privacy</a>
-                    <a href="#">Support</a>
+                    <a href="{{ route('termcondition') }}">Term of conditions</a>
+                    <a href="{{ route('privacy') }}">Privacy</a>
+                    <a href="{{ route('accessibillity') }}">Accessibillity</a>
                     <a href="#">Contact</a>
                 </div>
                 <div class="copyright">
