@@ -206,7 +206,7 @@
                                         </span>
                                     </div>
                                     <button type="button" class="btn btn-blue btn-view-coupon" onclick="getCode('${item.id}',this)" data-offer_id="${item.id}"
-                                    href="javascript:;" class="offer_anchor" data-offer_affiliate_url="${item.offer_affiliate_url}">VIEW <span>COUPON</span> CODE</button>
+                                    href="javascript:;" class="offer_anchor" data-offer_affiliate_url="${item.store.offer_affiliate_url}">VIEW <span>COUPON</span> CODE</button>
                                 </div>
                             </div>
                         </div>
