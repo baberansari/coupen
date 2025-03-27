@@ -6,6 +6,7 @@
     <title>Home</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+    <meta name="verify-admitad" content="aadea8efcb" />
     <link rel="stylesheet" href="{{ asset('site/css/font.css') }}">
     <link rel="stylesheet" href="{{ asset('site/css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ asset('site/css/normalize.css') }}">
