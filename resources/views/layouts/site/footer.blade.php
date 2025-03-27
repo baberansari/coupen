@@ -80,7 +80,7 @@ $setting = settings();
                                     <a href="#" target="_blank">Christmas Coupons</a>
                                 </li>
                                 <li>
-                                    <i class="fa fa-pinterest-square fa-2x"></i>
+                                    {{-- <i class="fa fa-pinterest-square fa-2x"></i> --}}
                                     <a href="#" target="_blank">Thankgiving Coupon</a>
                                 </li>
                             </ul>

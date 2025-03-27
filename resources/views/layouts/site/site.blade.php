@@ -260,7 +260,7 @@
                         </div>
 
                         <div class="grid_9">
-                            <h3 style="text-align:left;" class="main_title">Christmas gifts: Up To 15% Off Selected</h3>
+                            <h1 style="text-align:left;font-weight: bold;" class="main_title">Christmas gifts: Up To 15% Off Selected</h1>
 
                             <div class="coupon-section">
                                 <input class="code-text" id="copyTarget" style="display: none" value="EMAILFF10" type="text"
