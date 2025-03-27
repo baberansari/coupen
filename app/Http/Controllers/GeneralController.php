@@ -13,7 +13,7 @@ class GeneralController extends Controller
     public function index(Request $request)
     {
         $category  = Category::where('slug',$request->slug)->first();
-        $stores =  Store::where('category_id', $category->id)->get();
+        $stores =  Store::where('category_id', $category->id)->paginate(6);
         return view('category.storelist',compact('category','stores'));
     }
 
@@ -57,7 +57,7 @@ class GeneralController extends Controller
     public function getCode(Request $request)
     {
         $coupen = Offer::with('store')->find($request->id);
-        CoupenView::firstOrCreate([
+        CoupenView::updateOrCreate([
             'offer_id'=>$coupen->id,
             'ip'=>$request->userIp
         ]);
@@ -70,6 +70,6 @@ class GeneralController extends Controller
     public function coupen()
     {
         $offers =  Offer::paginate(10);
-        return  view('coupen',compact('offers'));  
+        return  view('coupen',compact('offers'));
     }
 }

@@ -1114,7 +1114,7 @@ b {
 --------------------------------------------------------------------------------*/
 .coupons-code-item{
     border: 3px solid #dddddd;
-    padding: 16px;
+    padding: 8px;
     transition: border 0.3s;
     -o-transition: border 0.3s;
     -ms-transition: border 0.3s;
@@ -1140,7 +1140,7 @@ b {
 }
 .coupons-code-item .center-img{
     width: 100%;
-    height: 140px;
+    /* height: 140px; */
     display: table-cell;
     text-align: center;
     vertical-align: middle;

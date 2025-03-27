@@ -5,7 +5,7 @@
     <div class="grid_frame">
         <div class="container_grid clearfix">
             <div class="grid_12">
-                <h2 class="page-title">Categories</h2>
+                <h2 class="page-title" style="    text-align: center;">Categories</h2>
             </div>
         </div>
     </div>
@@ -19,19 +19,22 @@
                 <div class="mod-list-store block">
 
                     <div class="block-content">
-                        <div class="wrap-list-store clearfix">
-                            @foreach ($categories as  $category)
-                            <a class="brand-logo" href="{{ route('store-by-category',$category->slug) }}">
-                                <span class="wrap-logo">
-                                    <span class="center-img">
-                                        <span class="ver_hold"></span>
-                                        <span class="ver_container"><img src="{{ asset($category->image) }}" alt="$BRAND_NAME"></span>
-                                  {{ $category->name }}
-                                    </span>
-                                </span>
-                            </a>
-                            @endforeach
+                        <div class="block-content list-brand clearfix">
 
+                            @foreach ($categories as  $category)
+                            <div class="brand-item grid_3">
+                                <div class="brand-content">
+                                    <div class="brand-logo">
+                                        <div class="wrap-img-logo"  style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                                            <span class="ver_hold"></span>
+                                            <span class="table-cell">
+                                            <a href="{{ route('store-by-category',$category->slug) }}" class="ver_container"><img style="width: 84px;" src="{{ asset($category->image) }}" alt="$BRAND_TITLE"></a>
+                                           <br>{{ $category->name }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div><!--end: .mod-list-store -->

@@ -1,148 +1,239 @@
 @extends('layouts.site.site')
 @section('content')
 <style>
-    .gray .coupon-item:hover .coupon-content, .gray .coupons-code-item
+    .gray .coupon-item:hover .coupon-content,
+    .gray .coupons-code-item {
+        border-color: #04BFBF;
+        border-radius: 21px;
+
+    }
+
+    .sec-title {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+    span.ali_madad {
+        background-color: cornflowerblue;
+        width: 120px;
+        padding: 7px;
+        color: aliceblue;
+        font-size: 12px;
+        border-radius: 10px;
+        margin: 5px;
+        padding-left: 11px;
+    }
+
+    .sec-title h1 {
+        font-weight: 600 !important;
+        font-size: 32px !important;
+        color: #414141;
+    }
+
+    .store-sec .sec-title ul {
+        margin-top: 15px;
+        flex-flow: wrap;
+
+    }
+
+    .list-unstyled {
+        padding-left: 0;
+        list-style: none;
+        display: flex !important;
+    }
+
+    .store-sec .sec-title ul li {
+        padding-right: 20px;
+        font-weight: 700;
+        color: var(--gray-color);
+    }
+
+    .store-sec .sec-title ul li {
+        font-weight: 400 !important;
+    }
+
+    .reload_image {
+        width: 14px;
+        height: 14px;
+        margin-left: -10px;
+        margin-right: 5px;
+        margin-top: -2px;
+    }
+
+    .store-sec .sec-title ul li::before {
+        content: "\f00c";
+        font-family: 'font Awesome 5 free';
+        font-weight: 700;
+        font-size: 12px;
+        margin-right: 10px;
+    }
+
+    .store_tit {
+        font-size: small;
+        padding-left: 12px;
+    }
+
+    span.badge {
+        background-color: #FFA43E;
+        padding: 6px;
+        color: aliceblue;
+        border-radius: 10px;
+
+    }
+
+    .rate-brand {
+        padding: 10px;
+        text-align: center;
+    }
+    .star{
+        font-size: 22px;
+    }
+    .star.half
     {
-            border-color: #04BFBF;
+        color: #FFA43E
+    }
+    .star.full
+    {
+        color: #FFA43E
+    }
+    .star.empty
+    {
+        color: #fff
+    }
+    .gray .btn.btn-blue {
+    border-radius: 25px;
     }
 </style>
 <div class="grid_frame page-content">
     <div class="container_grid">
         <div class="layout-2cols clearfix">
-            <div class="grid_8 content">
+
+            <div class="grid_3">
+                <div class="brand-info-right">
+                    <p class="rs ta-c brand-logo"><img style="    border: 1px solid;border-radius: 100%;"
+                            src="{{ asset($store->store_logo) }}" alt="$BRAND_NAME"></p>
+                    <div class="rate-brand clearfix">
+                        <?php
+                            echo generateStars($store->store_rating);?>  {{ $store->store_rating }}
+                    </div>
+                    <div class="mod-simple-coupon block">
+                        <h3 class="title-block">Top coupon</h3>
+                        <div class="block-content">
+                            @foreach (getLetestCoup2() as $offer)
+                            <div class="coupons-code-item simple flex">
+                                <div class="brand-logo thumb-left">
+                                    <div class="wrap-logo">
+                                        <div class="center-img">
+                                            <span class="ver_hold"></span>
+                                            <a href="{{ route('store',$offer->store->store_slug) }}" class="ver_container"><img src="{{ asset($offer->store->store_logo) }}"
+                                                    alt="$BRAND_NAME"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="right-content flex-body">
+                                    <p class="rs save-price"><a href="{{ route('store',$offer->store->store_slug) }}">{{ $offer->offer_title }}
+                                            </a></p>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="brand-desc">
+
+                        <div class="title-desc">Why Discountvaults?</div>
+                        <p class="rs">
+                            Discountvaults.com is supported by a dedicated team of Deal Hunters who actively source and
+                            verify the best promo codes and deals for {{ $store->store_name }}. Our experts work
+                            diligently to save you both time and money while shopping. By continuously researching the
+                            market in real-time, we ensure you receive the most current and reliable savings
+                            information, highlighting the best stores to shop and the most valuable products to
+                            purchase. We also thoroughly review the fine print, so you can be confident that every promo
+                            code is valid and applicable to your purchase. No matter where you shop, you can trust
+                            Discountvaults to provide verified coupons, promo codes, sales, and deals. Our team last
+                            verified {{ $store->store_name }} offers on {{ date('D-m-Y') }}.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="grid_9 content">
+
+                <div class="mod-simple-coupon block">
+                    <div class="block-content">
+                        <div class="coupons-code-item simple flex">
+                            <div class="right-content flex-body">
+                                <div class="sec-title">
+                                  {{-- /  <span class="ali_madad">Ya Ali. AS Madad</span> --}}
+                                    <h1>{{ $store->store_name }}</h1>
+                                    <h2 class="store_tit"><img class="reload_image"
+                                            src="https://retailescaper.com/uploads/page/updatee.svg" alt=""> 5 coupon
+                                        codes updated on 26 March, 2025</h2>
+
+                                        <div class="block-content">
+                                            <label>
+                                                <input name="offer_type" type="radio" class="slectOne" id="all" data-id="all" checked="">
+                                                <span class="btn btn-gray type-tag">All Offers</span>
+                                            </label>
+                                            <label>
+                                                <input name="offer_type" type="radio" class="slectOne" data-id="code">
+                                                <span class="btn btn-gray type-tag">Coupons</span>
+                                            </label>
+                                            <label>
+                                                <input name="offer_type" type="radio" class="slectOne" data-id="deal">
+                                                <span class="btn btn-gray type-tag">Deals</span>
+                                            </label>
+                                        </div>
+                                    {{-- <ul class="list-unstyled d-flex">
+                                        <li>Delivery</li>
+                                        <li>Free Shipping</li>
+                                    </ul> --}}
+                                </div>
+                            </div>
+                        </div>
+                        <!--end: .coupons-code-item -->
+
+                    </div>
+                </div>
                 <div class="mod-coupons-code">
                     <div class="wrap-list data-table">
-                        {{-- <div class="coupons-code-item right-action flex">
-                            <div class="brand-logo thumb-left">
-                                <div class="wrap-logo">
-                                    <div class="center-img">
-                                        <span class="ver_hold"></span>
-                                        <a href="#" class="ver_container"><img src="images/ex/04-06.jpg" alt="$BRAND_NAME"></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="right-content flex-body">
-                                <p class="rs save-price"><a href="#">Save 20%-50% Off All Vitamin World Brand Items</a></p>
-                                <p class="rs coupon-desc">Must book by 11:59PM CT on 11/17/13. Travel completed by 3/30/14.</p>
-                                <div class="bottom-action">
-                                    <div class="left-vote">
-                                        <span class="lbl-work">100% work</span>
-                                        <span>
-                                            <span class="lbl-vote">12 <i class="icon iAddVote"></i></span>
-                                            <span class="lbl-vote">2 <i class="icon iSubVote"></i></span>
-                                        </span>
-                                    </div>
-                                    <a class="btn btn-blue btn-view-coupon" href="#">VIEW <span>COUPON</span> CODE</a>
-                                </div>
-                            </div>
-                        </div><!--end: .coupons-code-item --> --}}
+
+
 
                     </div>
                     <div id="pagination-links" class="table-pagination pagination">
                     </div>
-                </div><!--end: .mod-coupons-code -->
-            </div>
-            <div class="grid_4 sidebar">
-                <div class="mod-search block">
-                    <h3 class="title-block">{{ $store->store_name }}</h3>
-                    <div class="block-content">
-                        <div class="store-img">
-                            <img style="width:225p×;height:225px;" src="{{ asset($store->store_logo) }}" alt="{{ asset($store->store_logo) }}">
-                        </div>
-                        {{-- <label class="lbl-wrap" for="sys_search_coupon_code">
-                            <input class="keyword-search" id="sys_search_coupon_code" type="search" placeholder="Search">
-                            <input type="submit" class="btn-search" value="">
-                        </label> --}}
-                    </div>
-                </div><!--end: .mod-search -->
-
-                <div class="mod-popular-tag block">
-                    <h3 class="title-block">Search By Type</h3>
-                    <div class="block-content">
-                        <label>
-                            <input name="offer_type" type="radio" class="slectOne" id="all"
-                                data-id="all" checked="">
-                            <span  class="btn btn-gray type-tag">All Offers</span>
-                        </label>
-                        <label>
-                            <input name="offer_type" type="radio" class="slectOne" data-id="code">
-                            <span  class="btn btn-gray type-tag">Coupons</span>
-                        </label>
-                        <label>
-                            <input name="offer_type" type="radio" class="slectOne" data-id="deal">
-                            <span  class="btn btn-gray type-tag">Deals</span>
-                        </label>
-                    </div>
                 </div>
-                <div class="mod-list-store block">
-                    <h3 class="title-block">Related  store</h3>
-                    <div class="block-content">
-                        <div class="wrap-list-store clearfix">
-                            @foreach (getRelatedStoregs($slug) as $related)
-                            <a class="brand-logo" href="{{ route('store',$related->store_slug) }}">
-                                <span class="wrap-logo">
-                                    <span class="center-img">
-                                        <span class="ver_hold"></span>
-                                        <span class="ver_container"><img src=" {{asset($related->store_logo)}}" alt="$BRAND_NAME">
-                                        {{ $related->store_name }}
-                                        </span>
-                                    </span>
-                                </span>
-                            </a>
-                            @endforeach
-
-                        </div>
-                    </div>
-                </div><!--end: .mod-list-store -->
-                <div class="mod-simple-coupon block">
-                    <h3 class="title-block">Latest coupon</h3>
-                    <div class="block-content">
-                        <div class="coupons-code-item simple flex">
-                            <div class="brand-logo thumb-left">
-                                <div class="wrap-logo">
-                                    <div class="center-img">
-                                        <span class="ver_hold"></span>
-                                        <a href="#" class="ver_container"><img src="images/ex/04-13.jpg" alt="$BRAND_NAME"></a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="right-content flex-body">
-                                <p class="rs save-price"><a href="#">Save 10% Off a New Hotel Booking at Participating Price Match Guarantee Hotels</a></p>
-                            </div>
-                        </div><!--end: .coupons-code-item -->
-
-                    </div>
-                </div><!--end: .mod-simple-coupon -->
-                <div class="mod-ads"><a href="#"><img src="images/ex/04-17.jpg" alt="$NAME"></a></div>
-
+                <!--end: .mod-coupons-code -->
             </div>
+
         </div>
         <div class="layout-2cols clearfix">
-        @if(!empty($store->faqs) && count($store->faqs)>0)
-                <section class="container ko-faq-section">
-                    <div class="ko-container">
+            @if(!empty($store->faqs) && count($store->faqs)>0)
+            <section class="container ko-faq-section">
+                <div class="ko-container">
                     <h2>Frequently asked questions</h2>
                     <p>Question you might ask about our services.</p>
                     <div class="ko-faq-accordion">
                         @foreach ($store->faqs as $faq)
                         <div class="ko-accordion-item">
-                        <div class="ko-accordion-item-header">{!! $faq->question  !!}?</div>
-                        <div class="ko-accordion-item-body">
-                            <p class="ko-accordion-item-body-content">{!! $faq->answer  !!}</p>
-                        </div>
+                            <div class="ko-accordion-item-header">{!! $faq->question !!}?</div>
+                            <div class="ko-accordion-item-body">
+                                <p class="ko-accordion-item-body-content">{!! $faq->answer !!}</p>
+                            </div>
                         </div>
                         @endforeach
                     </div>
 
-                    </div>
-                </section>
+                </div>
+            </section>
             @endif
         </div>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.js"></script>
 <script>
-  $(document).ready(function() {
+    $(document).ready(function() {
       let nextPageUrl = '';
       let prevPageUrl = '';
       var slug = "{{ $slug }}";
@@ -171,42 +262,60 @@
 
                 console.log(response.data);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 let tableRows = response.data.map(item => `
-                           <div class="coupons-code-item right-action flex">
+
+                <div class="coupons-code-item full flex">
                             <div class="brand-logo thumb-left">
                                 <div class="wrap-logo">
                                     <div class="center-img">
                                         <span class="ver_hold"></span>
-                                        <a href="#" class="ver_container">  ${item.offer_free_shipping ?
-                                        '<img src="{{ asset("site/images/8552007.png") }}" alt="$BRAND_NAME">' :
-                                        `<h4>${item.offer_discount_number}%</h4>`
-                                    }</a>
+                                        ${item.offer_free_shipping ?
+                                        '<img src="{{ asset("site/images/images.png") }}" alt="$BRAND_NAME">' :
+                                        `<h4 style="    font-size: 35px;
+    color: #04BFBF;
+    line-height: 1;">${item.offer_discount_number}</h4>`
+                                    }
                                     </div>
                                 </div>
                             </div>
                             <div class="right-content flex-body">
-                                <p class="rs save-price"><a href="#">${item.offer_title}</a></p>
-                                <p class="rs coupon-desc">
-
-                                    ${item.offer_verified ?
+                                <p class="rs save-price">
+                                    <span class="badge ">
+                                        ${item.offer_type}
+                                    </span></br></br>
+                                    <a href="javascript;">${item.offer_title}</a>
+                                <p class="rs coupon-desc"> ${item.offer_verified ?
                                         `<div class="verified">
                                             <span>Verified <i class="far fa-check-circle"
                                                 style="background: #ffffff00; color: #18f351; font-size: 15px;">
                                             </i></span>
                                         </div>` : ''
-                                    }
-                                        ${item.offer_type}
-                                    </p>
+                                    }</p>
                                 <div class="bottom-action">
                                     <div class="left-vote">
-                                        <span class="lbl-work">${item.offer_type}</span>
+                                        <span class="lbl-work">100% work</span>
                                         <span>
                                             <span class="lbl-vote">12 <i class="icon iAddVote"></i></span>
                                             <span class="lbl-vote">2 <i class="icon iSubVote"></i></span>
                                         </span>
                                     </div>
                                     <a type="button" class="btn btn-blue btn-view-coupon offer_anchor" onclick="getCode('${item.id}',this)" data-offer_id="${item.id}"
-                                     data-offer_affiliate_url="${item.offer_affiliate_url}">VIEW <span>COUPON</span> CODE</a>
+                                     data-offer_affiliate_url="${item.store.store_affiliate_url}">Activate ${item.offer_type}</a>
+
                                 </div>
                             </div>
                         </div>
@@ -280,6 +389,5 @@ accordionItemh.forEach((accordionItemh) => {
   });
 });
 
-    </script>
+</script>
 @endsection
-

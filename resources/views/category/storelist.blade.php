@@ -2,9 +2,33 @@
 
 @section('content')
 <style>
-  .gray .coupon-item .coupon-content, .gray .coupons-code-item {
+    .gray .coupon-item .coupon-content,
+    .gray .coupons-code-item {
 
-            border-color: #04BFBF  !important;
+        border-color: #04BFBF !important;
+    }
+
+    .star {
+        font-size: 22px;
+    }
+
+    .star.half {
+        color: #FFA43E
+    }
+
+    .star.full {
+        color: #FFA43E
+    }
+
+    .star.empty {
+        color: #fff
+    }
+
+    .gray .btn.btn-blue {
+        border-radius: 25px;
+    }
+    .pagination svg{
+        display: none
     }
 </style>
 <div class="top-area">
@@ -16,56 +40,71 @@
         </div>
     </div>
 </div>
-
 <div class="grid_frame page-content">
     <div class="container_grid">
-        <div class="my-coupon mod-grp-coupon block clearfix tabbable tab-style-2">
-            <div class="grid_12">
-                <h3 class="title-block">
-                    <span class="wrap-tab clearfix">
-                        <span class="lbl-tab active">Store ({{ $stores->count() }})</span>
+        <div class="mod-brand-detail-2 clearfix">
+            <div class="grid_9 wrap-left-info">
 
-                    </span>
-                </h3>
-            </div>
-            <div class="block-content list-coupon clearfix">
-                <div class="tab-content">
-                    <div class="tab-content-item clearfix active">
+                <div class="brand-info-right">
+                    <p class="rs ta-c brand-logo"><img src="{{ asset($category->image) }}" alt="$BRAND_NAME"></p>
+
+                    <div class="brand-desc">
+                        <div class="title-desc">About {{ $category->name }} </div>
+                        <p class="rs">
+                            Above, you’ll find a selection of the top {{ $category->name }} coupons, deals, discounts, and
+                            offers, as ranked by the valued users of Discountvaults.com. To access the coupon for your
+                            preferred brand, simply click on the store image, and you’ll be redirected to the store’s
+                            page, where you can explore the latest discounts and offers. These can be easily applied at
+                            checkout when shopping with the selected brand.
+
+                        </p>
+                    </div>
+                    <i class="stick-lbl trust-brand-y"></i>
+                </div>
+                <!--end: .brand-info-right -->
+                <div class="mod-grp-coupon block clearfix">
+                    <h3 class="title-block">{{ $category->count() }} {{ $category->name }} Store</h3>
+                    <div class="block-content list-coupon clearfix">
+
                         @foreach ($stores as $store)
-                        <div class="coupon-item grid_3">
+                        <div class="coupon-item">
                             <div class="coupon-content">
                                 <div class="img-thumb-center">
-                                    <div class="wrap-img-thumb">
+                                    <div class="wrap-img-thumb" style="border: 2px solid #ffbe19;border-radius: 19px;">
                                         <span class="ver_hold"></span>
                                         <a href="#" class="ver_container"><img src="{{ asset($store->store_logo) }}"
-                                            alt="{{ asset($store->store_logo) }}"></a>
+                                                alt="{{ asset($store->store_logo) }}"></a>
                                     </div>
                                 </div>
-                                {{-- <div class="coupon-price">$2.00 Off</div> --}}
-                                <div class="coupon-brand">{{  $store->store_name }}</div>
-                                <div class="coupon-desc">{!!  $store->store_description !!} </div>
-                                {{-- <div class="time-left">9 days 4 hours left</div> --}}
-                                <br>
-                                <a class="btn-discard" href="{{ route('store',$store->store_slug) }}">View Coup</a>
+                                <div class="coupon-brand" style="text-align: center;">{{ $store->store_name }}</div>
+                                <div class="coupon-desc" style="text-align: center;">{!! $store->store_description !!}
+
+                                    <div class="rate-brand clearfix">
+                                        <?php
+                                            echo generateStars($store->store_rating);?>
+                                    </div>
+                                    {{ $store->store_rating }}
+                                </div>
+
+                                <a class="btn btn-blue btn-take-coupon"
+                                    href="{{ route('store',$store->store_slug) }}">View Store</a>
                             </div>
                             <i class="stick-lbl hot-sale"></i>
-                        </div><!--end: .coupon-item -->
+                        </div>
+                        <!--end: .coupon-item -->
                         @endforeach
-                        {{-- <div class="grid_12">
-                            <div class="pagination">
-                                <a class="txt-nav" href="#">Newer <span>post</span></a>
-                                <a class="page-num active" href="#">1</a>
-                                <a class="page-num" href="#">2</a>
-                                <a class="page-num" href="#">3</a>
-                                <a class="page-num" href="#">4</a>
-                                <a class="page-num" href="#">5</a>
-                                <a class="txt-nav" href="#">Older <span>post</span></a>
-                            </div>
-                        </div> --}}
-                    </div><!--end: tab coupon-->
+                    </div>
                 </div>
+                <!--end block: group coupons-->
+
+                <div class="pagination">
+                    {{ $stores->links() }}
+                </div>
+
             </div>
-        </div><!--end block: Tab Coupons-->
+        </div>
+        <!--end: .mod-brand-detail-2 -->
     </div>
 </div>
+
 @endsection

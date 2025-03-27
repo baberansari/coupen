@@ -171,3 +171,16 @@ if (! function_exists('getLetestCoup')) {
     }
 
 }
+if (! function_exists('getLetestCoup2')) {
+    function getLetestCoup2()
+    {
+        $store = Offer::with('store')->take(2)->orderBy('created_at','DESC')->get();
+
+        if(empty($store))
+        {
+            return [];
+        }
+        return $store;
+    }
+
+}

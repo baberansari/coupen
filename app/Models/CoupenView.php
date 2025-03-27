@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class CoupenView extends Model
 {
     use HasFactory;
-    protected $fillable = ['offer_id','ip'];
+    protected $fillable = ['id','offer_id','ip'];
 }
