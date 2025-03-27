@@ -241,13 +241,13 @@
 
 <body class="gray">
 
-    <div class="container-page">
+    {{-- <div class="container-page"> --}}
     <div class="mp-pusher" id="mp-pusher">
         @include('layouts.site.header')
         @yield('content')
         @include('layouts.site.footer')
     </div>
-</div>
+{{-- </div> --}}
     <section id="coupon_modal" class="coupon-popup-sec ">
         <div class="coupon-popup-main">
             <div class="container">

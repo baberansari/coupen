@@ -3618,9 +3618,7 @@ b {
 }
 
 @media (max-width:991px) {
-    header {
-        display: none;
-    }
+ 
     .banner-sec .contentbox {
         display: none;
     }
