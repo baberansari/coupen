@@ -72,7 +72,7 @@ $setting = settings();
                             <ul class="rs">
                                 <li>
                                     {{-- <i class="fa fa-facebook-square fa-2x"></i> --}}
-                                    <a href="#" target="_blank">Black Frida Coupons</a>
+                                    <a href="#" target="_blank">Black Friday Coupons</a>
                                 </li>
                                 <li>
                                     <i class="fa fa-address-book-o fa-2x" aria-hidden="true"></i>
@@ -81,7 +81,7 @@ $setting = settings();
                                 </li>
                                 <li>
                                     {{-- <i class="fa fa-pinterest-square fa-2x"></i> --}}
-                                    <a href="#" target="_blank">Thankgiving Coupon</a>
+                                    <a href="#" target="_blank">Thanksgiving Coupons</a>
                                 </li>
                             </ul>
                         </div>

@@ -88,4 +88,4 @@ Route::middleware('auth')->group(function(){
   Route::get('/blog', [BlogController::class,'list'])->name('blog');
   // Route::get('/blog',function(){
   //   return view('blog');
-  // })->name('blog.list');
+  // })->name('blog.list');foote
