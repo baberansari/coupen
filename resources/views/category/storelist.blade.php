@@ -69,7 +69,7 @@
                 </div>
                 <!--end: .brand-info-right -->
                 <div class="mod-grp-coupon block clearfix">
-                    <h3 class="title-block">{{ $category->count() }} {{ $category->name }} Store</h3>
+                    <h3 class="title-block">{{ $stores->count() }} {{ $category->name }} Store</h3>
                     <div class="block-content list-coupon clearfix">
 
                         @foreach ($stores as $store)
