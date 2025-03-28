@@ -49,7 +49,10 @@
     
                                 >Take Coupon</a>
                             </div>
+                            @if( $coupen->offer_exclusive)
                             <i class="stick-lbl trust-brand-y"></i>
+                            @endif
+                          
                         </div><!--end: .coupon-item -->
                         @endforeach
                         <div class="grid_12">

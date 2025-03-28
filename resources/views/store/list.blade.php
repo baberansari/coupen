@@ -338,7 +338,7 @@
                                     }</p>
                                 <div class="bottom-action">
                                     <div class="left-vote">
-                                        <span class="lbl-work">${item.used_percentage}% work</span>
+                                        <span class="lbl-work">Work For ${item.used_percentage}% </span>
                                         <span class="badge " style="text-transform: capitalize;">
                                         ${item.offer_type}
                                         </span>
