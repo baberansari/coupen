@@ -7,9 +7,10 @@ $setting = settings();
 <head>
     <title>{{ $setting->settings_site_title }}</title>
 
-    {{ $setting->settings_head_script  }}
+    {{-- {{ $setting->settings_head_script  }} --}}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+    <meta name="verify-admitad" content="aadea8efcb" />
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset($setting->settings_favicon) }}">
     <link rel="stylesheet" href="{{ asset('site/css/font.css') }}">
     <link rel="stylesheet" href="{{ asset('site/css/font-awesome.css') }}">
