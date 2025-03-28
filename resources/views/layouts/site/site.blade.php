@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
-
+@php
+$setting = settings();
+ @endphp
 <head>
-    <title>Home</title>
+    <title>{{ $setting->settings_site_title }}</title>
+
+    {{ $setting->settings_head_script  }}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset($setting->settings_favicon) }}">
     <link rel="stylesheet" href="{{ asset('site/css/font.css') }}">
     <link rel="stylesheet" href="{{ asset('site/css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ asset('site/css/normalize.css') }}">
@@ -274,9 +279,9 @@
                             <div style="display: flex;justify-content: space-between;">
                                 <div>
                                     Did Code Work ?
+                                    <input type="hidden" name="" id="coupen_id">
                                     <div class="cust-switch">
-
-                                        <input type="checkbox">
+                                        <input type="checkbox" id="switchToggle">
                                         <div class="cust-switch-text">
                                             <div>Yes</div>
                                             <div>No</div>
@@ -304,6 +309,27 @@
     <script type="text/javascript" src="{{ asset('site/js/mlpushmenu.js') }}"></script>
     <script type="text/javascript" src="{{ asset('site/js/script.js') }}"></script>
     <script>
+
+$(document).ready(function(){
+    $("#switchToggle").on("change", function() {
+        var value = $(this).is(":checked") ? 1 : 0; // Yes = 1, No = 0
+        var id =  $('#coupen_id').val();
+        jQuery.getJSON('https://api64.ipify.org?format=json', function(data) {
+            var userIp = data.ip; // G
+        $.ajax({
+            url: "{{ route('usage') }}", // Replace with your actual URL
+            type: "get",
+            data: { switchValue: value ,userIp:userIp,id:id},
+            success: function(response) {
+                console.log("Switch updated:", response);
+            },
+            error: function(xhr, status, error) {
+                console.log("Error:", error);
+            }
+        });
+    })
+    });
+});
         function closed() {
             $('#coupon_modal .no_code').css('display', 'none');
             $('#coupon_modal').removeClass('active');
@@ -343,6 +369,8 @@
                         } else {
                             jQuery('#coupon_modal .code-text').val(response.data.offer_code);
                         }
+                        jQuery('#coupen_id').val(response.data.id);
+
                         jQuery('#coupon_modal .store_link').attr('href', response.data.store
                             .offer_affiliate_url);
                         jQuery('#coupon_modal .continue-btn').attr('href', response.data.store
@@ -390,7 +418,7 @@
         });
 
         $(document).on('click', '#copyButton', function() {
-            
+
             copyToClipboard(document.getElementById("copyTarget"));
             $(this).html('<i class="far fa-clone fa-flip-vertical"></i>');
 

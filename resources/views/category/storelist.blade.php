@@ -30,6 +30,12 @@
     .pagination svg{
         display: none
     }
+    .mod-brand-detail-2 {
+    padding-top: 30px;
+    padding-bottom: 172px;
+}
+
+
 </style>
 <div class="top-area">
     <div class="grid_frame">

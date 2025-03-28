@@ -17,4 +17,9 @@ class Offer extends Model
     {
        return $this->hasMany(CoupenView::class,'offer_id');
     }
+
+    public function offerused()
+    {
+        return $this->hasMany(CoupenUsed::class,'offer_id');
+    }
 }

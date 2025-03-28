@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Offer;
 use App\Models\Store;
 use App\Models\CoupenView;
+use App\Models\CoupenUsed;
 use Illuminate\Http\Request;
 
 class GeneralController extends Controller
@@ -34,20 +35,43 @@ class GeneralController extends Controller
         {
             $search = $request->input('type', '');
 
-            $query = Offer::with('store')->where('store_id',$store->id);
-            if($search =='code' || $search == 'deal'){
-                $query =  $query->where('offer_type',$search);
-            }
-
-            $data = $query->orderBy('id','desc')->paginate(10);
-            return response()->json([
-                'data' => $data->items(),
-                'links' => $data->links()->toHtml(),
-                'next_page_url' => $data->nextPageUrl(),
-                'prev_page_url' => $data->previousPageUrl(),
-                'current_page' => $data->currentPage(),
-                'last_page' => $data->lastPage(),
+            $query = Offer::with('store')
+            ->where('store_id', $store->id)
+            ->withCount([
+                'offerused as total_coupons' => function ($query) {
+                    $query->selectRaw('count(*)');
+                },
+                'offerused as used_coupons' => function ($query) {
+                    $query->where('status', 1);
+                }
             ]);
+
+                // Apply filter if search is 'code' or 'deal'
+                if ($search == 'code' || $search == 'deal') {
+                    $query->where('offer_type', $search);
+                }
+
+                // Fetch paginated data
+                $data = $query->orderBy('id', 'desc')->paginate(5);
+
+                // Modify collection after fetching paginated data
+                $data->getCollection()->transform(function ($offer) {
+                    $total = $offer->total_coupons;
+                    $used = $offer->used_coupons;
+                    $offer->used_percentage = $total > 0 ? round(($used / $total) * 100, 2) : 0;
+                    return $offer;
+                });
+
+                // Return JSON response
+                return response()->json([
+                    'data' => $data->items(),
+                    'links' => $data->links()->toHtml(), // Keeps HTML pagination links
+                    'next_page_url' => $data->nextPageUrl(),
+                    'prev_page_url' => $data->previousPageUrl(),
+                    'current_page' => $data->currentPage(),
+                    'last_page' => $data->lastPage(),
+                ]);
+
 
         }
         $slug = $request->slug;
@@ -65,6 +89,31 @@ class GeneralController extends Controller
             'data' => $coupen,
 
         ]);
+    }
+    public function usage(Request  $request)
+    {
+
+        $coupen = Offer::find($request->id);
+        $coupenUsed = CoupenUsed::where('offer_id', $coupen->id)
+        ->orWhere('ip', $request->userIp)
+        ->first();
+
+            if ($coupenUsed) {
+                // If a record is found, update only the 'status' field
+                $coupenUsed->update(['status' => $request->switchValue]);
+            } else {
+                // If no record is found, create a new one
+                CoupenUsed::create([
+                    'offer_id' => $coupen->id,
+                    'ip' => $request->userIp,
+                    'status' => $request->switchValue
+                ]);
+            }
+
+            return response()->json([
+                'data' => [],
+
+            ]);
     }
 
     public function coupen()

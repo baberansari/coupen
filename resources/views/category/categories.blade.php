@@ -27,7 +27,7 @@
                                     <div class="brand-logo">
                                         <div class="wrap-img-logo"  style="display: flex; flex-direction: column; align-items: center; text-align: center;">
                                             <span class="ver_hold"></span>
-                                            <span class="table-cell">
+                                            <span class="table-cell" style="color: #000;">
                                             <a href="{{ route('store-by-category',$category->slug) }}" class="ver_container"><img style="width: 84px;" src="{{ asset($category->image) }}" alt="$BRAND_TITLE"></a>
                                            <br>{{ $category->name }}</span>
                                         </div>

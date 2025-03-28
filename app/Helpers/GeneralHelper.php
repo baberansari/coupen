@@ -172,9 +172,9 @@ if (! function_exists('getLetestCoup')) {
 
 }
 if (! function_exists('getLetestCoup2')) {
-    function getLetestCoup2()
+    function getLetestCoup2($store_id)
     {
-        $store = Offer::with('store')->take(2)->orderBy('created_at','DESC')->get();
+        $store = Offer::with('store')->where('store_id',$store_id)->take(2)->orderBy('created_at','ASC')->get();
 
         if(empty($store))
         {

@@ -1017,20 +1017,22 @@ b {
     color: #FF8317;
 }
 .coupon-item .coupon-brand{
-    color: #777777;
+    color: #000000 !important;
     font-size: 1.230769230769231em;
     line-height: 1.4em;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    padding-top: 5px;
 }
 .coupon-item .coupon-desc{
     font-family: "Open Sans", sans-serif;
     line-height: 1.4em;
-    color: #999999;
-    height: 65px;
+    color: #000000;
+    height: 40px;
     overflow: hidden;
-    border-bottom: 2px dotted #d8d8d8;
+    font-weight: bold;
+    /* border-bottom: 2px dotted #d8d8d8; */
 }
 .coupon-item .time-left{
     text-align: center;
@@ -2468,7 +2470,7 @@ b {
     margin-bottom: 12px;
 }
 .mod-brand-detail-2 .rate-brand{
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 .mod-brand-detail-2 .wrap-rate-score{
     float: right;
@@ -3618,7 +3620,7 @@ b {
 }
 
 @media (max-width:991px) {
- 
+
     .banner-sec .contentbox {
         display: none;
     }

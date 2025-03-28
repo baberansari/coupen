@@ -34,10 +34,16 @@ class SettingController extends Controller
         try {
 
 
-            $sett = Setting::first();
+            $sett = Setting::find($request->setting_id);
             $sett->settings_site_title = $request->settings_site_title;
             $sett->settings_top_bar = $request->settings_top_bar;
             $sett->settings_top_bar_link = $request->settings_top_bar_link;
+            $sett->facebook = $request->facebook;
+            $sett->twiter = $request->twiter;
+            $sett->insta = $request->insta;
+            $sett->pick = $request->pick;
+
+
             if ($request->hasfile('settings_logo')) {
                 $path =  uploadImage($request->settings_logo, 'company');
                 $sett->settings_logo =$path;

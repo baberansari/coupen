@@ -16,8 +16,8 @@
                 <div class="mod-list-article">
                     <div class="list-article">
                         @foreach ($blogs as $blog)
-                            
-                        
+
+
                         <div class="article-item">
                             <a href="javascript;"><img class="feature-img" src="{{ asset($blog->image) }}" alt="{{ $blog->title }}"></a>
                             <div class="flex">
@@ -36,7 +36,7 @@
                         </div><!--end: article-item -->
                         @endforeach
                     </div>
-                 
+
                     <div class="pagination">
                         {{ $blogs->links() }}
                     </div>
@@ -44,7 +44,7 @@
             </div>
             <div class="grid_4 sidebar">
                 <div class="mod-list-store block">
-                    <h3 class="title-block">Popular store</h3>
+                    <h3 class="title-block">Popular Stores</h3>
                     <div class="block-content">
                         <div class="wrap-list-store clearfix">
 
@@ -60,12 +60,12 @@
                                 </span>
                             </a>
                             @endforeach
-                           
+
                         </div>
                     </div>
                 </div><!--end: .mod-list-store -->
                 <div class="mod-simple-coupon block">
-                    <h3 class="title-block">Latest coupon</h3>
+                    <h3 class="title-block">Latest Coupens</h3>
                     <div class="block-content">
                         @foreach (getLetestCoup() as $coupen)
                         <div class="coupons-code-item simple flex">
@@ -84,7 +84,7 @@
                         @endforeach
                     </div>
                 </div><!--end: .mod-simple-coupon -->
-              
+
             </div>
         </div>
     </div>

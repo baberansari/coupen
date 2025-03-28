@@ -1,5 +1,10 @@
 @extends('layouts.site.site')
 @section('content')
+<header>
+    <!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</header>
 <style>
     .gray .coupon-item:hover .coupon-content,
     .gray .coupons-code-item {
@@ -104,6 +109,37 @@
     .gray .btn.btn-blue {
     border-radius: 25px;
     }
+    .gray .container-page {
+        background: none !important;
+    }
+    @media screen and (max-device-width: 767px), screen and (max-width: 767px) {
+        .grid_3 .mod-simple-coupon {
+                display: none;
+            }
+            .grid_9 .mod-coupons-code .wrap-list
+            {
+
+            height: 321px;
+            overflow: hidden;
+            overflow-y: auto;
+
+            }
+            .grid_9 .mod-coupons-code .wrap-list .coupons-code-item
+            {
+
+            text-align: center
+
+            }
+    .brand-desc{
+        display: none
+    }
+    .grid_3 {
+        width: 100%;
+    }
+    .brand-logo img{
+        width: 48% !important;
+    }
+}
 </style>
 <div class="grid_frame page-content">
     <div class="container_grid">
@@ -111,29 +147,37 @@
 
             <div class="grid_3">
                 <div class="brand-info-right">
-                    <p class="rs ta-c brand-logo"><img style="    border: 1px solid;border-radius: 100%;"
+                    <p class="rs ta-c brand-logo"><img style="border: 1px solid;border-radius: 100%;width: 75%;"
                             src="{{ asset($store->store_logo) }}" alt="$BRAND_NAME"></p>
                     <div class="rate-brand clearfix">
                         <?php
                             echo generateStars($store->store_rating);?>  {{ $store->store_rating }}
                     </div>
                     <div class="mod-simple-coupon block">
-                        <h3 class="title-block">Top coupon</h3>
+                        <h3 class="title-block">Top Coupon</h3>
                         <div class="block-content">
-                            @foreach (getLetestCoup2() as $offer)
-                            <div class="coupons-code-item simple flex">
+                            @foreach (getLetestCoup2($store->id) as $offer)
+                            <div class="coupons-code-item simple flex" style="    border: 1px solid #04BFBF;">
                                 <div class="brand-logo thumb-left">
                                     <div class="wrap-logo">
                                         <div class="center-img">
                                             <span class="ver_hold"></span>
-                                            <a href="{{ route('store',$offer->store->store_slug) }}" class="ver_container"><img src="{{ asset($offer->store->store_logo) }}"
+
+                                            <a  href="{{ route('store',$offer->store->store_slug) }}" class="ver_container">
+                                                <img src="{{ asset($offer->store->store_logo) }}"
                                                     alt="$BRAND_NAME"></a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="right-content flex-body">
-                                    <p class="rs save-price"><a href="{{ route('store',$offer->store->store_slug) }}">{{ $offer->offer_title }}
-                                            </a></p>
+                                    <p class="rs save-price">
+
+                                        <a style="color: #000;"  href="{{ route('store',$offer->store->store_slug) }}">{{ $offer->offer_title }}
+                                            </a>
+                                        </p>
+                                        <span class="badge " style="border-radius: 4px;    padding: 2px;">
+                                            {{ $offer->offer_type }}
+                                        </span>
                                 </div>
                             </div>
                             @endforeach
@@ -141,8 +185,10 @@
                     </div>
                     <div class="brand-desc">
 
-                        <div class="title-desc">Why Discountvaults?</div>
-                        <p class="rs">
+                        <div class="title-desc" style="    font-size: 24px;
+                        color: #000;">Why Discountvaults?</div>
+                        <br>
+                        <p class="rs" style="    color: #000;">
                             Discountvaults.com is supported by a dedicated team of Deal Hunters who actively source and
                             verify the best promo codes and deals for {{ $store->store_name }}. Our experts work
                             diligently to save you both time and money while shopping. By continuously researching the
@@ -262,20 +308,6 @@
 
                 console.log(response.data);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 let tableRows = response.data.map(item => `
 
                 <div class="coupons-code-item full flex">
@@ -294,9 +326,7 @@
                             </div>
                             <div class="right-content flex-body">
                                 <p class="rs save-price">
-                                    <span class="badge ">
-                                        ${item.offer_type}
-                                    </span></br></br>
+                                   </br></br>
                                     <a href="javascript;">${item.offer_title}</a>
                                 <p class="rs coupon-desc"> ${item.offer_verified ?
                                         `<div class="verified">
@@ -307,10 +337,9 @@
                                     }</p>
                                 <div class="bottom-action">
                                     <div class="left-vote">
-                                        <span class="lbl-work">100% work</span>
-                                        <span>
-                                            <span class="lbl-vote">12 <i class="icon iAddVote"></i></span>
-                                            <span class="lbl-vote">2 <i class="icon iSubVote"></i></span>
+                                        <span class="lbl-work">${item.used_percentage}% work</span>
+                                        <span class="badge " style="text-transform: capitalize;">
+                                        ${item.offer_type}
                                         </span>
                                     </div>
                                     <a type="button" class="btn btn-blue btn-view-coupon offer_anchor" onclick="getCode('${item.id}',this)" data-offer_id="${item.id}"

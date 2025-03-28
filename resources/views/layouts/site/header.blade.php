@@ -78,7 +78,7 @@ $setting = settings();
             <li><a href="/">Home</a></li>
             <li><a href="{{ route('coupen') }}">Coupons</a></li>
             <li class="has-sub">
-                <a href="coupon-code.html">Coupons Code</a>
+                <a href="coupon-code.html">Categories</a>
                 <div class="mp-level" data-level="2">
                     <h2>Categories</h2>
                     <a class="mp-back" href="#">back</a>

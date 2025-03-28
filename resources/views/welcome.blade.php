@@ -1,7 +1,36 @@
 @extends('layouts.site.site')
 @section('content')
     {{--  Slider  --}}
+    <style>
+        .gray .coupon-item .coupon-content,
+        .gray .coupons-code-item {
 
+            border-color: #04BFBF !important;
+        }
+
+        .star {
+            font-size: 22px;
+        }
+
+        .star.half {
+            color: #FFA43E
+        }
+
+        .star.full {
+            color: #FFA43E
+        }
+
+        .star.empty {
+            color: #fff
+        }
+
+        .gray .btn.btn-blue {
+            border-radius: 25px;
+        }
+        .pagination svg{
+            display: none
+        }
+    </style>
     <div class="top-area">
         <div class="mod-head-slide">
             <div class="grid_frame">
@@ -130,7 +159,7 @@
                             {{-- <div class="coupon-price">{{ $coupen->store->discount_title }} Off</div> --}}
                             <div class="coupon-brand">{{ $coupen->store->store_name }}</div>
                             <div class="coupon-desc">{{ $coupen->offer_title }} </div>
-                            <div class="time-left">{{ $coupen->offer_expiry_date }}</div>
+                            {{-- <div class="time-left">{{ $coupen->offer_expiry_date }}</div> --}}
                             <a class="btn btn-blue btn-take-coupon"
                             type="button"  onclick="getCode('{{ $coupen->id }}',this)" data-offer_id="{{ $coupen->id  }}"
                                     href="javascript:;" class="offer_anchor" data-offer_affiliate_url="{{ $coupen->store->store_affiliate_url}}"
@@ -165,8 +194,14 @@
                                 </div>
                             </div>
                             {{-- <div class="coupon-price">$12.00 Off</div> --}}
-                            <div class="coupon-brand">{{ $store->store_name }}</div>
-                            <div class="coupon-desc"> {!! $store->store_description  !!}</div>
+                            <div class="coupon-brand" style="text-align: center;">{{ $store->store_name }}</div>
+                            <div class="coupon-desc" style="text-align: center;">{!! $store->store_description !!}
+                                <div class="rate-brand clearfix">
+                                    <?php
+                                        echo generateStars($store->store_rating);?>
+                                </div>
+                                {{ $store->store_rating }}
+                            </div>
 
                             <a class="btn btn-blue btn-take-coupon" href="{{ route('store',$store->store_slug) }}">VIEW STORE</a>
                         </div>
