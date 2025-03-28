@@ -26,10 +26,7 @@
             <div class="block-content list-coupon clearfix">
                 <div class="tab-content">
                     <div class="tab-content-item clearfix active">
-
                         @foreach ($offers as $coupen)
-                            
-                       
                         <div class="coupon-item grid_3">
                             <div class="coupon-content">
                                 <div class="img-thumb-center">
