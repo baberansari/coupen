@@ -20,7 +20,7 @@ $setting = settings();
                                 <a href="/">Home</a>
                             </li>
                             <li>
-                                <a href="{{ route('coupen') }}">Coupons</a>
+                                <a href="{{ route('all-store') }}">Stores</a>
                             </li>
                             <li class="has-sub">
                                 <a href="#">Categories</a>
@@ -30,6 +30,9 @@ $setting = settings();
                                     @endforeach
                                     <li><a href="{{ route('categories') }}">more</a></li>
                                 </ul>
+                            </li>
+                            <li>
+                                <a href="{{ route('coupen') }}">Coupons</a>
                             </li>
                             <li><a href="{{ route('blog') }}">Blog</a></li>
                         </ul>
@@ -76,7 +79,10 @@ $setting = settings();
         <h2>Menu</h2>
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="{{ route('coupen') }}">Coupons</a></li>
+            <li>
+                <a href="{{ route('all-store') }}">Stores</a>
+            </li>
+           
             <li class="has-sub">
                 <a href="coupon-code.html">Categories</a>
                 <div class="mp-level" data-level="2">
@@ -90,6 +96,7 @@ $setting = settings();
                     </ul>
                 </div>
             </li>
+            <li><a href="{{ route('coupen') }}">Coupons</a></li>
             <li><a href="{{ route('blog') }}">Blog</a></li>
 
         </ul>

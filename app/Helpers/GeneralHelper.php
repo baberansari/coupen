@@ -68,7 +68,7 @@ if (!function_exists('generateStars')) {
 
         // Append empty stars
         for ($i = 0; $i < $emptyStars; $i++) {
-            $starsHtml .= '<span class="star empty">&#9734;</span>'; // Empty star HTML
+            $starsHtml .= '<span class="star empty">&#9733;</span>'; // Empty star HTML
         }
 
         return $starsHtml; // Return the generated HTML

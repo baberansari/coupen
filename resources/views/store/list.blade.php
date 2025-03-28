@@ -1,4 +1,5 @@
 @extends('layouts.site.site')
+@section('title', $store->store_name)
 @section('content')
 <header>
     <!-- Font Awesome CDN -->
@@ -147,7 +148,7 @@
 
             <div class="grid_3">
                 <div class="brand-info-right">
-                    <p class="rs ta-c brand-logo"><img style="border: 1px solid;border-radius: 100%;width: 75%;"
+                    <p class="rs ta-c brand-logo"><img style="height: 180px;border: 1px solid;border-radius: 100%;width: 75%;"
                             src="{{ asset($store->store_logo) }}" alt="$BRAND_NAME"></p>
                     <div class="rate-brand clearfix">
                         <?php

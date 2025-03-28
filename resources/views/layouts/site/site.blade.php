@@ -5,8 +5,8 @@
 $setting = settings();
  @endphp
 <head>
-    <title>{{ $setting->settings_site_title }}</title>
 
+    <title>@yield('title',  $setting->settings_site_title )</title>
     {{-- {{ $setting->settings_head_script  }} --}}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">

@@ -1,4 +1,6 @@
 @extends('layouts.site.site')
+
+@section('title', 'Categories')
 @section('content')
 
 <div class="top-area">

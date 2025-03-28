@@ -8,21 +8,6 @@
             border-color: #04BFBF !important;
         }
 
-        .star {
-            font-size: 22px;
-        }
-
-        .star.half {
-            color: #FFA43E
-        }
-
-        .star.full {
-            color: #FFA43E
-        }
-
-        .star.empty {
-            color: #fff
-        }
 
         .gray .btn.btn-blue {
             border-radius: 25px;
@@ -30,6 +15,8 @@
         .pagination svg{
             display: none
         }
+
+      
     </style>
     <div class="top-area">
         <div class="mod-head-slide">
@@ -166,7 +153,7 @@
 
                             >Take Coupon</a>
                         </div>
-                        <i class="stick-lbl hot-sale"></i>
+                      <i class="stick-lbl trust-brand-y"></i>
                     </div><!--end: .coupon-item -->
 
                     @endforeach

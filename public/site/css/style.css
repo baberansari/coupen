@@ -3331,6 +3331,14 @@ b {
   .ko-faq-section {
     padding: 40px 0;
   }
+
+  @media screen and (max-device-width: 767px), screen and (max-width: 767px) {
+    .ko-faq-section {
+        padding-right: 30px;
+      }
+  
+  }
+
   .ko-faq-section h2 {
     text-align: center;
     font-size: 42px;
@@ -3352,6 +3360,8 @@ b {
   .ko-accordion-item {
     background-color: #fff;
     border-bottom: 1px solid #dfdfdf;
+    padding-left: 10px;
+    padding-right: 11px;
   }
   .ko-accordion-item-header {
     padding: 20px 0;
@@ -3886,4 +3896,20 @@ b {
     }
 }
 
+/* start  */
 
+.star {
+    font-size: 22px;
+}
+
+.star.half {
+    color: #FFA43E
+}
+
+.star.full {
+    color: #FFA43E
+}
+
+.star.empty {
+    color: #696868
+}

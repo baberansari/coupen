@@ -1,5 +1,5 @@
 @extends('layouts.site.site')
-
+@section('title',  $category->name )
 @section('content')
 <style>
     .gray .coupon-item .coupon-content,
@@ -65,7 +65,8 @@
 
                         </p>
                     </div>
-                    <i class="stick-lbl trust-brand-y"></i>
+                    <i class="stick-lbl trust-brand-b"></i>
+                    {{-- <i class="stick-lbl trust-brand-y"></i> --}}
                 </div>
                 <!--end: .brand-info-right -->
                 <div class="mod-grp-coupon block clearfix">

@@ -83,6 +83,7 @@ Route::middleware('auth')->group(function(){
   //   return view('coupen');
   // })->name('coupen');
   Route::get('/coupen',[GeneralController::class,'coupen'])->name('coupen');
+  Route::get('/all-store',[GeneralController::class,'allstore'])->name('all-store');
 
   Route::get('/blog', [BlogController::class,'list'])->name('blog');
   // Route::get('/blog',function(){

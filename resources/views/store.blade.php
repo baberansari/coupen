@@ -1,12 +1,12 @@
 @extends('layouts.site.site')
-@section('title', 'Coupen')
+@section('title', 'Store')
 @section('content')
 
 <div class="top-area">
     <div class="grid_frame">
         <div class="container_grid clearfix">
             <div class="grid_12">
-                <h2 class="page-title">All Coupons</h2>
+                <h2 class="page-title">All Store</h2>
             </div>
         </div>
     </div>
@@ -17,7 +17,7 @@
             <div class="grid_12">
                 <h3 class="title-block">
                     <span class="wrap-tab clearfix">
-                        <span class="lbl-tab active">COUPONS ({{ $offers->count() }})</span>
+                        <span class="lbl-tab active">COUPONS ({{ $stores->count() }})</span>
                         {{-- <span class="lbl-tab">COUPON CODES (8)</span>
                         <span class="lbl-tab">BRANDS (6)</span> --}}
                     </span>
@@ -27,7 +27,7 @@
                 <div class="tab-content">
                     <div class="tab-content-item clearfix active">
 
-                        @foreach ($offers as $coupen)
+                        @foreach ($stores as $store)
                             
                        
                         <div class="coupon-item grid_3">
@@ -35,26 +35,29 @@
                                 <div class="img-thumb-center">
                                     <div class="wrap-img-thumb">
                                         <span class="ver_hold"></span>
-                                        <a href="#" class="ver_container"><img src="{{ asset($coupen->store->store_logo) }}"
+                                        <a href="#" class="ver_container"><img src="{{ asset($store->store_logo) }}"
                                                 alt="$COUPON_TITLE"></a>
                                     </div>
                                 </div>
                                 {{-- <div class="coupon-price">{{ $coupen->store->discount_title }} Off</div> --}}
-                                <div class="coupon-brand">{{ $coupen->store->store_name }}</div>
-                                <div class="coupon-desc">{{ $coupen->offer_title }} </div>
-                                {{-- <div class="time-left">{{ $coupen->offer_expiry_date }}</div> --}}
-                                <a class="btn btn-blue btn-take-coupon"
-                                type="button"  onclick="getCode('{{ $coupen->id }}',this)" data-offer_id="{{ $coupen->id  }}"
-                                        href="javascript:;" class="offer_anchor" data-offer_affiliate_url="{{ $coupen->offer_affiliate_url}}"
+                                <div class="coupon-brand" style="text-align: center;">{{ $store->store_name }}</div>
+                                <div class="coupon-desc" style="text-align: center;">{!! $store->store_description !!}
+                                    <div class="rate-brand clearfix">
+                                        <?php
+                                            echo generateStars($store->store_rating);?>
+                                    </div>
+                                    {{ $store->store_rating }}
+                                </div>
     
-                                >Take Coupon</a>
+                                <a class="btn btn-blue btn-take-coupon" href="{{ route('store',$store->store_slug) }}">VIEW STORE</a>
+                           
                             </div>
-                            <i class="stick-lbl trust-brand-y"></i>
+                            <i class="stick-lbl hot-sale"></i>
                         </div><!--end: .coupon-item -->
                         @endforeach
                         <div class="grid_12">
                             <div class="pagination">
-                             {{ $offers->links() }}
+                             {{ $stores->links() }}
                             </div>
                         </div>
                     </div><!--end: tab coupon-->

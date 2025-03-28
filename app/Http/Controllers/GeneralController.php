@@ -121,4 +121,9 @@ class GeneralController extends Controller
         $offers =  Offer::paginate(10);
         return  view('coupen',compact('offers'));
     }
+    public function allstore()
+    {
+        $stores =  Store::paginate(10);
+        return  view('store',compact('stores'));
+    }
 }

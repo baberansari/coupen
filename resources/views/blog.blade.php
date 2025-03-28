@@ -1,4 +1,5 @@
 @extends('layouts.site.site')
+@section('title', 'Blog')
 @section('content')
 <div class="top-area">
     <div class="grid_frame">
