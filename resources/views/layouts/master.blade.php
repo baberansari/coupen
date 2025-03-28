@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-100">
-
+    @php
+    $setting = settings();
+     @endphp
 <head>
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -8,7 +10,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Coupon Codes - Retailescaper </title>
+    <title>@yield('title',  $setting->settings_site_title )</title>
+    <meta name="verify-admitad" content="aadea8efcb" />
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset($setting->settings_favicon) }}">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/admin/images/favicon.png">
     <link href="{{ asset('panel/css/icon/css/flaticon.css') }}" rel="stylesheet">

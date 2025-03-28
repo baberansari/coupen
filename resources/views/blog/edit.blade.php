@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('title', 'Edit Blog')
 @section('content')
     <div class="container-fluid">
         <!-- row -->

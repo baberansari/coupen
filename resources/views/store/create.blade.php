@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('title', 'Create Store')
 @section('content')
 
     <div class="container-fluid">

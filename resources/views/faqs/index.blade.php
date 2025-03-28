@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('title', 'FAQ List')
 @section('content')
     <div class="container-fluid">
         <div class="row mb-5 align-items-center">

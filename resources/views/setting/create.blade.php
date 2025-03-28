@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('title', 'Upadte Setting')
 @section('content')
 @php
     $setting =settings();

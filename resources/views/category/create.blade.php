@@ -1,5 +1,5 @@
 @extends('layouts.master')
-
+@section('title', 'Create Categroy')
 @section('content')
     <div class="container-fluid">
         @if (count($errors) > 0)

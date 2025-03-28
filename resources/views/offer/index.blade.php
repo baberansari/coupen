@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('title', 'Offer List')
 @section('content')
     <div class="container-fluid">
         @if ($message = Session::get('success'))

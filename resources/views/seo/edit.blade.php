@@ -1,4 +1,5 @@
 @extends('layouts.master')
+@section('title', 'Edit Seo')
 @section('content')
 <div class="container-fluid">
     <div class="page-titles">
