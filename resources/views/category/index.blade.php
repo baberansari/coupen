@@ -52,35 +52,14 @@
                                     <td class="d-flex">
                                         <a href="{{route('category.edit',$category->id)}}"><i
                                                 class="lar la-edit"></i></a>
-                                        {{-- <a href="{{route('category.edit',$category->id)}}" class="ml-4"><i
-                                                class="las la-eye"></i></a> --}}
-                                        {{-- <a href="https://retailescaper.com/admin/category/form/duplicate/48"
-                                            class="ml-4"><i class="lar la-copy"></i></a> --}}
-                                        <a href="{{route('category.destroy',$category->id)}}" class="ml-4"><i
+                                              <a href="{{route('category.destroy',$category->id)}}" class="ml-4"><i
                                                 class="las la-trash-alt"></i></a>
 
                                     </td>
                                 </tr>
                                 @endforeach
 
-                                {{-- <tr role="row" class="even">
-                                    <td class="sorting_1">2</td>
-                                    <td>Web Hosting</td>
-
-                                    <td>web-hosting</td>
-
-                                    <td class="d-flex">
-                                        <a href="https://retailescaper.com/admin/category/form/edit/46"><i
-                                                class="lar la-edit"></i></a>
-                                        <a href="https://retailescaper.com/admin/category/view/46" class="ml-4"><i
-                                                class="las la-eye"></i></a>
-                                        <a href="https://retailescaper.com/admin/category/form/duplicate/46"
-                                            class="ml-4"><i class="lar la-copy"></i></a>
-                                        <a href="https://retailescaper.com/admin/category/delete/46" class="ml-4"><i
-                                                class="las la-trash-alt"></i></a>
-
-                                    </td>
-                                </tr> --}}
+                               
 
 
                             </tbody>

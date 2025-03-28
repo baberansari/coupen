@@ -50,16 +50,16 @@ $setting = settings();
                             <ul class="rs">
                                 <li>
                                     {{-- <i class="fa fa-facebook-square fa-2x"></i> --}}
-                                    <a href="#" target="_blank">Privacy Policy</a>
+                                    <a href="{{ route('privacy') }}" target="_blank">Privacy Policy</a>
                                 </li>
                                 <li>
                                     {{-- <i class="fa fa-address-book-o fa-2x" aria-hidden="true"></i> --}}
                                     {{-- <i class="fa fa-twitter-square fa-2x"></i> --}}
-                                    <a href="#" target="_blank">Terms of Uses</a>
+                                    <a href="{{ route('termcondition') }}" target="_blank">Terms of Uses</a>
                                 </li>
                                 <li>
                                     {{-- <i class="fa fa-pinterest-square fa-2x"></i> --}}
-                                    <a href="#" target="_blank">Accessibility</a>
+                                    <a href="{{ route('accessibillity') }}" target="_blank">Accessibility</a>
                                 </li>
                             </ul>
                         </div>

@@ -38,36 +38,6 @@
                     <!-- <li><a href="https://retailescaper.com/admin/header_top_navbar">Offers avail Reports</a></li> -->
                 </ul>
             </li>
-          {{--        <li>
-                <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="flaticon-381-box"></i>
-                    <span class="nav-text">Cashback Offer</span>
-                </a>
-                <ul aria-expanded="false" class="mm-collapse">
-                    <li><a href="https://retailescaper.com/admin/luckydraw_users">Luckydraw Participants</a>
-                    </li>
-                    <!-- <li><a href="</?php echo base_url('admin/header_top_navbar');?>">Offers avail Reports</a></li> -->
-                </ul>
-            </li> --}}
-            {{-- <li>
-                <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
-                    <i class="flaticon-381-internet"></i>
-                    <span class="nav-text">Content</span>
-                </a>
-                <ul aria-expanded="false" class="mm-collapse">
-                    <li><a href="https://retailescaper.com/admin/header_navbar">Header Navbar</a></li>
-                    <li><a href="https://retailescaper.com/admin/header_top_navbar">Header Top Navbar</a></li>
-                    <!-- <li><a href="https://retailescaper.com/admin/header_navbar/sort">Header Navbar Sort</a></li> -->
-                    <li><a href="https://retailescaper.com/admin/footer_navbar">Footer Navbar</a></li>
-                    <li><a href="https://retailescaper.com/admin/homepage/form/edit/1">Home Page</a></li>
-                    <li><a href="https://retailescaper.com/admin/homepage_banner">Home Page Banner</a></li>
-                    <li><a href="https://retailescaper.com/admin/popup">Popup / Modals</a></li>
-                    <li><a href="https://retailescaper.com/admin/page">Content Based Pages</a></li>
-                    <li><a href="https://retailescaper.com/admin/categorypage/form/edit/1">Category Page</a>
-                    </li>
-                    <li><a href="https://retailescaper.com/admin/slide">Slide</a></li>
-                </ul>
-            </li> --}}
             <li>
                 <a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
                     <i class="flaticon-381-heart"></i>

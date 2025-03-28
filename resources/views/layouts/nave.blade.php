@@ -1,9 +1,13 @@
+    @php
+    $setting = settings();
+     @endphp
+
 <div class="nav-header">
     <a href="{{route('home')}}" class="brand-logo">
-        <img class="logo-abbr" src="https://retailescaper.com/assets/admin/images/logo.png" alt="">
-        <img class="logo-compact" src="https://retailescaper.com/assets/admin/images/logo-text.png"
+        <img class="logo-abbr" src="{{ asset('assets/admin/images/logo.png')}}" alt="">
+        <img class="logo-compact" src="{{ asset('assets/admin/images/logo-text.png')}}"
             alt="">
-        <img class="brand-title" src="https://retailescaper.com/assets/admin/images/logo-text.png"
+        <img class="brand-title" src="{{ asset('assets/admin/images/logo-text.png')}}"
             alt="">
     </a>
     <div class="nav-control">
