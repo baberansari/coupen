@@ -17,7 +17,7 @@
             <div class="grid_12">
                 <h3 class="title-block">
                     <span class="wrap-tab clearfix">
-                        <span class="lbl-tab active">COUPONS ({{ $stores->count() }})</span>
+                        <span class="lbl-tab active">Stores ({{ $stores->count() }})</span>
                         {{-- <span class="lbl-tab">COUPON CODES (8)</span>
                         <span class="lbl-tab">BRANDS (6)</span> --}}
                     </span>
